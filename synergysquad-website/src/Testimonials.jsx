@@ -73,7 +73,7 @@ function Testimonials() {
     return (
         <section className='h-screen px-4 md:px-8 py-6 md:py-16 bg-black flex flex-col justify-between items-center w-full overflow-hidden select-none'>
             {/* Header */}
-            <h1 className='text-white font-semibold text-lg md:text-xl lg:text-2xl tracking-tighter max-w-3xl leading-tight text-center mx-auto shrink-0 mb-4 md:mb-6'>
+            <h1 className='text-white font-semibold text-xl md:text-2xl lg:text-3xl tracking-tighter max-w-3xl leading-tight text-center mx-auto shrink-0 mb-4 md:mb-6'>
                 Real Experiences From the Students Who Have Grown, Contributed, and Created Along the Way
             </h1>
 

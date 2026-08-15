@@ -5,6 +5,8 @@ import ScrollProgressBar from './ScrollProgressBar'
 import Testimonials from './Testimonials'
 import Squad from './Squad'
 import History from './History'
+import About from './About'
+import FinalCTA from './FinalCTA'
 
 function App() {
   const [currentRoute, setCurrentRoute] = useState(() => {
@@ -20,13 +22,15 @@ function App() {
       const active = hash || path || 'home'
       setCurrentRoute(active)
 
-      if (active !== 'squad') {
+      if (active !== 'squad' && active !== 'history' && active !== 'about') {
         const element = document.getElementById(active)
         if (element) {
           element.scrollIntoView({ behavior: 'smooth' })
         } else if (active === 'home') {
           window.scrollTo({ top: 0, behavior: 'smooth' })
         }
+      } else {
+        window.scrollTo({ top: 0, behavior: 'smooth' })
       }
     }
 
@@ -40,12 +44,14 @@ function App() {
   }, [])
 
   return (
-    <div>
+    <div className='bg-[#e6e6e6] min-h-screen text-black'>
       <ScrollProgressBar />
       {currentRoute === 'squad' ? (
         <Squad />
       ) : currentRoute === 'history' ? (
         <History />
+      ) : currentRoute === 'about' ? (
+        <About />
       ) : (
         <>
           <div id="home">
@@ -57,6 +63,7 @@ function App() {
           <div id="testimonials">
             <Testimonials />
           </div>
+          <FinalCTA />
         </>
       )}
     </div>

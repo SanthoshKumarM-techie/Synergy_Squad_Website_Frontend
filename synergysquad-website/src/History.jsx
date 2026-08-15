@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react'
 import Navbar from './Navbar'
+import FinalCTA from './FinalCTA'
 import ss1Banner from './assets/SS 1.0 Banner.png'
 import ss2Banner from './assets/SS 2.0 Banner.png'
 import ss3Banner from './assets/SS 3.0 Banner.png'
@@ -251,48 +252,48 @@ function History() {
   }, [])
 
   return (
-    <div className="min-h-screen bg-white text-black">
+    <div className="min-h-screen bg-[#e6e6e6] text-black">
       <Navbar />
       <main className="py-16 px-8">
         <h1 className="font-semibold text-xl md:text-2xl lg:text-3xl tracking-tighter max-w-3xl leading-tight text-center mx-auto shrink-0 mb-10">A Journey Built on Ideas, Driven by People, and Shaped by Every Milestone Along the Way</h1>
         <BannerZoomSection src={ss1Banner} alt="Synergy Squad 1.0 banner" />
 
         <div className='flex gap-16 items-start mt-16'>
-          <h1 className='text-black font-bold text-xl md:text-2xl lg:text-3xl tracking-tighter'>Identification & Formation</h1>
+          <h1 className='text-black font-semibold text-xl md:text-2xl lg:text-3xl tracking-tighter'>Identification & Formation</h1>
           <p className='font-semibold text-md md:text-lg lg:text-xl text-gray-700 leading-tighter tracking-tighter max-w-4xl'>As part of the Pre-Placement Readiness Initiative, the top 40 candidates were identified from a total strength of 201 students to form Synergy Squad 1.0. This squad received intensive Java Programming Refresher Training and participated in weekly challenges to strengthen their coding skills.</p>
         </div>
 
         <div className='mt-16'>
-          <h1 className='text-black font-bold text-xl md:text-2xl lg:text-3xl tracking-tighter'>Intensive Refresher Training</h1>
+          <h1 className='text-black font-semibold text-xl md:text-2xl lg:text-3xl tracking-tighter'>Intensive Refresher Training</h1>
           <p className='font-semibold text-sm md:text-md lg:text-lg text-gray-700 leading-tighter tracking-tighter'>(26/12/2023 – 05/01/2024)</p>
           <div className='grid grid-cols-4 mt-8 gap-16'>
             <div className='flex flex-col gap-2'>
-              <h1 className='text-md md:text-lg lg:text-xl font-bold tracking-tighter'>Forenoon</h1>
+              <h1 className='text-md md:text-lg lg:text-xl font-semibold tracking-tighter'>Forenoon</h1>
               <p className='text-sm md:text-md lg:text-lg tracking-tight leading-tight font-semibold text-gray-700'>Practicing Java programs in the NEO PAT</p>
             </div>
             <div className='flex flex-col gap-2'>
-              <h1 className='text-md md:text-lg lg:text-xl font-bold tracking-tighter'>Afternoon</h1>
+              <h1 className='text-md md:text-lg lg:text-xl font-semibold tracking-tighter'>Afternoon</h1>
               <p className='text-sm md:text-md lg:text-lg tracking-tight leading-tight font-semibold text-gray-700'>Solving DSA problems on CodeStudio</p>
             </div>
             <div className='flex flex-col gap-2'>
-              <h1 className='text-md md:text-lg lg:text-xl font-bold tracking-tighter'>Evening</h1>
+              <h1 className='text-md md:text-lg lg:text-xl font-semibold tracking-tighter'>Evening</h1>
               <p className='text-sm md:text-md lg:text-lg tracking-tight leading-tight font-semibold text-gray-700'>Solving DSA problems on CodeStudio</p>
             </div>
             <div className='flex flex-col gap-2'>
-              <h1 className='text-md md:text-lg lg:text-xl font-bold tracking-tighter'>Night</h1>
+              <h1 className='text-md md:text-lg lg:text-xl font-semibold tracking-tighter'>Night</h1>
               <p className='text-sm md:text-md lg:text-lg tracking-tight leading-tight font-semibold text-gray-700'>Solving DSA problems on CodeStudio</p>
             </div>
           </div>
 
           <div className='mt-24 flex flex-col items-start gap-8 md:flex-row'>
             <div className='self-start md:sticky md:top-28 md:w-1/3 md:shrink-0'>
-              <h1 className='text-black font-bold text-xl md:text-2xl lg:text-3xl tracking-tighter'>Weekly Activity Summary</h1>
+              <h1 className='text-black font-semibold text-xl md:text-2xl lg:text-3xl tracking-tighter'>Weekly Activity Summary</h1>
               <p className='font-semibold text-sm md:text-md lg:text-lg max-w-lg mt-4 text-gray-700 leading-tighter tracking-tighter'>Weekly assessments were conducted to evaluate and enhance the problem-solving abilities and coding proficiency of the squad members.</p>
             </div>
             <div className='w-full md:w-2/3'>
               <div className='grid grid-cols-[minmax(0,1fr)_auto] items-center gap-6 border-b border-gray-200 px-4 py-5'>
-                <h1 className='text-md md:text-lg lg:text-xl font-bold tracking-tighter'>Activity Name</h1>
-                <h1 className='text-md md:text-lg lg:text-xl font-bold tracking-tighter text-right'>Date Conducted</h1>
+                <h1 className='text-md md:text-lg lg:text-xl font-semibold tracking-tighter'>Activity Name</h1>
+                <h1 className='text-md md:text-lg lg:text-xl font-semibold tracking-tighter text-right'>Date Conducted</h1>
               </div>
               {weeklyActivities.map(([activity, date]) => (
                 <div key={activity} className='grid grid-cols-[minmax(0,1fr)_auto] items-center gap-6 border-b border-gray-200 px-4 py-5'>
@@ -305,7 +306,7 @@ function History() {
         </div>
 
         <div className='mt-20'>
-          <h1 className='text-black font-bold text-xl md:text-2xl lg:text-3xl tracking-tighter'>Activity Execution Reports</h1>
+          <h1 className='text-black font-semibold text-xl md:text-2xl lg:text-3xl tracking-tighter'>Activity Execution Reports</h1>
           <div className='mt-8 grid grid-cols-1 gap-3'>
             {reportPairs1.map((reports, pairIndex) => (
               <article key={reports[0].title} className='relative overflow-hidden rounded-md bg-[#0e0c12] shadow-lg'>
@@ -329,7 +330,7 @@ function History() {
                         )}
                       </div>
                       <div className='flex flex-col pt-4 pr-4 pb-5'>
-                        <h1 className='text-white text-md md:text-lg lg:text-xl font-bold tracking-tighter'>Week {pairIndex * 2 + reportIndex + 1}: {title}</h1>
+                        <h1 className='text-white text-md md:text-lg lg:text-xl font-semibold tracking-tighter'>Week {pairIndex * 2 + reportIndex + 1}: {title}</h1>
                         <p className='font-medium text-xs md:text-sm lg:text-md max-w-lg text-gray-300 leading-tighter tracking-tighter leading-tight'>{description}</p>
                         <ul className='mt-5 space-y-3'>
                           <li className='font-semibold text-sm md:text-md lg:text-lg tracking-tighter text-gray-300'>1st Place: {winners[0]}</li>
@@ -347,7 +348,7 @@ function History() {
             <button
               type='button'
               onClick={() => setShowAllReports1(!showAllReports1)}
-              className='group relative inline-block cursor-pointer pb-1 font-bold text-sm tracking-tighter md:text-md lg:text-lg'
+              className='group relative inline-block cursor-pointer pb-1 font-semibold text-sm tracking-tighter md:text-md lg:text-lg'
             >
               {showAllReports1 ? 'View Less' : 'View More'}
               <span className='absolute bottom-0 left-0 h-0.5 w-full origin-left scale-x-0 bg-yellow-400 transition-transform duration-300 group-hover:scale-x-100' />
@@ -358,25 +359,25 @@ function History() {
         <BannerZoomSection src={ss2Banner} alt="Synergy Squad 2.0 banner" className="mt-16" />
 
         <div className='mt-16 grid items-start gap-16 md:grid-cols-[22rem_minmax(0,1fr)]'>
-          <h1 className='text-black font-bold text-xl md:text-2xl lg:text-3xl tracking-tighter'>Identification & Formation</h1>
+          <h1 className='text-black font-semibold text-xl md:text-2xl lg:text-3xl tracking-tighter'>Identification & Formation</h1>
           <p className='font-semibold text-md md:text-lg lg:text-xl text-gray-700 leading-tighter tracking-tighter max-w-4xl'>Following the success of Synergy Squad 1.0, the initiative was expanded to III Year CSE students. The identification process was conducted through 7 Mock TCS CodeVita Assessments, where 40 top-performing students were shortlisted from a total of 179 students to enhance their coding proficiency, logical thinking, and problem-solving skills.</p>
         </div>
 
         <div className='mt-16 grid items-start gap-16 md:grid-cols-[22rem_minmax(0,1fr)]'>
-          <h1 className='text-black font-bold text-xl md:text-2xl lg:text-3xl tracking-tighter'>Intensive Technical Training Schedule</h1>
+          <h1 className='text-black font-semibold text-xl md:text-2xl lg:text-3xl tracking-tighter'>Intensive Technical Training Schedule</h1>
           <p className='font-semibold text-md md:text-lg lg:text-xl text-gray-700 leading-tighter tracking-tighter max-w-4xl'>A 3-day intensive program featuring Skill Enhancement Assessments, Knowledge Transfer Sessions, and Interactive Discussions on Programming MCQs to rapidly boost technical capabilities.</p>
         </div>
 
         <div className='mt-24 flex flex-col items-start gap-8 md:flex-row'>
           <div className='self-start md:sticky md:top-28 md:w-1/3 md:shrink-0'>
-            <h1 className='text-black font-bold text-xl md:text-2xl lg:text-3xl tracking-tighter'>Summary of 7 Mock TCS CodeVita Assessments</h1>
+            <h1 className='text-black font-semibold text-xl md:text-2xl lg:text-3xl tracking-tighter'>Summary of 7 Mock TCS CodeVita Assessments</h1>
             <p className='font-semibold text-sm md:text-md lg:text-lg max-w-lg mt-4 text-gray-700 leading-tighter tracking-tighter'>Seven mock CodeVita assessments were conducted to evaluate coding consistency, speed, and problem-solving readiness.</p>
           </div>
           <div className='w-full md:w-2/3'>
             <div className='grid grid-cols-3 items-center gap-6 border-b border-gray-200 px-4 pb-5 pt-0'>
-              <h1 className='text-md md:text-lg lg:text-xl font-bold tracking-tighter'>Activity Name</h1>
-              <h1 className='text-md md:text-lg lg:text-xl font-bold tracking-tighter text-center'>Date Conducted</h1>
-              <h1 className='text-md md:text-lg lg:text-xl font-bold tracking-tighter text-right'>Students Attended</h1>
+              <h1 className='text-md md:text-lg lg:text-xl font-semibold tracking-tighter'>Activity Name</h1>
+              <h1 className='text-md md:text-lg lg:text-xl font-semibold tracking-tighter text-center'>Date Conducted</h1>
+              <h1 className='text-md md:text-lg lg:text-xl font-semibold tracking-tighter text-right'>Students Attended</h1>
             </div>
             {mockCodeVitaAssessments.map(([activity, date, students]) => (
               <div key={activity} className='grid grid-cols-3 items-center gap-6 border-b border-gray-200 px-4 py-5'>
@@ -390,14 +391,14 @@ function History() {
 
         <div className='mt-24 flex flex-col items-start gap-8 md:flex-row'>
           <div className='self-start md:sticky md:top-28 md:w-1/3 md:shrink-0'>
-            <h1 className='text-black font-bold text-xl md:text-2xl lg:text-3xl tracking-tighter'>5 Know and Grow Assessments - Summary</h1>
+            <h1 className='text-black font-semibold text-xl md:text-2xl lg:text-3xl tracking-tighter'>5 Know and Grow Assessments - Summary</h1>
             <p className='font-semibold text-sm md:text-md lg:text-lg max-w-lg mt-4 text-gray-700 leading-tighter tracking-tighter'>These assessments tracked progress and helped students strengthen their technical knowledge through regular practice.</p>
           </div>
           <div className='w-full md:w-2/3'>
             <div className='grid grid-cols-3 items-center gap-6 border-b border-gray-200 px-4 pb-5 pt-0'>
-              <h1 className='text-md md:text-lg lg:text-xl font-bold tracking-tighter'>Assessment No.</h1>
-              <h1 className='text-md md:text-lg lg:text-xl font-bold tracking-tighter text-center'>Date Conducted</h1>
-              <h1 className='text-md md:text-lg lg:text-xl font-bold tracking-tighter text-right'>Students Attended</h1>
+              <h1 className='text-md md:text-lg lg:text-xl font-semibold tracking-tighter'>Assessment No.</h1>
+              <h1 className='text-md md:text-lg lg:text-xl font-semibold tracking-tighter text-center'>Date Conducted</h1>
+              <h1 className='text-md md:text-lg lg:text-xl font-semibold tracking-tighter text-right'>Students Attended</h1>
             </div>
             {knowAndGrowAssessments.map(([assessment, date, students]) => (
               <div key={assessment} className='grid grid-cols-3 items-center gap-6 border-b border-gray-200 px-4 py-5'>
@@ -411,14 +412,14 @@ function History() {
 
         <div className='mt-24 flex flex-col items-start gap-8 md:flex-row'>
           <div className='self-start md:sticky md:top-28 md:w-1/3 md:shrink-0'>
-            <h1 className='text-black font-bold text-xl md:text-2xl lg:text-3xl tracking-tighter'>Weekly Activity Summary</h1>
+            <h1 className='text-black font-semibold text-xl md:text-2xl lg:text-3xl tracking-tighter'>Weekly Activity Summary</h1>
             <p className='font-semibold text-sm md:text-md lg:text-lg max-w-lg mt-4 text-gray-700 leading-tighter tracking-tighter'>Weekly activities were designed to improve programming fundamentals, coding efficiency, and practical problem-solving skills.</p>
             <p></p>
           </div>
           <div className='w-full md:w-2/3'>
             <div className='grid grid-cols-2 items-center gap-6 border-b border-gray-200 px-4 pb-5 pt-0'>
-              <h1 className='text-md md:text-lg lg:text-xl font-bold tracking-tighter'>Activity Name</h1>
-              <h1 className='text-md md:text-lg lg:text-xl font-bold tracking-tighter text-right'>Date Conducted</h1>
+              <h1 className='text-md md:text-lg lg:text-xl font-semibold tracking-tighter'>Activity Name</h1>
+              <h1 className='text-md md:text-lg lg:text-xl font-semibold tracking-tighter text-right'>Date Conducted</h1>
             </div>
             {weeklyActivities2.map(([activity, date]) => (
               <div key={activity} className='grid grid-cols-2 items-center gap-6 border-b border-gray-200 px-4 py-5'>
@@ -430,7 +431,7 @@ function History() {
         </div>
 
         <div className='mt-20'>
-          <h1 className='text-black font-bold text-xl md:text-2xl lg:text-3xl tracking-tighter'>Activity Execution Reports</h1>
+          <h1 className='text-black font-semibold text-xl md:text-2xl lg:text-3xl tracking-tighter'>Activity Execution Reports</h1>
           <div className='mt-8 grid grid-cols-1 gap-3'>
             {reportPairs2.map((reports, pairIndex) => (
               <article key={reports[0].title} className='relative overflow-hidden rounded-md bg-[#0e0c12] shadow-lg'>
@@ -450,7 +451,7 @@ function History() {
                         <img src={image} alt={`${title} activity brochure`} className='h-full min-h-64 w-full object-cover object-top'/>
                       </div>
                       <div className='flex flex-col pt-4 pr-4 pb-5'>
-                        <h1 className='text-white text-md md:text-lg lg:text-xl font-bold tracking-tighter'>Week {pairIndex * 2 + reportIndex + 1}: {title}</h1>
+                        <h1 className='text-white text-md md:text-lg lg:text-xl font-semibold tracking-tighter'>Week {pairIndex * 2 + reportIndex + 1}: {title}</h1>
                         <p className='font-medium text-xs md:text-sm lg:text-md max-w-lg text-gray-300 leading-tighter tracking-tighter leading-tight'>{description}</p>
                         <ul className='mt-5 space-y-3'>
                           <li className='font-semibold text-sm md:text-md lg:text-lg tracking-tighter text-gray-300'>1st Place: {winners[0]}</li>
@@ -468,7 +469,7 @@ function History() {
             <button
               type='button'
               onClick={() => setShowAllReports2(!showAllReports2)}
-              className='group relative inline-block cursor-pointer pb-1 font-bold text-sm tracking-tighter md:text-md lg:text-lg'
+              className='group relative inline-block cursor-pointer pb-1 font-semibold text-sm tracking-tighter md:text-md lg:text-lg'
             >
               {showAllReports2 ? 'View Less' : 'View More'}
               <span className='absolute bottom-0 left-0 h-0.5 w-full origin-left scale-x-0 bg-yellow-400 transition-transform duration-300 group-hover:scale-x-100' />
@@ -479,19 +480,19 @@ function History() {
         <BannerZoomSection src={ss3Banner} alt="Synergy Squad 3.0 banner" className="mt-16" />
 
         <div className='mt-16 grid items-start gap-16 md:grid-cols-[22rem_minmax(0,1fr)]'>
-          <h1 className='text-black font-bold text-xl md:text-2xl lg:text-3xl tracking-tighter'>Weekly Sunday Programming Activities for III Year Students</h1>
+          <h1 className='text-black font-semibold text-xl md:text-2xl lg:text-3xl tracking-tighter'>Weekly Sunday Programming Activities for III Year Students</h1>
           <p className='font-semibold text-md md:text-lg lg:text-xl text-gray-700 leading-tighter tracking-tighter max-w-4xl'>To enhance the programming skills, logical thinking, and placement preparedness of the students, a new series of Weekly Sunday Programming Activities was organized. Each session was specially designed to reinforce programming concepts and simulate real-time coding challenges.</p>
         </div>
 
         <div className='mt-24 flex flex-col items-start gap-8 md:flex-row'>
           <div className='self-start md:sticky md:top-28 md:w-1/3 md:shrink-0'>
-            <h1 className='text-black font-bold text-xl md:text-2xl lg:text-3xl tracking-tighter'>Weekly Activity Summary</h1>
+            <h1 className='text-black font-semibold text-xl md:text-2xl lg:text-3xl tracking-tighter'>Weekly Activity Summary</h1>
             <p className='font-semibold text-sm md:text-md lg:text-lg max-w-lg mt-4 text-gray-700 leading-tighter tracking-tighter'>Weekly activities were designed to evaluate and enhance the problem-solving abilities and coding proficiency of the squad members.</p>
           </div>
           <div className='w-full md:w-2/3'>
             <div className='grid grid-cols-[minmax(0,1fr)_auto] items-center gap-6 border-b border-gray-200 px-4 py-5'>
-              <h1 className='text-md md:text-lg lg:text-xl font-bold tracking-tighter'>Activity Name</h1>
-              <h1 className='text-md md:text-lg lg:text-xl font-bold tracking-tighter text-right'>Planned Date</h1>
+              <h1 className='text-md md:text-lg lg:text-xl font-semibold tracking-tighter'>Activity Name</h1>
+              <h1 className='text-md md:text-lg lg:text-xl font-semibold tracking-tighter text-right'>Planned Date</h1>
             </div>
             {weeklyActivities3.map(([activity, date]) => (
               <div key={activity} className='grid grid-cols-[minmax(0,1fr)_auto] items-center gap-6 border-b border-gray-200 px-4 py-5'>
@@ -503,7 +504,7 @@ function History() {
         </div>
 
         <div className='mt-20'>
-          <h1 className='text-black font-bold text-xl md:text-2xl lg:text-3xl tracking-tighter'>Activity Execution Reports</h1>
+          <h1 className='text-black font-semibold text-xl md:text-2xl lg:text-3xl tracking-tighter'>Activity Execution Reports</h1>
           <div className='mt-8 grid grid-cols-1 gap-3'>
             {reportPairs3.map((reports, pairIndex) => (
               <article key={reports[0].title} className='relative overflow-hidden rounded-md bg-[#0e0c12] shadow-lg'>
@@ -527,7 +528,7 @@ function History() {
                         )}
                       </div>
                       <div className='flex flex-col pt-4 pr-4 pb-5'>
-                        <h1 className='text-white text-md md:text-lg lg:text-xl font-bold tracking-tighter'>Week {pairIndex * 2 + reportIndex + 1}: {title}</h1>
+                        <h1 className='text-white text-md md:text-lg lg:text-xl font-semibold tracking-tighter'>Week {pairIndex * 2 + reportIndex + 1}: {title}</h1>
                         <p className='font-medium text-xs md:text-sm lg:text-md max-w-lg text-gray-300 leading-tighter tracking-tighter leading-tight'>{description}</p>
                         <ul className='mt-5 space-y-3'>
                           <li className='font-semibold text-sm md:text-md lg:text-lg tracking-tighter text-gray-300'>1st Place: {winners[0]}</li>
@@ -545,7 +546,7 @@ function History() {
             <button
               type='button'
               onClick={() => setShowAllReports3(!showAllReports3)}
-              className='group relative inline-block cursor-pointer pb-1 font-bold text-sm tracking-tighter md:text-md lg:text-lg'
+              className='group relative inline-block cursor-pointer pb-1 font-semibold text-sm tracking-tighter md:text-md lg:text-lg'
             >
               {showAllReports3 ? 'View Less' : 'View More'}
               <span className='absolute bottom-0 left-0 h-0.5 w-full origin-left scale-x-0 bg-yellow-400 transition-transform duration-300 group-hover:scale-x-100' />
@@ -553,6 +554,8 @@ function History() {
           </div>
         </div>
       </main>
+
+      <FinalCTA />
     </div>
   )
 }

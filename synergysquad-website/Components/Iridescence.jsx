@@ -31,20 +31,37 @@ void main() {
 
   uv += (uMouse - vec2(0.5)) * uAmplitude;
 
-  float d = -uTime * 0.5 * uSpeed;
+  float d = -uTime * 0.2 * uSpeed;
   float a = 0.0;
   for (float i = 0.0; i < 8.0; ++i) {
     a += cos(i - d - a * uv.x);
     d += sin(uv.y * i + a);
   }
-  d += uTime * 0.5 * uSpeed;
-  vec3 col = vec3(cos(uv * vec2(d, a)) * 0.6 + 0.4, cos(a + d) * 0.5 + 0.5);
-  col = cos(col * cos(vec3(d, a, 2.5)) * 0.5 + 0.5) * uColor;
+  
+  float val = clamp((cos(d) * 0.5 + 0.5) * 0.7 + (sin(a) * 0.5 + 0.5) * 0.3, 0.0, 1.0);
+  
+  // Pure gold gradient mapping:
+  // Dark gold base (#1E1500), Rich amber gold (#B8860B), Bright gold (#FFD700), Soft shimmer (#FFF5AA)
+  vec3 darkGold = vec3(0.12, 0.08, 0.0);
+  vec3 midGold = vec3(0.72, 0.52, 0.04);
+  vec3 brightGold = vec3(1.0, 0.84, 0.08);
+  vec3 highlightGold = vec3(1.0, 0.94, 0.55);
+
+  vec3 col;
+  if (val < 0.5) {
+    col = mix(darkGold, midGold, val * 2.0);
+  } else {
+    col = mix(midGold, brightGold, (val - 0.5) * 2.0);
+  }
+  
+  float shimmer = pow(val, 3.5);
+  col = mix(col, highlightGold, shimmer * 0.35);
+
   gl_FragColor = vec4(col, 1.0);
 }
 `;
 
-export default function Iridescence({ color = [1, 1, 1], speed = 1.0, amplitude = 0.1, mouseReact = true, ...rest }) {
+export default function Iridescence({ color = [1, 0.84, 0], speed = 0.3, amplitude = 0.1, mouseReact = true, ...rest }) {
   const ctnDom = useRef(null);
   const mousePos = useRef({ x: 0.5, y: 0.5 });
 
@@ -53,11 +70,15 @@ export default function Iridescence({ color = [1, 1, 1], speed = 1.0, amplitude 
     const ctn = ctnDom.current;
     const renderer = new Renderer();
     const gl = renderer.gl;
-    gl.clearColor(1, 1, 1, 1);
+    gl.clearColor(0, 0, 0, 1);
+    gl.canvas.style.width = '100%';
+    gl.canvas.style.height = '100%';
+    gl.canvas.style.display = 'block';
 
     let program;
 
     function resize() {
+      if (!ctnDom.current) return;
       const scale = 1;
       renderer.setSize(ctn.offsetWidth * scale, ctn.offsetHeight * scale);
       if (program) {
@@ -99,24 +120,29 @@ export default function Iridescence({ color = [1, 1, 1], speed = 1.0, amplitude 
     ctn.appendChild(gl.canvas);
 
     function handleMouseMove(e) {
-      const rect = ctn.getBoundingClientRect();
-      const x = (e.clientX - rect.left) / rect.width;
-      const y = 1.0 - (e.clientY - rect.top) / rect.height;
+      if (!ctnDom.current) return;
+      const rect = ctnDom.current.getBoundingClientRect();
+      const x = (e.clientX - rect.left) / (rect.width || 1);
+      const y = 1.0 - (e.clientY - rect.top) / (rect.height || 1);
       mousePos.current = { x, y };
-      program.uniforms.uMouse.value[0] = x;
-      program.uniforms.uMouse.value[1] = y;
+      if (program && program.uniforms && program.uniforms.uMouse) {
+        program.uniforms.uMouse.value[0] = x;
+        program.uniforms.uMouse.value[1] = y;
+      }
     }
     if (mouseReact) {
-      ctn.addEventListener('mousemove', handleMouseMove);
+      window.addEventListener('mousemove', handleMouseMove);
     }
 
     return () => {
       cancelAnimationFrame(animateId);
       window.removeEventListener('resize', resize);
       if (mouseReact) {
-        ctn.removeEventListener('mousemove', handleMouseMove);
+        window.removeEventListener('mousemove', handleMouseMove);
       }
-      ctn.removeChild(gl.canvas);
+      if (gl.canvas && gl.canvas.parentNode) {
+        gl.canvas.parentNode.removeChild(gl.canvas);
+      }
       gl.getExtension('WEBGL_lose_context')?.loseContext();
     };
   }, [color, speed, amplitude, mouseReact]);

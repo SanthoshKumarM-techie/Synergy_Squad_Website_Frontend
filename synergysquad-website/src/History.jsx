@@ -24,7 +24,7 @@ import SS3Brochre5 from './assets/SS 3.0 Brouchre 5.png';
 import SS3Brochre6 from './assets/SS 3.0 Brouchre 6.png';
 import SS3Brochre7 from './assets/SS 3.0 Brouchre 7.png';
 import SS3Brochre8 from './assets/SS 3.0 Brouchre 8.png';
-import SideRays from '../Components/SideRays';
+import Iridescence from '../Components/Iridescence';
 
 function BannerZoomSection({ src, alt, className = "" }) {
   const sectionRef = useRef(null)
@@ -311,14 +311,9 @@ function History() {
             {reportPairs1.map((reports, pairIndex) => (
               <article key={reports[0].title} className='relative overflow-hidden rounded-md bg-[#0e0c12] shadow-lg'>
                 <div className='absolute inset-0 z-0'>
-                  <div className='absolute inset-0'>
-                    <SideRays speed={4.5} rayColor1="#B8860B" rayColor2="#FFE08A" intensity={4} spread={3.2} origin="bottom-right" tilt={-35} saturation={1.5} blend={1} falloff={0.9} opacity={1} />
-                  </div>
-                  <div className='absolute inset-0'>
-                    <SideRays speed={4.5} rayColor1="#B8860B" rayColor2="#FFE08A" intensity={4} spread={3.2} origin="top-left" tilt={-35} saturation={1.5} blend={1} falloff={0.9} opacity={1} />
-                  </div>
+                  <Iridescence color={[1, 0.84, 0]} speed={0.25} amplitude={0.15} mouseReact={true} />
                 </div>
-                <div className='absolute inset-0 z-[1] bg-black/45' />
+                <div className='absolute inset-0 z-[1] bg-black/70 pointer-events-none' />
                 <div className='relative z-10 grid grid-cols-1 lg:grid-cols-2'>
                   {reports.map(({ title, image, description, winners }, reportIndex) => (
                     <section key={title} className='grid sm:grid-cols-[minmax(0,1fr)_minmax(0,1fr)]'>
@@ -436,14 +431,9 @@ function History() {
             {reportPairs2.map((reports, pairIndex) => (
               <article key={reports[0].title} className='relative overflow-hidden rounded-md bg-[#0e0c12] shadow-lg'>
                 <div className='absolute inset-0 z-0'>
-                  <div className='absolute inset-0'>
-                    <SideRays speed={4.5} rayColor1="#B8860B" rayColor2="#FFE08A" intensity={4} spread={3.2} origin="bottom-right" tilt={-35} saturation={1.5} blend={1} falloff={0.9} opacity={1} />
-                  </div>
-                  <div className='absolute inset-0'>
-                    <SideRays speed={4.5} rayColor1="#B8860B" rayColor2="#FFE08A" intensity={4} spread={3.2} origin="top-left" tilt={-35} saturation={1.5} blend={1} falloff={0.9} opacity={1} />
-                  </div>
+                  <Iridescence color={[1, 0.84, 0]} speed={0.25} amplitude={0.15} mouseReact={true} />
                 </div>
-                <div className='absolute inset-0 z-[1] bg-black/45' />
+                <div className='absolute inset-0 z-[1] bg-black/70 pointer-events-none' />
                 <div className='relative z-10 grid grid-cols-1 lg:grid-cols-2'>
                   {reports.map(({ title, image, description, winners }, reportIndex) => (
                     <section key={title} className='grid sm:grid-cols-[minmax(0,1fr)_minmax(0,1fr)]'>
@@ -509,14 +499,9 @@ function History() {
             {reportPairs3.map((reports, pairIndex) => (
               <article key={reports[0].title} className='relative overflow-hidden rounded-md bg-[#0e0c12] shadow-lg'>
                 <div className='absolute inset-0 z-0'>
-                  <div className='absolute inset-0'>
-                    <SideRays speed={4.5} rayColor1="#B8860B" rayColor2="#FFE08A" intensity={4} spread={3.2} origin="bottom-right" tilt={-35} saturation={1.5} blend={1} falloff={0.9} opacity={1} />
-                  </div>
-                  <div className='absolute inset-0'>
-                    <SideRays speed={4.5} rayColor1="#B8860B" rayColor2="#FFE08A" intensity={4} spread={3.2} origin="top-left" tilt={-35} saturation={1.5} blend={1} falloff={0.9} opacity={1} />
-                  </div>
+                  <Iridescence color={[1, 0.84, 0]} speed={0.25} amplitude={0.15} mouseReact={true} />
                 </div>
-                <div className='absolute inset-0 z-[1] bg-black/45' />
+                <div className='absolute inset-0 z-[1] bg-black/70 pointer-events-none' />
                 <div className='relative z-10 grid grid-cols-1 lg:grid-cols-2'>
                   {reports.map(({ title, image, description, winners }, reportIndex) => (
                     <section key={title} className='grid sm:grid-cols-[minmax(0,1fr)_minmax(0,1fr)]'>

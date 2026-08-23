@@ -80,7 +80,7 @@ function Testimonials() {
             {/* Main Status Style Container */}
             <div className='w-full max-w-5xl flex-1 flex flex-col items-center justify-between overflow-hidden relative'>
                 {/* Clickable Image Container (No Buttons) */}
-                <div 
+                <div
                     className='w-full flex-1 relative flex items-center justify-center overflow-hidden cursor-pointer'
                     onClick={handleContainerClick}
                     onContextMenu={handleContextMenu}
@@ -91,9 +91,9 @@ function Testimonials() {
                     onTouchEnd={() => setIsPaused(false)}
                 >
                     {/* Active Image - Keyed by Index for clean rendering without skipping */}
-                    <img 
+                    <img
                         key={currentIndex}
-                        src={testimonialsList[currentIndex].img} 
+                        src={testimonialsList[currentIndex].img}
                         alt={testimonialsList[currentIndex].alt}
                         className='w-full h-full object-contain rounded-lg transition-opacity duration-300'
                     />
@@ -113,7 +113,7 @@ function Testimonials() {
 
                         return (
                             <div key={index} className='flex-1 h-1 bg-white/20 rounded-full overflow-hidden'>
-                                <div 
+                                <div
                                     className='h-full bg-white rounded-full'
                                     style={{ width: `${barWidth}%` }}
                                 />

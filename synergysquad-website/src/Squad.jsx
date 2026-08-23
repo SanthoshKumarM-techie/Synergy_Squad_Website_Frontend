@@ -135,11 +135,10 @@ function Squad() {
               <button
                 key={batch.id}
                 onClick={() => setActiveBatchId(batch.id)}
-                className={`px-5 py-2.5 rounded-full font-semibold text-sm md:text-md lg:text-lg tracking-tighter transition-all duration-300 cursor-pointer whitespace-nowrap ${
-                  isActive
+                className={`px-5 py-2.5 rounded-full font-semibold text-sm md:text-md lg:text-lg tracking-tighter transition-all duration-300 cursor-pointer whitespace-nowrap ${isActive
                     ? 'bg-yellow-400 shadow-md scale-105'
                     : 'bg-black/5 text-gray-800 hover:bg-black/10 hover:text-black'
-                }`}
+                  }`}
               >
                 {batch.title}
               </button>
@@ -165,7 +164,7 @@ function Squad() {
             <div className='md:w-2/3 w-full flex justify-end'>
               <ul className='grid grid-cols-1 sm:grid-cols-2 gap-x-12 lg:gap-x-16 gap-y-3 font-medium tracking-tight text-sm md:text-md lg:text-lg w-full max-w-3xl'>
                 {activeBatch.members.map((name, index) => (
-                  <li 
+                  <li
                     key={index}
                     className='py-2 px-3 rounded-md hover:bg-gray-100 transition-colors flex items-center border-b border-gray-100 whitespace-nowrap'
                   >
@@ -194,13 +193,13 @@ function Squad() {
 
             <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 md:gap-3 auto-rows-[220px] w-full'>
               {activeBatch.images.map((img, idx) => (
-                <div 
-                  key={idx} 
+                <div
+                  key={idx}
                   className={`group relative overflow-hidden rounded-xl border border-gray-200 bg-gray-900 shadow-sm cursor-pointer ${img.span}`}
                 >
-                  <img 
-                    src={img.src} 
-                    alt={img.alt} 
+                  <img
+                    src={img.src}
+                    alt={img.alt}
                     className='w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out'
                   />
                   <div className='absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-5'>

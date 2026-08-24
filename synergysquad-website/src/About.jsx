@@ -82,13 +82,25 @@ function About() {
       </div>
             </section>
 
-            <section className='min-h-screen bg-[#000410] grid grid-cols-2 pt-50'>
-                <img src={PreveenSirImage} className='h-50 ml-130' />
-                <div className='mr-80 mt-24'>
+            <section className='relative min-h-screen overflow-hidden bg-[#000410]'>
+                <div aria-hidden='true' className='pointer-events-none absolute inset-0 z-0 text-white/20'>
+                    <span className='absolute inset-y-0 left-1/2 w-px -translate-x-1/2 bg-current' />
+                    <span className='absolute left-0 top-[25.5rem] h-px w-1/2 bg-current' />
+                    <span className='absolute right-0 top-[17.5rem] h-px w-1/2 bg-current' />
+                </div>
+
+                <div className='relative z-10 grid grid-cols-2 items-start pt-50'>
+                    <img
+                        src={PreveenSirImage}
+                        alt='Mr. K. Praveen'
+                        className='h-50 justify-self-end mr-2'
+                    />
+                    <div className='mt-24 w-full max-w-[363px] translate-x-3'>
                     <p className='text-white text-sm md:text-md lg:text-lg tracking-tighter leading-tight font-semibold'>"I never wanted this club to be just another organization on campus. I envisioned a community where students could bring their ideas to life, discover what they are capable of, and grow alongside people who share the same curiosity and ambition. What started as a simple idea has become a journey shaped by every student who chose to be a part of it."</p>
-                    <div className='mt-8 mr-24'>
+                    <div className='mt-8'>
                         <h1 className='text-white font-semibold text-md md:text-lg lg:text-xl tracking-tighter'>Mr. K. Praveen</h1>
                         <p className='text-white font-semibold text-xs md:text-sm lg:text-md tracking-tighter'>Founder of Synergy Squad</p>
+                    </div>
                     </div>
                 </div>
             </section>

@@ -40,28 +40,27 @@ void main() {
   
   float val = clamp((cos(d) * 0.5 + 0.5) * 0.7 + (sin(a) * 0.5 + 0.5) * 0.3, 0.0, 1.0);
   
-  // Pure gold gradient mapping:
-  // Dark gold base (#1E1500), Rich amber gold (#B8860B), Bright gold (#FFD700), Soft shimmer (#FFF5AA)
-  vec3 darkGold = vec3(0.12, 0.08, 0.0);
-  vec3 midGold = vec3(0.72, 0.52, 0.04);
-  vec3 brightGold = vec3(1.0, 0.84, 0.08);
-  vec3 highlightGold = vec3(1.0, 0.94, 0.55);
+  // Build the iridescent tones from the configured colour.
+  vec3 darkBlue = uColor * 0.20;
+  vec3 midBlue = uColor * 0.62;
+  vec3 brightBlue = min(uColor * 1.25 + vec3(0.03, 0.06, 0.16), vec3(1.0));
+  vec3 highlightBlue = mix(brightBlue, vec3(0.60, 0.78, 1.0), 0.35);
 
   vec3 col;
   if (val < 0.5) {
-    col = mix(darkGold, midGold, val * 2.0);
+    col = mix(darkBlue, midBlue, val * 2.0);
   } else {
-    col = mix(midGold, brightGold, (val - 0.5) * 2.0);
+    col = mix(midBlue, brightBlue, (val - 0.5) * 2.0);
   }
   
   float shimmer = pow(val, 3.5);
-  col = mix(col, highlightGold, shimmer * 0.35);
+  col = mix(col, highlightBlue, shimmer * 0.35);
 
   gl_FragColor = vec4(col, 1.0);
 }
 `;
 
-export default function Iridescence({ color = [1, 0.84, 0], speed = 0.3, amplitude = 0.1, mouseReact = true, ...rest }) {
+export default function Iridescence({ color = [0.04, 0.14, 0.82], speed = 0.3, amplitude = 0.1, mouseReact = true, ...rest }) {
   const ctnDom = useRef(null);
   const mousePos = useRef({ x: 0.5, y: 0.5 });
 

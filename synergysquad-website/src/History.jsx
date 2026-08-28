@@ -357,7 +357,7 @@ function History() {
                         rotation={0}
                       />
                     </div>
-                    <div className="pointer-events-none absolute inset-0 bg-black/60" />
+                    <div className="pointer-events-none absolute inset-0 bg-black/75" />
                     <div className="relative z-10 flex h-full gap-5 p-2">
                       <img
                         src={card.image}
@@ -491,7 +491,7 @@ function History() {
                         rotation={0}
                       />
                     </div>
-                    <div className="pointer-events-none absolute inset-0 bg-black/50" />
+                    <div className="pointer-events-none absolute inset-0 bg-black/75" />
                     <div className="relative z-10 flex h-full gap-5 p-2">
                       <img
                         src={card.image}
@@ -580,7 +580,7 @@ function History() {
                         rotation={0}
                       />
                     </div>
-                    <div className="pointer-events-none absolute inset-0 bg-black/50" />
+                    <div className="pointer-events-none absolute inset-0 bg-black/75" />
                     <div className="relative z-10 flex h-full gap-5 p-2">
                       <img
                         src={card.image}

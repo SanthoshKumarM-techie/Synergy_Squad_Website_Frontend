@@ -1,251 +1,334 @@
 import React, { useState } from 'react'
 import Navbar from './Navbar'
-import FinalCTA from './FinalCTA'
-import squadEvent1 from './assets/squad_event_1.png'
-import squadEvent2 from './assets/squad_event_2.png'
-import squadEvent3 from './assets/squad_event_3.png'
-import kiotTopView from './assets/KIOT-Top-View.webp'
-import testimonialImg from './assets/Testimonial.png'
-import heroImg from './assets/hero.png'
+import BG from './assets/abstractBG.jpg'
 
-const squad1 = [
-  "Aarav Sharma", "Ananya Rao", "Vigneshwaran S.", "Nithya Sri R.", "Karthi V.",
-  "Harish Kumar", "Priya Dharshini M.", "Rahul Verma", "Aditi Patel", "Deepak Sundar",
-  "Kavya Krishnan", "Ashwin Raj", "Meera Nair", "Siddarth P.", "Divya S.",
-  "Gautham R.", "Janani K.", "Gokulnath T.", "Keerthana B.", "Naveen Kumar",
-  "Preeti Sengupta", "Rajesh Kannan", "Shalini M.", "Surya Prakash", "Swetha N.",
-  "Tarun Kumar", "Varun S.", "Abhinav Reddy", "Bhavana Chawla", "Dinesh Karthik",
-  "Eswar Prasad", "Hemalatha R.", "Ishwarya V.", "Jagadeesh M.", "Lokesh Kumar",
-  "Monica R.", "Narendran P.", "Pavithra S.", "Rithvik V.", "Yuvraj S."
-]
-
-const squad2 = [
-  "Akash V.", "Bhavya Sri N.", "Chandresh M.", "Dharshini K.", "Elango R.",
-  "Farhan Ahmed", "Gayathri P.", "Hariharan S.", "Indumathi K.", "Jayashree M.",
-  "Karthikeyan B.", "Lavanya R.", "Manoj Kumar", "Nivedha S.", "Om Prakash",
-  "Prasanth R.", "Ramya V.", "Santhosh Kumar", "Sneha P.", "Tamilselvan M.",
-  "Uma Maheswari", "Venkatesh S.", "Vishnu Vardhan", "Yogeshwaran R.", "Anitha K.",
-  "Balaji S.", "Charulatha M.", "Devendra R.", "Gokul S.", "Hari Prasath",
-  "Kaviyarasan T.", "Logeshwaran V.", "Manikandan P.", "Naveen Raj", "Pradeep S.",
-  "Raghavan M.", "Saravanan K.", "Tharani R.", "Vijay Kumar", "Yamini S."
-]
-
-const squad3 = [
-  "Abishek R.", "Archana M.", "Bharath Kumar", "Deepika S.", "Dhanush K.",
-  "Ganesh Moorthy", "Gita R.", "Illakhiya V.", "Jeevanantham S.", "Kiruthika M.",
-  "Kishore Kumar", "Madhavan R.", "Malathi S.", "Nandhini P.", "Nitin Verma",
-  "Pavithran K.", "Prithiviraj M.", "Rakshitha S.", "Rohan Gupta", "Sanjay Kumar",
-  "Sharmathi V.", "Sri Ram M.", "Sudharsan R.", "Suraj Sharma", "Thangapandi K.",
-  "Vaishnavi S.", "Vignesh Kumar", "Vinothini R.", "Aravindh M.", "Deepak Kumar",
-  "Gowtham S.", "Hari Ram", "Karthik Raja", "Leelavathi P.", "Murali Dharan",
-  "Nagarajan S.", "Preetha R.", "Roshan V.", "Subash Chandran", "Vishwa S."
-]
-
-const squad4 = [
-  "Ashok Kumar", "Bhuvanesh R.", "Charan V.", "Devaki S.", "Dinesh Raj",
-  "Gopinath M.", "Hemant Sharma", "Janarthanan R.", "Kabilan S.", "Karthika P.",
-  "Logesh R.", "Meenakshi S.", "Naveen Prasad", "Nirmal Kumar", "Pavithra Raj",
-  "Praveen Kumar", "Rajeshwari M.", "Rohit Sharma", "Sakthi V.", "Santhiya R.",
-  "Sathish Kumar", "Sharmila P.", "Sowmiya S.", "Subash R.", "Sudhir Kumar",
-  "Sujitha V.", "Sundar Raj", "Surendhar M.", "Tanvi Gupta", "Udhaya Kumar",
-  "Vasanth R.", "Venkatesan M.", "Vidhya S.", "Vignesh Raj", "Vijay Anand",
-  "Vikram S.", "Vinay Kumar", "Vishal R.", "Yashwanth S.", "Yogesh R."
-]
-
-const batchList = [
+const squadData = [
   {
-    id: '1.0',
-    title: 'Synergy Squad 1.0',
-    galleryTitle: 'Synergy Squad 1.0 Gallery',
-    members: squad1,
-    images: [
-      { src: squadEvent1, alt: '24-Hour Code Hackathon', title: '24-Hour Competitive Coding Challenge', span: 'col-span-1 sm:col-span-2 md:col-span-2 row-span-2' },
-      { src: kiotTopView, alt: 'KIOT Campus View', title: 'Innovation Hub', span: 'col-span-1 sm:col-span-1 md:col-span-1 row-span-1' },
-      { src: squadEvent3, alt: 'DSA Workshop', title: 'Advanced DSA & Algorithm Masterclass', span: 'col-span-1 sm:col-span-1 md:col-span-1 row-span-2' },
-      { src: squadEvent2, alt: 'TCS CodeVita Award Winners', title: 'CodeVita Winners', span: 'col-span-1 sm:col-span-1 md:col-span-1 row-span-1' },
-      { src: testimonialImg, alt: 'Member Experiences', title: 'Real Student Journeys & Tier-1 Placements', span: 'col-span-1 sm:col-span-2 md:col-span-2 row-span-1' },
-      { src: heroImg, alt: 'Synergy Squad Graphic', title: 'Synergy Squad 1.0', span: 'col-span-1 sm:col-span-2 md:col-span-2 row-span-1' },
-    ]
+    id: 1,
+    name: 'Synergy Squad 1.0',
+    members: [
+      "Member 1", "Member 2", "Member 3", "Member 4", "Member 5", "Member 6", "Member 7", "Member 8", "Member 9", "Member 10",
+      "Member 11", "Member 12", "Member 13", "Member 14", "Member 15", "Member 16", "Member 17", "Member 18", "Member 19", "Member 20",
+      "Member 21", "Member 22", "Member 23", "Member 24", "Member 25", "Member 26", "Member 27", "Member 28", "Member 29", "Member 30",
+      "Member 31", "Member 32", "Member 33", "Member 34", "Member 35", "Member 36", "Member 37", "Member 38", "Member 39", "Member 40"
+    ],
+    bento: {
+      totalCount: '1.0',
+      subtitle: 'the beginning of a student community built on learning and collaboration',
+      statPercent: '01',
+      statDesc: 'the first chapter that laid the foundation for Synergy Squad',
+      heroQuote: 'Where a shared vision brought students together and the journey began',
+      ctaText: 'Explore Squad 1.0',
+      images: [BG, BG, BG, BG]
+    }
   },
   {
-    id: '2.0',
-    title: 'Synergy Squad 2.0',
-    galleryTitle: 'Synergy Squad 2.0 Gallery',
-    members: squad2,
-    images: [
-      { src: squadEvent2, alt: 'CodeVita Winners', title: 'National Coding Competition Winners', span: 'col-span-1 sm:col-span-2 md:col-span-2 row-span-2' },
-      { src: squadEvent1, alt: 'Hackathon', title: 'Hackathon Sprint', span: 'col-span-1 sm:col-span-1 md:col-span-1 row-span-1' },
-      { src: kiotTopView, alt: 'Campus Lab', title: 'Computing Research Center', span: 'col-span-1 sm:col-span-1 md:col-span-1 row-span-2' },
-      { src: squadEvent3, alt: 'Workshop', title: 'Tech Workshop', span: 'col-span-1 sm:col-span-1 md:col-span-1 row-span-1' },
-      { src: heroImg, alt: 'Squad 2.0', title: 'Batch 2.0 Achievements', span: 'col-span-1 sm:col-span-2 md:col-span-2 row-span-1' },
-      { src: testimonialImg, alt: 'Placements', title: 'Tier-1 IT Recruits', span: 'col-span-1 sm:col-span-2 md:col-span-2 row-span-1' },
-    ]
+    id: 2,
+    name: 'Synergy Squad 2.0',
+    members: [
+      "Member 1", "Member 2", "Member 3", "Member 4", "Member 5", "Member 6", "Member 7", "Member 8", "Member 9", "Member 10",
+      "Member 11", "Member 12", "Member 13", "Member 14", "Member 15", "Member 16", "Member 17", "Member 18", "Member 19", "Member 20",
+      "Member 21", "Member 22", "Member 23", "Member 24", "Member 25", "Member 26", "Member 27", "Member 28", "Member 29", "Member 30",
+      "Member 31", "Member 32", "Member 33", "Member 34", "Member 35", "Member 36", "Member 37", "Member 38", "Member 39", "Member 40"
+    ],
+    bento: {
+      totalCount: '2.0',
+      subtitle: 'a growing community shaped by new ideas, stronger collaboration, and shared experiences',
+      statPercent: '02',
+      statDesc: 'the chapter where the squad grew in people, purpose, and possibilities',
+      heroQuote: 'Growing together, taking responsibility, and turning ideas into action',
+      ctaText: 'Explore Squad 2.0',
+      images: [BG, BG, BG, BG]
+    }
   },
   {
-    id: '3.0',
-    title: 'Synergy Squad 3.0',
-    galleryTitle: 'Synergy Squad 3.0 Gallery',
-    members: squad3,
-    images: [
-      { src: squadEvent3, alt: 'DSA Masterclass', title: 'System Design & DSA Bootcamp', span: 'col-span-1 sm:col-span-2 md:col-span-2 row-span-2' },
-      { src: testimonialImg, alt: 'Student Stories', title: 'Student Success Stories', span: 'col-span-1 sm:col-span-1 md:col-span-1 row-span-1' },
-      { src: squadEvent1, alt: 'Coding Sprint', title: '24-Hour Code Jam', span: 'col-span-1 sm:col-span-1 md:col-span-1 row-span-2' },
-      { src: squadEvent2, alt: 'Awards', title: 'Hackathon Champions', span: 'col-span-1 sm:col-span-1 md:col-span-1 row-span-1' },
-      { src: kiotTopView, alt: 'Campus View', title: 'Tech Campus Life', span: 'col-span-1 sm:col-span-2 md:col-span-2 row-span-1' },
-      { src: heroImg, alt: 'Squad 3.0', title: 'Synergy Squad 3.0', span: 'col-span-1 sm:col-span-2 md:col-span-2 row-span-1' },
-    ]
+    id: 3,
+    name: 'Synergy Squad 3.0',
+    members: [
+      "Member 1", "Member 2", "Member 3", "Member 4", "Member 5", "Member 6", "Member 7", "Member 8", "Member 9", "Member 10",
+      "Member 11", "Member 12", "Member 13", "Member 14", "Member 15", "Member 16", "Member 17", "Member 18", "Member 19", "Member 20",
+      "Member 21", "Member 22", "Member 23", "Member 24", "Member 25", "Member 26", "Member 27", "Member 28", "Member 29", "Member 30",
+      "Member 31", "Member 32", "Member 33", "Member 34", "Member 35", "Member 36", "Member 37", "Member 38", "Member 39", "Member 40"
+    ],
+    bento: {
+      totalCount: '3.0',
+      subtitle: 'a new phase of creativity, leadership, collaboration, and meaningful experiences',
+      statPercent: '03',
+      statDesc: 'a chapter that strengthened the culture and expanded the vision of the squad',
+      heroQuote: 'Empowering students to explore, contribute, lead, and create meaningful impact',
+      ctaText: 'Explore Squad 3.0',
+      images: [BG, BG, BG, BG]
+    }
   },
   {
-    id: '4.0',
-    title: 'Synergy Squad 4.0',
-    galleryTitle: 'Synergy Squad 4.0 Gallery',
-    members: squad4,
-    images: [
-      { src: heroImg, alt: 'Squad 4.0 Launch', title: 'Synergy Squad 4.0 Launch', span: 'col-span-1 sm:col-span-2 md:col-span-2 row-span-2' },
-      { src: squadEvent3, alt: 'Mentorship', title: 'Peer Mentorship Sessions', span: 'col-span-1 sm:col-span-1 md:col-span-1 row-span-1' },
-      { src: squadEvent2, alt: 'CodeVita Stage', title: 'National Level Finalists', span: 'col-span-1 sm:col-span-1 md:col-span-1 row-span-2' },
-      { src: squadEvent1, alt: 'Coding Arena', title: 'Mock Technical Interviews', span: 'col-span-1 sm:col-span-1 md:col-span-1 row-span-1' },
-      { src: testimonialImg, alt: 'Placement Drive', title: '100% Placement Milestone', span: 'col-span-1 sm:col-span-2 md:col-span-2 row-span-1' },
-      { src: kiotTopView, alt: 'KIOT Hub', title: 'Department of CSE', span: 'col-span-1 sm:col-span-2 md:col-span-2 row-span-1' },
-    ]
-  },
-]
+    id: 4,
+    name: 'Synergy Squad 4.0',
+    members: [
+      "Member 1", "Member 2", "Member 3", "Member 4", "Member 5", "Member 6", "Member 7", "Member 8", "Member 9", "Member 10",
+      "Member 11", "Member 12", "Member 13", "Member 14", "Member 15", "Member 16", "Member 17", "Member 18", "Member 19", "Member 20",
+      "Member 21", "Member 22", "Member 23", "Member 24", "Member 25", "Member 26", "Member 27", "Member 28", "Member 29", "Member 30",
+      "Member 31", "Member 32", "Member 33", "Member 34", "Member 35", "Member 36", "Member 37", "Member 38", "Member 39", "Member 40"
+    ],
+    bento: {
+      totalCount: '4.0',
+      subtitle: 'the next generation of students carrying forward the vision of the squad',
+      statPercent: '04',
+      statDesc: 'the latest chapter continuing a journey built on people, purpose, and progress',
+      heroQuote: 'A new generation carrying the vision forward with ambition, creativity, and purpose',
+      ctaText: 'Explore Squad 4.0',
+      images: [BG, BG, BG, BG]
+    }
+  }
+];
 
 function Squad() {
-  const [activeBatchId, setActiveBatchId] = useState('1.0')
+  const [activeBatch, setActiveBatch] = useState(1);
+  const selectedBatchData = squadData.find(b => b.id === activeBatch);
 
-  const activeBatch = batchList.find(b => b.id === activeBatchId) || batchList[0]
-  const activeBatchIndex = batchList.findIndex(b => b.id === activeBatchId)
+  // Split members into two equal columns for a balanced, high-end list feel
+  const halfLength = Math.ceil(selectedBatchData.members.length / 2);
+  const leftColumn = selectedBatchData.members.slice(0, halfLength);
+  const rightColumn = selectedBatchData.members.slice(halfLength);
 
   return (
-    <div className='min-h-screen relative flex flex-col justify-between select-none bg-[#e6e6e6] text-black'>
-      <Navbar />
+    <div className='bg-[#e6e6e6] min-h-screen'>
+      <section className='relative isolate w-full min-h-screen overflow-hidden flex flex-col items-center justify-center px-6 md:px-12 py-24'>
+        <img src={BG} alt="Abstract Background" className='absolute inset-0 z-0 w-full h-full object-cover' />
+        <Navbar />
+        <div className='absolute inset-y-0 left-6 z-30 flex items-center md:left-12'>
+          <h1 className='max-w-7xl text-left text-4xl font-semibold leading-[0.92] tracking-tighter text-white md:text-5xl lg:text-6xl'>
+            Connected By Shared Ambition
+          </h1>
+        </div>
+        <div className='absolute bottom-16 left-6 md:left-12 z-10 grid grid-cols-3 gap-16 text-white max-w-7xl'>
+          <div className='grid grid-rows-2 grid-flow-col'>
+            <div>
+              <h1 className='text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tighter leading-tight'>4+</h1>
+            </div>
+            <div>
+              <p className='font-semibold text-sm md:text-md lg:text-lg tracking-tighter leading-tight'>Batches</p>
+            </div>
+          </div>
+          <div className='grid grid-rows-2 grid-flow-col'>
+            <div>
+              <h1 className='text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tighter leading-tight'>190+</h1>
+            </div>
+            <div>
+              <p className='font-semibold text-sm md:text-md lg:text-lg tracking-tighter leading-tight'>Members</p>
+            </div>
+          </div>
+          <div className='grid grid-rows-2 grid-flow-col'>
+            <div>
+              <h1 className='text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tighter leading-tight'>100+</h1>
+            </div>
+            <div>
+              <p className='font-semibold text-sm md:text-md lg:text-lg tracking-tighter leading-tight'>Placed in top MNCs</p>
+            </div>
+          </div>
+        </div>
+        <p className='absolute bottom-12 left-6 md:left-12 z-10 text-white max-w-4xl font-semibold text-sm md:text-md lg:text-lg tracking-tighter md:text-base leading-tight'>
+          A community built on learning, collaboration, and the ambition to grow beyond boundaries. Every milestone reflects the people, opportunities, and collective effort that continue to shape our journey.
+        </p>
+      </section>
 
-      <main className='relative z-10 py-16 px-8 w-full'>
-        {/* Main Header */}
-        <h1 className='font-semibold text-xl md:text-2xl lg:text-3xl tracking-tighter max-w-3xl leading-tight text-center mx-auto shrink-0 mb-10'>
-          Meet the People Behind the Ideas, Initiatives, and Energy That Drive Our Squad Forward
-        </h1>
-
-        {/* Sleek Batch Selector Pills */}
-        <div className='flex items-center justify-center gap-2 sm:gap-4 mb-16 overflow-x-auto py-2 no-scrollbar'>
-          {batchList.map((batch) => {
-            const isActive = batch.id === activeBatchId
-            return (
+      <section className='min-h-screen px-6 md:px-12 py-24'>
+        <div className='max-w-7xl mx-auto'>
+          {/* Minimalist Filter Tabs */}
+          <div className='flex flex-wrap items-center gap-3 mb-16'>
+            {squadData.map((batch) => (
               <button
                 key={batch.id}
-                onClick={() => setActiveBatchId(batch.id)}
-                className={`px-5 py-2.5 rounded-full font-semibold text-sm md:text-md lg:text-lg tracking-tighter transition-all duration-300 cursor-pointer whitespace-nowrap ${isActive
-                    ? 'bg-yellow-400 shadow-md scale-105'
-                    : 'bg-black/5 text-gray-800 hover:bg-black/10 hover:text-black'
-                  }`}
+                onClick={() => setActiveBatch(batch.id)}
+                className={`px-6 py-2 rounded-full font-semibold text-sm md:text-md lg:text-lg tracking-tighter transition-all duration-300 ${
+                  activeBatch === batch.id
+                    ? 'bg-[#10129B] text-white'
+                    : 'bg-white/60 text-gray-700 hover:bg-white hover:text-black border border-gray-300'
+                }`}
               >
-                {batch.title}
+                {batch.name}
               </button>
-            )
-          })}
-        </div>
-
-        {/* Active Batch Content */}
-        <div key={activeBatch.id} className='flex flex-col w-full transition-all duration-500'>
-          {/* Left Sticky Batch Title & Right 40 Student Names */}
-          <div className='flex flex-col md:flex-row justify-between items-start gap-12 lg:gap-24 w-full relative'>
-            {/* Extreme Left Section */}
-            <div className='md:w-1/3 shrink-0 text-left sticky top-28 self-start'>
-              <h2 className='font-semibold text-xl md:text-2xl lg:text-3xl tracking-tighter text-black'>
-                {activeBatch.title}
-              </h2>
-              <p className='font-semibold text-sm md:text-md lg:text-lg text-gray-700 leading-tighter tracking-tighter max-w-sm mt-3'>
-                {activeBatch.members.length} Merit-based student members trained in advanced DSA, competitive programming, and engineering fundamentals.
-              </p>
-            </div>
-
-            {/* Extreme Right Section: 40 Student Names */}
-            <div className='md:w-2/3 w-full flex justify-end'>
-              <ul className='grid grid-cols-1 sm:grid-cols-2 gap-x-12 lg:gap-x-16 gap-y-3 font-medium tracking-tight text-sm md:text-md lg:text-lg w-full max-w-3xl'>
-                {activeBatch.members.map((name, index) => (
-                  <li
-                    key={index}
-                    className='py-2 px-3 rounded-md hover:bg-gray-100 transition-colors flex items-center border-b border-gray-100 whitespace-nowrap'
-                  >
-                    <span className='font-semibold text-gray-900 tracking-tight whitespace-nowrap shrink-0'>{name}</span>
-                    <span className='text-xs font-semibold text-yellow-400 tracking-tighter shrink-0 ml-4'>
-                      {String(index + 1).padStart(2, '0')}
-                    </span>
-                  </li>
-                ))}
-              </ul>
-            </div>
+            ))}
           </div>
 
-          {/* Batch Photo Gallery */}
-          <div className='mt-24 pt-12 w-full'>
-            <div className='flex flex-col md:flex-row justify-between items-start md:items-end mb-8 gap-4'>
-              <div>
-                <h3 className='font-semibold text-xl md:text-2xl lg:text-3xl tracking-tighter text-black'>
-                  {activeBatch.galleryTitle}
-                </h3>
+          {/* Section Header */}
+          <div className='pt-8 pb-12 flex flex-col md:flex-row md:items-baseline justify-between gap-4'>
+            <h3 className='text-3xl md:text-4xl lg:text-5xl font-semibold tracking-tighter text-black'>
+              {selectedBatchData.name}
+            </h3>
+            <span className='font-mono text-sm tracking-tight text-gray-500 font-semibold'>
+              [ {selectedBatchData.members.length} MEMBERS ]
+            </span>
+          </div>
+          
+          {/* Dual-Column Minimal List */}
+          <div className='grid grid-cols-1 md:grid-cols-2 gap-x-16 border-t border-gray-300'>
+            
+            {/* Column 1 */}
+            <ul className='divide-y divide-gray-300'>
+              {leftColumn.map((member, index) => {
+                const globalIndex = index;
+                return (
+                  <li 
+                    key={globalIndex}
+                    className='group flex items-center justify-between py-4 transition-all duration-300 cursor-default'
+                  >
+                    <div className='flex items-center gap-6 transform group-hover:translate-x-2 transition-transform duration-300'>
+                      <span className='font-mono text-xs md:text-sm text-gray-400 group-hover:text-black font-semibold transition-colors'>
+                        {(globalIndex + 1).toString().padStart(2, '0')}
+                      </span>
+                      <span className='text-base font-semibold text-sm md:text-md lg:text-lg tracking-tighter text-gray-800 group-hover:text-black transition-colors'>
+                        {member}
+                      </span>
+                    </div>
+                    {/* Minimal Hover Indicator Dot */}
+                    <span className='w-1.5 h-1.5 rounded-full bg-black opacity-0 group-hover:opacity-100 transition-opacity duration-300' />
+                  </li>
+                )
+              })}
+            </ul>
+
+            {/* Column 2 */}
+            <ul className='divide-y divide-gray-300 border-t md:border-t-0 border-gray-300'>
+              {rightColumn.map((member, index) => {
+                const globalIndex = halfLength + index;
+                return (
+                  <li 
+                    key={globalIndex}
+                    className='group flex items-center justify-between py-4 transition-all duration-300 cursor-default'
+                  >
+                    <div className='flex items-center gap-6 transform group-hover:translate-x-2 transition-transform duration-300'>
+                      <span className='font-mono text-xs md:text-sm text-gray-400 group-hover:text-black font-semibold transition-colors'>
+                        {(globalIndex + 1).toString().padStart(2, '0')}
+                      </span>
+                      <span className='text-base md:text-lg font-semibold tracking-tighter text-gray-800 group-hover:text-black transition-colors'>
+                        {member}
+                      </span>
+                    </div>
+                    {/* Minimal Hover Indicator Dot */}
+                    <span className='w-1.5 h-1.5 rounded-full bg-black opacity-0 group-hover:opacity-100 transition-opacity duration-300' />
+                  </li>
+                )
+              })}
+            </ul>
+
+          </div>
+
+          {/* Reference-Styled Bento Grid Section */}
+          <div className='mt-24'>
+            
+            {/* Top Grid: Counter Header + Wide Hero Image */}
+            <div className='grid grid-cols-1 lg:grid-cols-12 gap-6 mb-6 items-stretch'>
+              
+              {/* Header Card with massive counter text */}
+              <div className='lg:col-span-5 flex flex-col justify-center py-6 pr-4'>
+                <span className='text-xs font-semibold text-gray-400 tracking-wider mb-2 uppercase block'>
+                  synergy
+                </span>
+                <h2 className='text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tighter mb-3'>
+                  {selectedBatchData.bento.totalCount}
+                </h2>
+                <p className='text-gray-500 font-medium text-sm md:text-base tracking-tight max-w-xs'>
+                  {selectedBatchData.bento.subtitle}
+                </p>
               </div>
-              <p className='font-semibold text-sm md:text-md lg:text-lg text-gray-700 max-w-md tracking-tighter'>
-                Visual highlights and event moments from {activeBatch.title}.
-              </p>
+
+              {/* Wide Header Image */}
+              <div className='lg:col-span-7 relative h-[260px] md:h-[320px] rounded-[32px] overflow-hidden group bg-gray-300'>
+                <img 
+                  src={selectedBatchData.bento.images[0]} 
+                  alt="Squad Hero" 
+                  className='w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700'
+                />
+              </div>
+
             </div>
 
-            <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 md:gap-3 auto-rows-[220px] w-full'>
-              {activeBatch.images.map((img, idx) => (
-                <div
-                  key={idx}
-                  className={`group relative overflow-hidden rounded-xl border border-gray-200 bg-gray-900 shadow-sm cursor-pointer ${img.span}`}
-                >
-                  <img
-                    src={img.src}
-                    alt={img.alt}
-                    className='w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out'
+            {/* Main Asymmetric Bento Gallery */}
+            <div className='grid grid-cols-1 md:grid-cols-12 gap-6'>
+              
+              {/* Left Column: Tall Vertical Instagram Card */}
+              <div className='md:col-span-4 relative min-h-[500px] md:min-h-[640px] rounded-[32px] overflow-hidden group bg-gray-900'>
+                <img 
+                  src={selectedBatchData.bento.images[1]} 
+                  alt="Pool culture" 
+                  className='w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700 opacity-90'
+                />
+              </div>
+
+              {/* Center Column */}
+              <div className='md:col-span-4 flex flex-col justify-between gap-6'>
+                {/* Mid Image with Overlay Quote */}
+                <div className='relative h-[380px] rounded-[32px] overflow-hidden group bg-gray-800'>
+                  <img 
+                    src={selectedBatchData.bento.images[2]} 
+                    alt="Culture" 
+                    className='w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700 brightness-90'
                   />
-                  <div className='absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-5'>
-                    <h4 className='text-white font-semibold text-sm md:text-md lg:text-lg tracking-tighter'>{img.title}</h4>
+                  <div className='absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent' />
+                  <div className='absolute bottom-6 left-6 right-6 text-white'>
+                    <h4 className='text-xl md:text-2xl font-semibold tracking-tight leading-tight'>
+                      {selectedBatchData.bento.heroQuote}
+                    </h4>
                   </div>
                 </div>
-              ))}
+
+                {/* Lower Preview Card */}
+                <div className='h-[236px] rounded-[32px] overflow-hidden bg-gray-300 relative group'>
+                  <img 
+                    src={selectedBatchData.bento.images[3]} 
+                    alt="Team work" 
+                    className='w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700'
+                  />
+                </div>
+              </div>
+
+              {/* Right Column */}
+              <div className='md:col-span-4 flex flex-col justify-between gap-6'>
+                
+                {/* 99% Stat Card */}
+                <div className='bg-[#dcdcdc] rounded-[32px] p-8 flex flex-col justify-between h-[280px]'>
+                  <div>
+                    <h3 className='text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tighter'>
+                      {selectedBatchData.bento.statPercent}
+                    </h3>
+                  </div>
+                  <p className='text-gray-600 font-medium text-sm md:text-base leading-snug tracking-tight max-w-[200px]'>
+                    {selectedBatchData.bento.statDesc}
+                  </p>
+                </div>
+
+                {/* Dark Join CTA Box */}
+                <div className='bg-[#111111] text-white rounded-[32px] p-8 flex flex-col justify-between h-[180px] relative group cursor-pointer overflow-hidden'>
+                  <span className='text-xs font-semibold text-gray-400 tracking-wider uppercase'>
+                    {selectedBatchData.bento.ctaText}
+                  </span>
+                  
+                  {/* Arrow Graphic Icon */}
+                  <div className='absolute bottom-4 right-4 text-[#dedede] transform group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-300'>
+                    <svg className='w-20 h-20 md:w-24 md:h-24' fill='currentColor' viewBox='0 0 24 24'>
+                      <path d='M5 19L19 5M19 5H9M19 5V15' stroke='currentColor' strokeWidth='2' strokeLinecap='round' strokeLinejoin='round'/>
+                    </svg>
+                  </div>
+                </div>
+
+                {/* Bottom Image Tile */}
+                <div className='h-[156px] rounded-[32px] overflow-hidden bg-gray-400 relative group'>
+                  <img 
+                    src={selectedBatchData.bento.images[0]} 
+                    alt="Synergy event" 
+                    className='w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700'
+                  />
+                </div>
+
+              </div>
+
             </div>
           </div>
 
-          {/* Batch Navigation Footer */}
-          <div className='mt-16 pt-8 flex items-center justify-between border-t border-gray-100'>
-            {activeBatchIndex > 0 ? (
-              <button
-                type='button'
-                onClick={() => {
-                  setActiveBatchId(batchList[activeBatchIndex - 1].id)
-                  window.scrollTo({ top: 120, behavior: 'smooth' })
-                }}
-                className='group relative inline-block cursor-pointer font-bold text-sm md:text-md lg:text-lg tracking-tighter text-black py-1'
-              >
-                <span>{batchList[activeBatchIndex - 1].title}</span>
-                <span className='absolute bottom-0 left-0 w-full h-0.5 bg-yellow-400 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left ease-out' />
-              </button>
-            ) : <div />}
-
-            {activeBatchIndex < batchList.length - 1 ? (
-              <button
-                type='button'
-                onClick={() => {
-                  setActiveBatchId(batchList[activeBatchIndex + 1].id)
-                  window.scrollTo({ top: 120, behavior: 'smooth' })
-                }}
-                className='group relative inline-block cursor-pointer font-bold text-sm md:text-md lg:text-lg tracking-tighter text-black py-1'
-              >
-                <span>{batchList[activeBatchIndex + 1].title}</span>
-                <span className='absolute bottom-0 left-0 w-full h-0.5 bg-yellow-400 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left ease-out' />
-              </button>
-            ) : <div />}
-          </div>
         </div>
-      </main>
-
-      <FinalCTA />
+      </section>
     </div>
   )
-}
+} 
 
 export default Squad

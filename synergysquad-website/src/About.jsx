@@ -14,6 +14,7 @@ import mrCooperLogo from './assets/Mr-Cooper-image.webp'
 import techMahindraLogo from './assets/tech-mahendra.jpg'
 import mindtreeLogo from './assets/MInd tree.jpg'
 import tcsLogo from './assets/TCS-Logo.png'
+import HODSirImage from './assets/HODSir.webp'
 
 function About() {
     return (
@@ -59,17 +60,17 @@ function About() {
         </h1>
         <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16'>
           <div>
-            <h2 className='text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tighter leading-tight'>120+</h2>
+            <h2 className='text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tighter leading-tight'>190+</h2>
             <p className='font-semibold text-sm md:text-md lg:text-lg tracking-tighter leading-tight border-b border-gray-300 mb-4 pb-1'>Members</p>
             <p className='font-semibold text-sm md:text-md lg:text-lg tracking-tighter max-w-sm text-gray-700 leading-tight'>Active student members trained in advanced computing and problem solving across CSE batches.</p>
           </div>
           <div>
-            <h2 className='text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tighter leading-tight'>3+</h2>
+            <h2 className='text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tighter leading-tight'>4+</h2>
             <p className='font-semibold text-sm md:text-md lg:text-lg tracking-tighter leading-tight border-b border-gray-300 mb-4 pb-1'>Batches</p>
             <p className='font-semibold text-sm md:text-md lg:text-lg tracking-tighter max-w-sm text-gray-700 leading-tight'>Across these 3 batches, we have conducted various events and competitions to enhance student skills.</p>
           </div>
           <div>
-            <h2 className='text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tighter leading-tight'>10+</h2>
+            <h2 className='text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tighter leading-tight'>3+</h2>
             <p className='font-semibold text-sm md:text-md lg:text-lg tracking-tighter leading-tight border-b border-gray-300 mb-4 pb-1'>Events</p>
             <p className='font-semibold text-sm md:text-md lg:text-lg tracking-tighter max-w-sm text-gray-700 leading-tight'>Technical workshops, coding hackathons, and company-specific mock challenges conducted annually.</p>
           </div>
@@ -82,52 +83,76 @@ function About() {
       </div>
             </section>
 
-            <section className='relative min-h-screen overflow-hidden bg-[#000410]'>
+            <section className='relative md:min-h-screen overflow-hidden bg-[#000410]'>
+                {/* Master Vertical Line */}
                 <div aria-hidden='true' className='hidden md:block pointer-events-none absolute inset-0 z-0 text-white/20'>
                     <span className='absolute inset-y-0 left-1/2 w-px -translate-x-1/2 bg-current' />
-                    <span className='absolute left-0 top-[25.5rem] h-px w-1/2 bg-current' />
-                    <span className='absolute right-0 top-[17.5rem] h-px w-1/2 bg-current' />
                 </div>
 
-                <div className='relative z-10 flex flex-col justify-center min-h-screen md:min-h-0 md:grid md:grid-cols-2 items-start md:items-start pt-0 md:pt-50 gap-10 md:gap-0 px-8 md:px-0 max-w-sm mx-auto md:max-w-none'>
+                {/* Authority 1 */}
+                <div className='relative z-10 flex flex-col justify-center pt-16 md:pt-32 pb-8 md:pb-16 md:grid md:grid-cols-2 items-start md:items-start gap-10 md:gap-0 px-8 md:px-0 max-w-sm mx-auto md:max-w-none'>
+                    <div aria-hidden='true' className='hidden md:block pointer-events-none absolute inset-0 z-0 text-white/20'>
+                        <span className='absolute left-0 top-[8rem] mt-[13.25rem] h-px w-1/2 bg-current' />
+                        <span className='absolute right-0 top-[8rem] mt-24 h-px w-1/2 bg-current' />
+                    </div>
+                    <img
+                        src={HODSirImage}
+                        alt='Mr. K. Praveen'
+                        className='relative z-10 h-48 md:h-[12.5rem] md:justify-self-end md:mr-3'
+                    />
+                    <div className='relative z-10 md:mt-24 md:pt-3 w-full md:max-w-[363px] md:translate-x-3'>
+                        <p className='text-white text-sm md:text-md lg:text-lg tracking-tighter leading-tight font-semibold text-left'>"I never wanted this club to be just another organization on campus. I envisioned a community where students could bring their ideas to life, discover what they are capable of, and grow alongside people who share the same curiosity and ambition. What started as a simple idea has become a journey shaped by every student who chose to be a part of it."</p>
+                        <div className='mt-8 text-left'>
+                            <h1 className='text-white font-semibold text-md md:text-lg lg:text-xl tracking-tighter'>Mr. T. Karthikeyan</h1>
+                            <p className='text-white font-semibold text-xs md:text-sm lg:text-md tracking-tighter'>Head Of the Deprtment - CSE</p>
+                        </div>
+                    </div>
+                </div>
+
+                {/* Authority 2 */}
+                <div className='relative z-10 flex flex-col justify-center pt-8 md:pt-16 pb-16 md:pb-32 md:grid md:grid-cols-2 items-start md:items-start gap-10 md:gap-0 px-8 md:px-0 max-w-sm mx-auto md:max-w-none'>
+                    <div aria-hidden='true' className='hidden md:block pointer-events-none absolute inset-0 z-0 text-white/20'>
+                        <span className='absolute left-0 top-[4rem] mt-24 h-px w-1/2 bg-current' />
+                        <span className='absolute right-0 top-[4rem] mt-[13.25rem] h-px w-1/2 bg-current' />
+                    </div>
                     <img
                         src={PreveenSirImage}
-                        alt='Mr. K. Praveen'
-                        className='h-48 md:h-50 md:justify-self-end md:mr-2'
+                        alt='Second Authority'
+                        className='relative z-10 h-48 md:h-[12.5rem] md:justify-self-start md:ml-3 md:order-last'
                     />
-                    <div className='md:mt-24 w-full md:max-w-[363px] md:translate-x-3'>
-                    <p className='text-white text-sm md:text-md lg:text-lg tracking-tighter leading-tight font-semibold text-left'>"I never wanted this club to be just another organization on campus. I envisioned a community where students could bring their ideas to life, discover what they are capable of, and grow alongside people who share the same curiosity and ambition. What started as a simple idea has become a journey shaped by every student who chose to be a part of it."</p>
-                    <div className='mt-8 text-left'>
-                        <h1 className='text-white font-semibold text-md md:text-lg lg:text-xl tracking-tighter'>Mr. K. Praveen</h1>
-                        <p className='text-white font-semibold text-xs md:text-sm lg:text-md tracking-tighter'>Founder of Synergy Squad</p>
-                    </div>
+                    <div className='relative z-10 md:mt-24 md:pt-3 w-full md:max-w-[363px] md:justify-self-end md:-translate-x-3'>
+                        <p className='text-white text-sm md:text-md lg:text-lg tracking-tighter leading-tight font-semibold text-left'>"I never wanted this club to be just another organization on campus. I envisioned a community where students could bring their ideas to life, discover what they are capable of, and grow alongside people who share the same curiosity and ambition. What started as a simple idea has become a journey shaped by every student who chose to be a part of it."</p>
+                        <div className='mt-8 text-left md:text-right'>
+                            <h1 className='text-white font-semibold text-md md:text-lg lg:text-xl tracking-tighter'>Mr. K. Praveen</h1>
+                            <p className='text-white font-semibold text-xs md:text-sm lg:text-md tracking-tighter'>Head of Synergy Squad</p>
+                        </div>
                     </div>
                 </div>
             </section>
 
             <section className='relative min-h-screen bg-black p-1'>
-                <div className='grid h-[calc(100vh-0.5rem)] grid-cols-1 grid-rows-6 gap-1 md:grid-cols-12'>
-                    <figure className="group relative overflow-hidden bg-[#111827] after:absolute after:inset-0 after:z-10 after:bg-black/70 after:content-[''] md:col-start-1 md:row-start-1 md:col-span-7 md:row-span-4">
+                <div className='grid h-[100vh] md:h-[calc(100vh-0.5rem)] grid-cols-1 grid-rows-1 md:grid-rows-6 gap-1 md:grid-cols-12'>
+                    <figure className="group relative overflow-hidden bg-[#111827] after:absolute after:inset-0 after:z-10 after:bg-black/70 after:content-[''] col-start-1 row-start-1 col-span-1 row-span-1 md:col-start-1 md:row-start-1 md:col-span-7 md:row-span-4">
                         <img src={SquadEventOne} alt='Synergy Squad members at an event' className='h-full w-full object-cover transition duration-700 group-hover:scale-105' />
                     </figure>
 
-                    <figure className="group relative overflow-hidden bg-[#111827] after:absolute after:inset-0 after:z-10 after:bg-black/70 after:content-[''] md:col-start-8 md:row-start-1 md:col-span-5 md:row-span-2">
+                    <figure className="hidden md:block group relative overflow-hidden bg-[#111827] after:absolute after:inset-0 after:z-10 after:bg-black/70 after:content-[''] md:col-start-8 md:row-start-1 md:col-span-5 md:row-span-2">
                         <img src={SSOneBanner} alt='Synergy Squad 1.0 event banner' className='h-full w-full object-cover transition duration-700 group-hover:scale-105' />
                     </figure>
 
-                    <figure className="group relative overflow-hidden bg-[#111827] after:absolute after:inset-0 after:z-10 after:bg-black/70 after:content-[''] md:col-start-8 md:row-start-3 md:col-span-5 md:row-span-2">
+                    <figure className="hidden md:block group relative overflow-hidden bg-[#111827] after:absolute after:inset-0 after:z-10 after:bg-black/70 after:content-[''] md:col-start-8 md:row-start-3 md:col-span-5 md:row-span-2">
                         <img src={SSTwoBanner} alt='Synergy Squad 2.0 event banner' className='h-full w-full object-cover transition duration-700 group-hover:scale-105' />
                     </figure>
 
-                    <figure className="group relative overflow-hidden bg-[#111827] after:absolute after:inset-0 after:z-10 after:bg-black/70 after:content-[''] md:col-start-1 md:row-start-5 md:col-span-4 md:row-span-2">
+                    <figure className="hidden md:block group relative overflow-hidden bg-[#111827] after:absolute after:inset-0 after:z-10 after:bg-black/70 after:content-[''] md:col-start-1 md:row-start-5 md:col-span-4 md:row-span-2">
                         <img src={SquadEventTwo} alt='Students participating in a Synergy Squad activity' className='h-full w-full object-cover transition duration-700 group-hover:scale-105' />
                     </figure>
 
-                    <figure className="group relative overflow-hidden bg-[#111827] after:absolute after:inset-0 after:z-10 after:bg-black/70 after:content-[''] md:col-start-5 md:row-start-5 md:col-span-3 md:row-span-2">
+                    <figure className="hidden md:block group relative overflow-hidden bg-[#111827] after:absolute after:inset-0 after:z-10 after:bg-black/70 after:content-[''] md:col-start-5 md:row-start-5 md:col-span-3 md:row-span-2">
                         <img src={SSThreeBanner} alt='Synergy Squad 3.0 event banner' className='h-full w-full object-cover transition duration-700 group-hover:scale-105' />
                     </figure>
 
-                    <figure className="group relative overflow-hidden bg-[#111827] after:absolute after:inset-0 after:z-10 after:bg-black/70 after:content-[''] md:col-start-8 md:row-start-5 md:col-span-5 md:row-span-2">
+                    <figure className="hidden md:block group relative overflow-hidden bg-[#111827] after:absolute after:inset-0 after:z-10 after:bg-black/70 after:content-[''] md:col-start-8 md:row-start-5 md:col-span-5 md:row-span-2">
                         <img src={SquadEventThree} alt='Synergy Squad students together' className='h-full w-full object-cover transition duration-700 group-hover:scale-105' />
                     </figure>
                 </div>

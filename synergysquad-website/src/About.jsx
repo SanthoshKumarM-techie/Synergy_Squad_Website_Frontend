@@ -18,13 +18,12 @@ import HODSirImage from './assets/HODSir.webp'
 
 function About() {
     return (
-        <div className='bg-[#e6e6e6]'>
-            <section className='relative isolate w-full min-h-screen overflow-hidden flex items-center justify-center px-6 md:px-12 py-24'>
-                <img src={BG} alt="Abstract Background" className='absolute inset-0 z-0 w-full h-full object-cover' />
+    <div className='bg-[#e6e6e6] min-h-screen relative'>
+        <Navbar />
+        <section className='relative isolate w-full min-h-screen overflow-hidden flex items-center justify-center px-6 md:px-12 py-24'>
+            <img src={BG} alt="Abstract Background" className='absolute inset-0 z-0 w-full h-full object-cover' />
 
-                <Navbar />
-
-                <div className='absolute inset-y-0 left-6 z-30 flex items-center md:left-12'>
+            <div className='absolute inset-y-0 left-6 z-30 flex items-center md:left-12'>
                     <h1 className='max-w-7xl text-left text-4xl font-semibold leading-[0.92] tracking-tighter text-white md:text-5xl lg:text-6xl'>
                         Collaboration Creates Greater Possibilities
                     </h1>

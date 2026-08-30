@@ -5,18 +5,18 @@ import collageTopView from './assets/KIOT-Top-View.webp'
 function Hero() {
   return (
     <div className='relative w-full h-screen overflow-hidden'>
+      {/* Top Navbar */}
+      <Navbar />
+
       {/* Background Image */}
       <img
         src={collageTopView}
         alt="Knowledge Institute of Technology Top View"
-        className='absolute inset-0 w-full h-full object-cover'
+        className='absolute inset-0 w-full h-full object-cover z-0'
       />
 
       {/* Dark Overlay */}
       <div className='absolute inset-0 bg-gradient-to-b from-black/75 via-black/45 to-black/85 z-10'>
-        {/* Top Navbar */}
-        <Navbar />
-
         {/* Main Uppercase Content - Centered in Y-axis */}
         <div className='absolute top-1/2 -translate-y-1/2 left-0 right-0 px-8 mx-auto flex justify-between w-full gap-8'>
           <div className='flex flex-col gap-0'>

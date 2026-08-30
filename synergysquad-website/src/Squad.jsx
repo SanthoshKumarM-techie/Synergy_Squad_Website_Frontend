@@ -7,10 +7,10 @@ const squadData = [
     id: 1,
     name: 'Synergy Squad 1.0',
     members: [
-      "Member 1", "Member 2", "Member 3", "Member 4", "Member 5", "Member 6", "Member 7", "Member 8", "Member 9", "Member 10",
-      "Member 11", "Member 12", "Member 13", "Member 14", "Member 15", "Member 16", "Member 17", "Member 18", "Member 19", "Member 20",
-      "Member 21", "Member 22", "Member 23", "Member 24", "Member 25", "Member 26", "Member 27", "Member 28", "Member 29", "Member 30",
-      "Member 31", "Member 32", "Member 33", "Member 34", "Member 35", "Member 36", "Member 37", "Member 38", "Member 39", "Member 40"
+      "AASHA S", "ABISHEK M", "ANUVARSHINI R", "ARUNDHATHI S", "BA.SUSHMITHA BALAGANG", "BARATHRAJ K", "Dhanush M", "Dharani M", "DILIP S", "Gayathri R",
+      "Harini S", "JEEVANANDHAN J", "JEEVIKA B", "Jeslin jacob", "KAMALAKANNAN NG", "KARTHIK S", "karthikeyan S", "Keerthana D", "NANDHINI K", "NAVEETH J",
+      "nithish kumar", "Ragunaath S", "s.meenachi s", "Sathish D", "SATHISKUMAR P", "SATHYARAM R", "selva ganapathi", "shabari S", "SHRIYAA S.V", "Sowantharya S",
+      "SUBASRI C", "Subikcha K.B", "Suhasini P", "swathi v", "THARANI k", "Vibav Mahendran", "VIJAY K R", "YUVARAJ R", "yuvasree M"
     ],
     bento: {
       totalCount: '1.0',
@@ -26,10 +26,10 @@ const squadData = [
     id: 2,
     name: 'Synergy Squad 2.0',
     members: [
-      "Member 1", "Member 2", "Member 3", "Member 4", "Member 5", "Member 6", "Member 7", "Member 8", "Member 9", "Member 10",
-      "Member 11", "Member 12", "Member 13", "Member 14", "Member 15", "Member 16", "Member 17", "Member 18", "Member 19", "Member 20",
-      "Member 21", "Member 22", "Member 23", "Member 24", "Member 25", "Member 26", "Member 27", "Member 28", "Member 29", "Member 30",
-      "Member 31", "Member 32", "Member 33", "Member 34", "Member 35", "Member 36", "Member 37", "Member 38", "Member 39", "Member 40"
+      "ANITHA S S", "ARUTSELVAN A", "BHARATHI S", "BHUVANESH S", "DEVASREE K P", "DHARSHINI S", "DHIVESH S", "DINESH V T", "GANESHA MOORTHY S", "GAYATHRI M",
+      "HARINI P", "INDHUPRAKASH P", "INDHUVADHANI Y", "JEEVANNA M", "JEYASEELAN RA", "KANISHKA N", "KARTHIGA S", "KARTHIKAA K", "KAVITHASHREE S", "KAVYA S",
+      "LAKSME THARANE V G", "MADHUMITHA K", "MOHANAVALLI M", "MOSHIKAA S", "MOSHIKAA S", "NAMITHA M", "NARMADHA V.S", "PAVITHRA M", "PRAMOTH R", "PRAVEEN P",
+      "RAMESH M", "SARAN P", "SATHYA SRI P V", "SIVAKUMAR R", "SNEHA S J", "SUBASREE G S", "SUBATHRA A", "THARUN N", "UMA J", "VIGNESHWARAN M", "VIGNESHWARAN M"
     ],
     bento: {
       totalCount: '2.0',
@@ -45,10 +45,10 @@ const squadData = [
     id: 3,
     name: 'Synergy Squad 3.0',
     members: [
-      "Member 1", "Member 2", "Member 3", "Member 4", "Member 5", "Member 6", "Member 7", "Member 8", "Member 9", "Member 10",
-      "Member 11", "Member 12", "Member 13", "Member 14", "Member 15", "Member 16", "Member 17", "Member 18", "Member 19", "Member 20",
-      "Member 21", "Member 22", "Member 23", "Member 24", "Member 25", "Member 26", "Member 27", "Member 28", "Member 29", "Member 30",
-      "Member 31", "Member 32", "Member 33", "Member 34", "Member 35", "Member 36", "Member 37", "Member 38", "Member 39", "Member 40"
+      "ARAVINTH KARTHIC K", "ASHOKA S K", "BADRI NARAYANAN B R", "DAMODARA PRAKASH P", "DEKSHA S", "DHANUSHIYA S", "DHINESHKUMAR M", "DHIYANESH SUNDAR", "DINESH G", "GIRI N",
+      "JANANI C", "MADHUSREE K", "MAHALAKSHMI S", "NAGA GAYATHRI P", "NARENDHAR P", "NATHAN SHIEH", "NAVEEN PRASATH M", "NISHANTH M", "PRADEEPA S", "PRANESH S",
+      "PRASANNAA V", "ROHITH S", "SANGEETHA A", "SANJAY S", "SANTHOSH J V", "SANTHOSH R", "SELVAGANESH U", "SHREESARAN K", "SOUNDARYA P", "SRINITHI E",
+      "SUBHARANJINI M", "SUBHASHREE V P", "SUDHAKAR S", "TEJAS T", "THAMARAI SELVAN S", "THARANKUMAR G", "VARSHASHREE S", "VEERASOWNDARYA V", "VIGNESH S", "VISHALINI S", "VISHWAKUMAR J"
     ],
     bento: {
       totalCount: '3.0',
@@ -83,6 +83,7 @@ const squadData = [
 
 function Squad() {
   const [activeBatch, setActiveBatch] = useState(1);
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const selectedBatchData = squadData.find(b => b.id === activeBatch);
 
   // Split members into two equal columns for a balanced, high-end list feel
@@ -91,59 +92,90 @@ function Squad() {
   const rightColumn = selectedBatchData.members.slice(halfLength);
 
   return (
-    <div className='bg-[#e6e6e6] min-h-screen'>
+    <div className='bg-[#e6e6e6] min-h-screen relative'>
+      <Navbar />
       <section className='relative isolate w-full min-h-screen overflow-hidden flex flex-col items-center justify-center px-6 md:px-12 py-24'>
         <img src={BG} alt="Abstract Background" className='absolute inset-0 z-0 w-full h-full object-cover' />
-        <Navbar />
         <div className='absolute inset-y-0 left-6 z-30 flex items-center md:left-12'>
           <h1 className='max-w-7xl text-left text-4xl font-semibold leading-[0.92] tracking-tighter text-white md:text-5xl lg:text-6xl'>
             Connected By Shared Ambition
           </h1>
         </div>
-        <div className='absolute bottom-16 left-6 md:left-12 z-10 grid grid-cols-3 gap-16 text-white max-w-7xl'>
-          <div className='grid grid-rows-2 grid-flow-col'>
+        <div className='absolute bottom-[140px] sm:bottom-32 md:bottom-16 left-6 right-6 md:right-auto md:left-12 z-10 grid grid-cols-3 gap-2 sm:gap-6 md:gap-16 text-white max-w-7xl'>
+          <div className='flex flex-col md:grid md:grid-rows-2 md:grid-flow-col gap-0'>
             <div>
-              <h1 className='text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tighter leading-tight'>4+</h1>
+              <h1 className='text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tighter leading-tight'>4+</h1>
             </div>
             <div>
-              <p className='font-semibold text-sm md:text-md lg:text-lg tracking-tighter leading-tight'>Batches</p>
-            </div>
-          </div>
-          <div className='grid grid-rows-2 grid-flow-col'>
-            <div>
-              <h1 className='text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tighter leading-tight'>190+</h1>
-            </div>
-            <div>
-              <p className='font-semibold text-sm md:text-md lg:text-lg tracking-tighter leading-tight'>Members</p>
+              <p className='font-semibold text-[11px] sm:text-sm md:text-base lg:text-lg tracking-tighter leading-tight'>Batches</p>
             </div>
           </div>
-          <div className='grid grid-rows-2 grid-flow-col'>
+          <div className='flex flex-col md:grid md:grid-rows-2 md:grid-flow-col gap-0'>
             <div>
-              <h1 className='text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tighter leading-tight'>100+</h1>
+              <h1 className='text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tighter leading-tight'>190+</h1>
             </div>
             <div>
-              <p className='font-semibold text-sm md:text-md lg:text-lg tracking-tighter leading-tight'>Placed in top MNCs</p>
+              <p className='font-semibold text-[11px] sm:text-sm md:text-base lg:text-lg tracking-tighter leading-tight'>Members</p>
+            </div>
+          </div>
+          <div className='flex flex-col md:grid md:grid-rows-2 md:grid-flow-col gap-0'>
+            <div>
+              <h1 className='text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tighter leading-tight'>100+</h1>
+            </div>
+            <div>
+              <p className='font-semibold text-[11px] sm:text-sm md:text-base lg:text-lg tracking-tighter leading-tight'>Placed in top MNCs</p>
             </div>
           </div>
         </div>
-        <p className='absolute bottom-12 left-6 md:left-12 z-10 text-white max-w-4xl font-semibold text-sm md:text-md lg:text-lg tracking-tighter md:text-base leading-tight'>
+        <p className='absolute bottom-8 sm:bottom-10 md:bottom-12 left-6 right-6 md:right-auto md:left-12 z-10 text-white max-w-4xl font-semibold text-xs sm:text-sm md:text-base lg:text-lg tracking-tighter leading-tight'>
           A community built on learning, collaboration, and the ambition to grow beyond boundaries. Every milestone reflects the people, opportunities, and collective effort that continue to shape our journey.
         </p>
       </section>
 
       <section className='min-h-screen px-6 md:px-12 py-24'>
         <div className='max-w-7xl mx-auto'>
-          {/* Minimalist Filter Tabs */}
-          <div className='flex flex-wrap items-center gap-3 mb-16'>
+          {/* Mobile Dropdown Filter */}
+          <div className='md:hidden mb-12 relative'>
+            <button
+              onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+              className="w-full px-5 py-3 bg-white/60 border border-gray-300 rounded-full font-semibold text-sm text-gray-800 tracking-tighter flex items-center justify-between focus:outline-none focus:border-[#10129B]"
+            >
+              <span>{squadData.find(b => b.id === activeBatch)?.name}</span>
+              <svg className={`w-4 h-4 transform transition-transform duration-200 ${isDropdownOpen ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+            
+            {isDropdownOpen && (
+              <div className="absolute top-full left-0 right-0 mt-2 bg-[#f0f0f0] border border-gray-300 rounded-2xl shadow-xl z-50 overflow-hidden flex flex-col">
+                {squadData.map((batch) => (
+                  <button
+                    key={batch.id}
+                    onClick={() => {
+                      setActiveBatch(batch.id);
+                      setIsDropdownOpen(false);
+                    }}
+                    className={`w-full px-5 py-3 text-left font-semibold text-sm tracking-tighter transition-colors ${
+                      activeBatch === batch.id ? 'bg-[#10129B] text-white' : 'text-gray-800 hover:bg-white'
+                    }`}
+                  >
+                    {batch.name}
+                  </button>
+                ))}
+              </div>
+            )}
+          </div>
+
+          {/* Desktop Minimalist Filter Tabs */}
+          <div className='hidden md:flex flex-wrap items-center gap-4 mb-16'>
             {squadData.map((batch) => (
               <button
                 key={batch.id}
                 onClick={() => setActiveBatch(batch.id)}
-                className={`px-6 py-2 rounded-full font-semibold text-sm md:text-md lg:text-lg tracking-tighter transition-all duration-300 ${
-                  activeBatch === batch.id
+                className={`px-6 py-2 rounded-full font-semibold md:text-base lg:text-lg tracking-tighter transition-all duration-300 ${activeBatch === batch.id
                     ? 'bg-[#10129B] text-white'
                     : 'bg-white/60 text-gray-700 hover:bg-white hover:text-black border border-gray-300'
-                }`}
+                  }`}
               >
                 {batch.name}
               </button>
@@ -159,16 +191,16 @@ function Squad() {
               [ {selectedBatchData.members.length} MEMBERS ]
             </span>
           </div>
-          
+
           {/* Dual-Column Minimal List */}
           <div className='grid grid-cols-1 md:grid-cols-2 gap-x-16 border-t border-gray-300'>
-            
+
             {/* Column 1 */}
             <ul className='divide-y divide-gray-300'>
               {leftColumn.map((member, index) => {
                 const globalIndex = index;
                 return (
-                  <li 
+                  <li
                     key={globalIndex}
                     className='group flex items-center justify-between py-4 transition-all duration-300 cursor-default'
                   >
@@ -176,7 +208,7 @@ function Squad() {
                       <span className='font-mono text-xs md:text-sm text-gray-400 group-hover:text-black font-semibold transition-colors'>
                         {(globalIndex + 1).toString().padStart(2, '0')}
                       </span>
-                      <span className='text-base font-semibold text-sm md:text-md lg:text-lg tracking-tighter text-gray-800 group-hover:text-black transition-colors'>
+                      <span className='text-base font-semibold text-sm md:text-md lg:text-lg tracking-tighter text-gray-800 group-hover:text-black transition-colors uppercase'>
                         {member}
                       </span>
                     </div>
@@ -192,7 +224,7 @@ function Squad() {
               {rightColumn.map((member, index) => {
                 const globalIndex = halfLength + index;
                 return (
-                  <li 
+                  <li
                     key={globalIndex}
                     className='group flex items-center justify-between py-4 transition-all duration-300 cursor-default'
                   >
@@ -200,7 +232,7 @@ function Squad() {
                       <span className='font-mono text-xs md:text-sm text-gray-400 group-hover:text-black font-semibold transition-colors'>
                         {(globalIndex + 1).toString().padStart(2, '0')}
                       </span>
-                      <span className='text-base md:text-lg font-semibold tracking-tighter text-gray-800 group-hover:text-black transition-colors'>
+                      <span className='text-base md:text-lg font-semibold tracking-tighter text-gray-800 group-hover:text-black transition-colors uppercase'>
                         {member}
                       </span>
                     </div>
@@ -215,10 +247,10 @@ function Squad() {
 
           {/* Reference-Styled Bento Grid Section */}
           <div className='mt-24'>
-            
+
             {/* Top Grid: Counter Header + Wide Hero Image */}
             <div className='grid grid-cols-1 lg:grid-cols-12 gap-6 mb-6 items-stretch'>
-              
+
               {/* Header Card with massive counter text */}
               <div className='lg:col-span-5 flex flex-col justify-center py-6 pr-4'>
                 <span className='text-xs font-semibold text-gray-400 tracking-wider mb-2 uppercase block'>
@@ -234,9 +266,9 @@ function Squad() {
 
               {/* Wide Header Image */}
               <div className='lg:col-span-7 relative h-[260px] md:h-[320px] rounded-[32px] overflow-hidden group bg-gray-300'>
-                <img 
-                  src={selectedBatchData.bento.images[0]} 
-                  alt="Squad Hero" 
+                <img
+                  src={selectedBatchData.bento.images[0]}
+                  alt="Squad Hero"
                   className='w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700'
                 />
               </div>
@@ -245,12 +277,12 @@ function Squad() {
 
             {/* Main Asymmetric Bento Gallery */}
             <div className='grid grid-cols-1 md:grid-cols-12 gap-6'>
-              
+
               {/* Left Column: Tall Vertical Instagram Card */}
               <div className='md:col-span-4 relative min-h-[500px] md:min-h-[640px] rounded-[32px] overflow-hidden group bg-gray-900'>
-                <img 
-                  src={selectedBatchData.bento.images[1]} 
-                  alt="Pool culture" 
+                <img
+                  src={selectedBatchData.bento.images[1]}
+                  alt="Pool culture"
                   className='w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700 opacity-90'
                 />
               </div>
@@ -259,9 +291,9 @@ function Squad() {
               <div className='md:col-span-4 flex flex-col justify-between gap-6'>
                 {/* Mid Image with Overlay Quote */}
                 <div className='relative h-[380px] rounded-[32px] overflow-hidden group bg-gray-800'>
-                  <img 
-                    src={selectedBatchData.bento.images[2]} 
-                    alt="Culture" 
+                  <img
+                    src={selectedBatchData.bento.images[2]}
+                    alt="Culture"
                     className='w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700 brightness-90'
                   />
                   <div className='absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent' />
@@ -274,9 +306,9 @@ function Squad() {
 
                 {/* Lower Preview Card */}
                 <div className='h-[236px] rounded-[32px] overflow-hidden bg-gray-300 relative group'>
-                  <img 
-                    src={selectedBatchData.bento.images[3]} 
-                    alt="Team work" 
+                  <img
+                    src={selectedBatchData.bento.images[3]}
+                    alt="Team work"
                     className='w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700'
                   />
                 </div>
@@ -284,7 +316,7 @@ function Squad() {
 
               {/* Right Column */}
               <div className='md:col-span-4 flex flex-col justify-between gap-6'>
-                
+
                 {/* 99% Stat Card */}
                 <div className='bg-[#dcdcdc] rounded-[32px] p-8 flex flex-col justify-between h-[280px]'>
                   <div>
@@ -302,20 +334,20 @@ function Squad() {
                   <span className='text-xs font-semibold text-gray-400 tracking-wider uppercase'>
                     {selectedBatchData.bento.ctaText}
                   </span>
-                  
+
                   {/* Arrow Graphic Icon */}
                   <div className='absolute bottom-4 right-4 text-[#dedede] transform group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-300'>
                     <svg className='w-20 h-20 md:w-24 md:h-24' fill='currentColor' viewBox='0 0 24 24'>
-                      <path d='M5 19L19 5M19 5H9M19 5V15' stroke='currentColor' strokeWidth='2' strokeLinecap='round' strokeLinejoin='round'/>
+                      <path d='M5 19L19 5M19 5H9M19 5V15' stroke='currentColor' strokeWidth='2' strokeLinecap='round' strokeLinejoin='round' />
                     </svg>
                   </div>
                 </div>
 
                 {/* Bottom Image Tile */}
                 <div className='h-[156px] rounded-[32px] overflow-hidden bg-gray-400 relative group'>
-                  <img 
-                    src={selectedBatchData.bento.images[0]} 
-                    alt="Synergy event" 
+                  <img
+                    src={selectedBatchData.bento.images[0]}
+                    alt="Synergy event"
                     className='w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700'
                   />
                 </div>
@@ -329,6 +361,6 @@ function Squad() {
       </section>
     </div>
   )
-} 
+}
 
 export default Squad

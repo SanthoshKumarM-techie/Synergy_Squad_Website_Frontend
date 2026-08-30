@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import naveenImg from './assets/Naveen Adithya.png'
+import Santhosh1Img from './assets/Santhosh1.png'
 
 const testimonialsList = [
-    { id: 1, img: naveenImg, name: 'HI, I am Naveen Adhithya', text: '" Being part of the squad gave me opportunities to step outside my comfort zone, meet amazing people, and work on things I genuinely enjoyed. Every event and project taught me something new. "', alt: 'Naveen Adhithya' },
+    { id: 1, img: Santhosh1Img, name: 'HI, I am Santhosh', text: '"I was part of the first batch of Synergy Squad, and I joined without many expectations, knowing only the basics of coding. Synergy Squad taught me how to approach problems through analysis, implementation, and connecting them with real-time scenarios. The competitive environment and group-based recognition for higher scores boosted my confidence and motivated me to improve. It became the foundation of my coding skills and later played a vital role in helping me secure my job."', alt: 'Santhosh' },
     { id: 2, img: naveenImg, name: 'HI, I am Naveen Adhithya', text: '" Being part of the squad gave me opportunities to step outside my comfort zone, meet amazing people, and work on things I genuinely enjoyed. Every event and project taught me something new. "', alt: 'Student Testimonial 2' },
     { id: 3, img: naveenImg, name: 'HI, I am Naveen Adhithya', text: '" Being part of the squad gave me opportunities to step outside my comfort zone, meet amazing people, and work on things I genuinely enjoyed. Every event and project taught me something new. "', alt: 'Student Testimonial 3' },
     { id: 4, img: naveenImg, name: 'HI, I am Naveen Adhithya', text: '" Being part of the squad gave me opportunities to step outside my comfort zone, meet amazing people, and work on things I genuinely enjoyed. Every event and project taught me something new. "', alt: 'Student Testimonial 4' },
@@ -104,7 +105,7 @@ function Testimonials() {
                         {/* Text Container (Overlay at bottom on mobile, Right side on desktop) */}
                         <div className="flex flex-col w-full md:w-1/2 px-6 pb-8 pt-32 md:p-12 absolute bottom-0 md:relative md:bottom-auto order-1 md:order-2 z-10 text-left bg-gradient-to-t from-black via-black/80 to-transparent md:bg-none">
                             <h2 className="text-white text-2xl md:text-4xl font-semibold tracking-tighter mb-4">{testimonialsList[currentIndex].name}</h2>
-                            <p className="text-white/80 text-base md:text-xl md:leading-relaxed border-l-2 border-white/50 pl-4 md:pl-6 tracking-tighter font-semibold">{testimonialsList[currentIndex].text}</p>
+                            <p className="text-white/80 text-base md:text-md md:leading-relaxed border-l-2 border-white/50 pl-4 md:pl-6 tracking-tighter font-semibold">{testimonialsList[currentIndex].text}</p>
                         </div>
                     </div>
                 </div>

@@ -64,10 +64,16 @@ const squadData = [
     id: 4,
     name: 'Synergy Squad 4.0',
     members: [
-      "Member 1", "Member 2", "Member 3", "Member 4", "Member 5", "Member 6", "Member 7", "Member 8", "Member 9", "Member 10",
-      "Member 11", "Member 12", "Member 13", "Member 14", "Member 15", "Member 16", "Member 17", "Member 18", "Member 19", "Member 20",
-      "Member 21", "Member 22", "Member 23", "Member 24", "Member 25", "Member 26", "Member 27", "Member 28", "Member 29", "Member 30",
-      "Member 31", "Member 32", "Member 33", "Member 34", "Member 35", "Member 36", "Member 37", "Member 38", "Member 39", "Member 40"
+      "ABINAIYAA N", "ASHFAQ AHAMED J", "AVISHSHARAN S A", "BALASUBRAMANIYAM S", "BARATHKUMAR S",
+      "CHANDRU K", "DHAKSANA R", "DIVAGARAN G", "EMIMAAL K V", "IJAZ AHAMED A",
+      "JAGANATHAN V", "JAYAVIGNESH B K", "KANISHK N", "KATHIR S", "KAVYANJALI S",
+      "KOWSHICK R", "LAKSHANA G", "MAITHREYA N", "MAVETHA V T", "MOHAMED HASITH K",
+      "MONISHA D", "MOURISIKAA G K", "MUHAMMED SHUAIB N", "NAVEEN ADHITHYA S", "NIGLESH SUNDHAR K S",
+      "NITHISH KANNA R", "PRABHURAM B", "RABINAYA V", "RAGUL C", "RAMYA S",
+      "RAMYASRI M", "RATHIKASRI S K", "RENUGADEVI M", "RITHISH BARATH N", "SANDHIYA M",
+      "SANJEEVSURYA R", "SANTHOSHKUMAR M", "SARAVANAKUMAR J", "SATHYA M", "SONAL M B",
+      "SOWMYA S", "SWATHI M", "VASANTHARAJ G", "VISHAL P", "DEEKSHA R",
+      "SONUPRIYA B", "SUVETHA S"
     ],
     bento: {
       totalCount: '4.0',

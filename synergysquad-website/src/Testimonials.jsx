@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react'
-import testimonialImg from './assets/Testimonial.png'
+import naveenImg from './assets/Naveen Adithya.png'
 
 const testimonialsList = [
-    { id: 1, img: testimonialImg, alt: 'Student Testimonial 1' },
-    { id: 2, img: testimonialImg, alt: 'Student Testimonial 2' },
-    { id: 3, img: testimonialImg, alt: 'Student Testimonial 3' },
-    { id: 4, img: testimonialImg, alt: 'Student Testimonial 4' },
-    { id: 5, img: testimonialImg, alt: 'Student Testimonial 5' },
+    { id: 1, img: naveenImg, name: 'HI, I am Naveen Adhithya', text: '" Being part of the squad gave me opportunities to step outside my comfort zone, meet amazing people, and work on things I genuinely enjoyed. Every event and project taught me something new. "', alt: 'Naveen Adhithya' },
+    { id: 2, img: naveenImg, name: 'HI, I am Naveen Adhithya', text: '" Being part of the squad gave me opportunities to step outside my comfort zone, meet amazing people, and work on things I genuinely enjoyed. Every event and project taught me something new. "', alt: 'Student Testimonial 2' },
+    { id: 3, img: naveenImg, name: 'HI, I am Naveen Adhithya', text: '" Being part of the squad gave me opportunities to step outside my comfort zone, meet amazing people, and work on things I genuinely enjoyed. Every event and project taught me something new. "', alt: 'Student Testimonial 3' },
+    { id: 4, img: naveenImg, name: 'HI, I am Naveen Adhithya', text: '" Being part of the squad gave me opportunities to step outside my comfort zone, meet amazing people, and work on things I genuinely enjoyed. Every event and project taught me something new. "', alt: 'Student Testimonial 4' },
+    { id: 5, img: naveenImg, name: 'HI, I am Naveen Adhithya', text: '" Being part of the squad gave me opportunities to step outside my comfort zone, meet amazing people, and work on things I genuinely enjoyed. Every event and project taught me something new. "', alt: 'Student Testimonial 5' },
 ]
 
 const STORY_DURATION = 5000 // 5 seconds per status slide
@@ -90,13 +90,23 @@ function Testimonials() {
                     onTouchStart={() => setIsPaused(true)}
                     onTouchEnd={() => setIsPaused(false)}
                 >
-                    {/* Active Image - Keyed by Index for clean rendering without skipping */}
-                    <img
-                        key={currentIndex}
-                        src={testimonialsList[currentIndex].img}
-                        alt={testimonialsList[currentIndex].alt}
-                        className='w-full h-full object-contain rounded-lg transition-opacity duration-300'
-                    />
+                    {/* Content Container */}
+                    <div key={currentIndex} className="w-full h-full flex items-center justify-center transition-opacity duration-300 relative">
+                        {/* Image Container (Full screen on mobile, Left side on desktop) */}
+                        <div className="w-full h-full absolute inset-0 md:relative md:w-1/2 md:h-full md:order-1 flex items-end justify-center z-0 overflow-hidden">
+                            <img
+                                src={testimonialsList[currentIndex].img}
+                                alt={testimonialsList[currentIndex].alt}
+                                className="w-full h-full object-cover object-top md:object-contain md:object-center drop-shadow-2xl"
+                            />
+                        </div>
+
+                        {/* Text Container (Overlay at bottom on mobile, Right side on desktop) */}
+                        <div className="flex flex-col w-full md:w-1/2 px-6 pb-8 pt-32 md:p-12 absolute bottom-0 md:relative md:bottom-auto order-1 md:order-2 z-10 text-left bg-gradient-to-t from-black via-black/80 to-transparent md:bg-none">
+                            <h2 className="text-white text-2xl md:text-4xl font-semibold tracking-tighter mb-4">{testimonialsList[currentIndex].name}</h2>
+                            <p className="text-white/80 text-base md:text-xl md:leading-relaxed border-l-2 border-white/50 pl-4 md:pl-6 tracking-tighter font-semibold">{testimonialsList[currentIndex].text}</p>
+                        </div>
+                    </div>
                 </div>
 
                 {/* Minimal Width Progress Bars at Bottom */}

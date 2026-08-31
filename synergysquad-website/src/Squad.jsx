@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import Navbar from './Navbar'
 import BG from './assets/abstractBG.jpg'
+import FinalCTA from './FinalCTA';
 
 const squadData = [
   {
@@ -100,40 +101,40 @@ function Squad() {
   return (
     <div className='bg-[#e6e6e6] min-h-screen relative'>
       <Navbar />
-      <section className='relative isolate w-full min-h-screen overflow-hidden flex flex-col items-center justify-center px-6 md:px-12 py-24'>
+      <section className='relative isolate w-full min-h-screen overflow-hidden flex flex-col justify-center px-6 md:px-12 py-24 md:block'>
         <img src={BG} alt="Abstract Background" className='absolute inset-0 z-0 w-full h-full object-cover' />
-        <div className='absolute inset-y-0 left-6 z-30 flex items-center md:left-12'>
+        <div className='relative md:absolute md:inset-y-0 md:left-12 z-30 flex items-center mb-12 md:mb-0'>
           <h1 className='max-w-7xl text-left text-4xl font-semibold leading-[0.92] tracking-tighter text-white md:text-5xl lg:text-6xl'>
             Connected By Shared Ambition
           </h1>
         </div>
-        <div className='absolute bottom-[140px] sm:bottom-32 md:bottom-16 left-6 right-6 md:right-auto md:left-12 z-10 grid grid-cols-3 gap-2 sm:gap-6 md:gap-16 text-white max-w-7xl'>
+        <div className='relative md:absolute z-10 md:bottom-32 lg:bottom-28 md:left-12 grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-6 md:gap-16 text-white max-w-7xl mb-8 md:mb-0'>
           <div className='flex flex-col md:grid md:grid-rows-2 md:grid-flow-col gap-0'>
             <div>
-              <h1 className='text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tighter leading-tight'>4+</h1>
+              <h1 className='text-3xl md:text-5xl lg:text-6xl font-semibold tracking-tighter leading-tight'>4+</h1>
             </div>
             <div>
-              <p className='font-semibold text-[11px] sm:text-sm md:text-base lg:text-lg tracking-tighter leading-tight'>Batches</p>
+              <p className='font-semibold text-sm md:text-base lg:text-lg tracking-tighter leading-tight md:mt-2 lg:mt-3'>Batches</p>
             </div>
           </div>
           <div className='flex flex-col md:grid md:grid-rows-2 md:grid-flow-col gap-0'>
             <div>
-              <h1 className='text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tighter leading-tight'>190+</h1>
+              <h1 className='text-3xl md:text-5xl lg:text-6xl font-semibold tracking-tighter leading-tight'>190+</h1>
             </div>
             <div>
-              <p className='font-semibold text-[11px] sm:text-sm md:text-base lg:text-lg tracking-tighter leading-tight'>Members</p>
+              <p className='font-semibold text-sm md:text-base lg:text-lg tracking-tighter leading-tight md:mt-2 lg:mt-3'>Members</p>
             </div>
           </div>
           <div className='flex flex-col md:grid md:grid-rows-2 md:grid-flow-col gap-0'>
             <div>
-              <h1 className='text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tighter leading-tight'>100+</h1>
+              <h1 className='text-3xl md:text-5xl lg:text-6xl font-semibold tracking-tighter leading-tight'>100+</h1>
             </div>
             <div>
-              <p className='font-semibold text-[11px] sm:text-sm md:text-base lg:text-lg tracking-tighter leading-tight'>Placed in top MNCs</p>
+              <p className='font-semibold text-sm md:text-base lg:text-lg tracking-tighter leading-tight md:mt-2 lg:mt-3'>Placed in top MNCs</p>
             </div>
           </div>
         </div>
-        <p className='absolute bottom-8 sm:bottom-10 md:bottom-12 left-6 right-6 md:right-auto md:left-12 z-10 text-white max-w-4xl font-semibold text-xs sm:text-sm md:text-base lg:text-lg tracking-tighter leading-tight'>
+        <p className='relative md:absolute z-10 md:bottom-12 md:left-12 text-white max-w-4xl font-semibold text-sm md:text-base lg:text-lg tracking-tighter leading-tight'>
           A community built on learning, collaboration, and the ambition to grow beyond boundaries. Every milestone reflects the people, opportunities, and collective effort that continue to shape our journey.
         </p>
       </section>
@@ -190,10 +191,10 @@ function Squad() {
 
           {/* Section Header */}
           <div className='pt-8 pb-12 flex flex-col md:flex-row md:items-baseline justify-between gap-4'>
-            <h3 className='text-3xl md:text-4xl lg:text-5xl font-semibold tracking-tighter text-black'>
+            <h3 className='text-3xl md:text-4xl lg:text-5xl font-semibold tracking-tighter leading-tight text-black'>
               {selectedBatchData.name}
             </h3>
-            <span className='font-mono text-sm tracking-tight text-gray-500 font-semibold'>
+            <span className='font-mono text-sm tracking-tighter text-gray-500 font-semibold'>
               [ {selectedBatchData.members.length} MEMBERS ]
             </span>
           </div>
@@ -211,10 +212,10 @@ function Squad() {
                     className='group flex items-center justify-between py-4 transition-all duration-300 cursor-default'
                   >
                     <div className='flex items-center gap-6 transform group-hover:translate-x-2 transition-transform duration-300'>
-                      <span className='font-mono text-xs md:text-sm text-gray-400 group-hover:text-black font-semibold transition-colors'>
+                      <span className='font-mono text-xs md:text-sm text-gray-400 group-hover:text-black font-semibold tracking-tighter transition-colors'>
                         {(globalIndex + 1).toString().padStart(2, '0')}
                       </span>
-                      <span className='text-base font-semibold text-sm md:text-md lg:text-lg tracking-tighter text-gray-800 group-hover:text-black transition-colors uppercase'>
+                      <span className='font-semibold text-sm md:text-md lg:text-lg tracking-tighter text-gray-800 group-hover:text-black transition-colors uppercase'>
                         {member}
                       </span>
                     </div>
@@ -235,10 +236,10 @@ function Squad() {
                     className='group flex items-center justify-between py-4 transition-all duration-300 cursor-default'
                   >
                     <div className='flex items-center gap-6 transform group-hover:translate-x-2 transition-transform duration-300'>
-                      <span className='font-mono text-xs md:text-sm text-gray-400 group-hover:text-black font-semibold transition-colors'>
+                      <span className='font-mono text-xs md:text-sm text-gray-400 group-hover:text-black font-semibold tracking-tighter transition-colors'>
                         {(globalIndex + 1).toString().padStart(2, '0')}
                       </span>
-                      <span className='text-base md:text-lg font-semibold tracking-tighter text-gray-800 group-hover:text-black transition-colors uppercase'>
+                      <span className='font-semibold text-sm md:text-md lg:text-lg tracking-tighter text-gray-800 group-hover:text-black transition-colors uppercase'>
                         {member}
                       </span>
                     </div>
@@ -253,6 +254,7 @@ function Squad() {
 
         </div>
       </section>
+      <FinalCTA/>
     </div>
   )
 }

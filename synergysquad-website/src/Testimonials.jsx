@@ -116,9 +116,9 @@ function Testimonials() {
 
                             {/* Text Container (Overlay at bottom on mobile, Right side on desktop) */}
                             <div className="flex flex-col w-full md:w-1/2 px-6 pb-12 pt-32 md:p-12 absolute bottom-0 md:relative md:bottom-auto order-1 md:order-2 z-10 text-left bg-gradient-to-t from-black via-black/90 to-transparent md:bg-none pointer-events-none md:pointer-events-auto">
-                                <h2 className="text-white text-xl md:text-4xl font-semibold tracking-tighter mb-3 md:mb-4 drop-shadow-md">{testimonialsList[currentIndex].name}</h2>
+                                <h2 className="text-white text-xl md:text-2xl lg:text-3xl font-semibold tracking-tighter leading-tight mb-3 md:mb-4 drop-shadow-md">{testimonialsList[currentIndex].name}</h2>
                                 <div className="max-h-[35vh] md:max-h-none overflow-y-auto pointer-events-auto pr-2 pb-4 md:pb-0" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
-                                    <p className="text-white/80 text-xs sm:text-sm md:text-base md:leading-relaxed border-l-2 border-white/50 pl-4 md:pl-6 tracking-tighter font-semibold drop-shadow-md">
+                                    <p className="text-white/80 text-sm md:text-md lg:text-lg leading-tight border-l-2 border-white/50 pl-4 md:pl-6 tracking-tighter font-semibold drop-shadow-md">
                                         {testimonialsList[currentIndex].text}
                                     </p>
                                 </div>

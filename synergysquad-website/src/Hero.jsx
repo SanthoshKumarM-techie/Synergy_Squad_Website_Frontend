@@ -18,12 +18,12 @@ function Hero() {
       {/* Dark Overlay */}
       <div className='absolute inset-0 bg-gradient-to-b from-black/75 via-black/45 to-black/85 z-10'>
         {/* Main Uppercase Content - Centered in Y-axis */}
-        <div className='absolute top-1/2 -translate-y-1/2 left-0 right-0 px-8 mx-auto flex justify-between w-full gap-8'>
+        <div className='absolute top-1/2 -translate-y-1/2 left-0 right-0 px-8 mx-auto flex flex-col md:flex-row justify-between w-full gap-8 md:gap-8'>
           <div className='flex flex-col gap-0'>
-            <h1 className='text-2xl md:text-4xl lg:text-5xl font-semibold text-white tracking-tighter max-w-5xl uppercase leading-tighter'>
+            <h1 className='text-2xl md:text-4xl lg:text-5xl font-semibold text-white tracking-tighter max-w-5xl uppercase leading-tight'>
               Knowledge Institute of Technology
             </h1>
-            <h3 className='text-white font-semibold text-2xl md:text-4xl lg:text-5xl uppercase tracking-tighter leading-tighter'>
+            <h3 className='text-white font-semibold text-2xl md:text-4xl lg:text-5xl uppercase tracking-tighter leading-tight'>
               Department of Computer Science and Engineering
             </h3>
             <div className='flex gap-3 mt-1'>

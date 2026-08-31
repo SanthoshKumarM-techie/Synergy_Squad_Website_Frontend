@@ -26,16 +26,16 @@ function About() {
     return (
     <div className='bg-[#e6e6e6] min-h-screen relative'>
         <Navbar />
-        <section className='relative isolate w-full min-h-screen overflow-hidden flex items-center justify-center px-6 md:px-12 py-24'>
+        <section className='relative isolate w-full min-h-screen overflow-hidden flex flex-col justify-center px-6 md:px-12 py-24 md:block'>
             <img src={BG} alt="Abstract Background" className='absolute inset-0 z-0 w-full h-full object-cover' />
 
-            <div className='absolute inset-y-0 left-6 z-30 flex items-center md:left-12'>
+            <div className='relative md:absolute md:inset-y-0 md:left-12 z-30 flex items-center mb-12 md:mb-0'>
                     <h1 className='max-w-7xl text-left text-4xl font-semibold leading-[0.92] tracking-tighter text-white md:text-5xl lg:text-6xl'>
                         Collaboration Creates Greater Possibilities
                     </h1>
                 </div>
 
-                <div className='absolute z-30 bottom-8 left-6 md:bottom-12 md:left-12 grid grid-cols-1 md:grid-cols-2 gap-6 text-white max-w-full md:max-w-none pr-6 md:pr-12'>
+                <div className='relative md:absolute z-30 md:bottom-12 md:left-12 grid grid-cols-1 md:grid-cols-2 gap-6 text-white max-w-full md:max-w-none md:pr-12'>
                     <div className='flex flex-col max-w-lg'>
                         <h2 className='text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tighter leading-tight'>Vision</h2>
                         <p className='tracking-tighter text-sm md:text-md lg:text-lg leading-tight font-semibold'>To be the leading student-run coding club that empowers every student at the Knowledge Institute of Technology to excel in competitive programming and secure careers at top-tier technology companies.</p>
@@ -49,7 +49,7 @@ function About() {
 
             <section className='min-h-screen px-8 pt-16 pb-16'>
                 <div className='flex flex-col md:flex-row gap-8'>
-                    <h1 className='text-2xl md:text-2xl lg:text-3xl max-w-lg font-semibold tracking-tighter'>
+                    <h1 className='text-2xl lg:text-3xl max-w-lg font-semibold tracking-tighter leading-tight'>
                     The Spark That Set Our Journey in Motion
                     </h1>
                     <p className='w-full max-w-2xl font-semibold text-sm md:text-md lg:text-lg tracking-tighter leading-tight md:mr-32 text-gray-700'>Synergy Squad was forged from the Pre-Placement Readiness Initiative, designed to elevate the technical proficiency of our students. Our formation process is rigorous and merit-based: prospective members undergo a series of intensive Practice Assessments, including mock company-specific tests like the TCS CodeVita.
@@ -102,14 +102,14 @@ function About() {
                     </div>
                     <img
                         src={HODSirImage}
-                        alt='Mr. K. Praveen'
+                        alt='Mr. T. Karthikeyan'
                         className='relative z-10 h-48 md:h-[12.5rem] md:justify-self-end md:mr-3'
                     />
                     <div className='relative z-10 md:mt-24 md:pt-3 w-full md:max-w-[363px] md:translate-x-3'>
                         <p className='text-white text-sm md:text-md lg:text-lg tracking-tighter leading-tight font-semibold text-left'>"I never wanted this club to be just another organization on campus. I envisioned a community where students could bring their ideas to life, discover what they are capable of, and grow alongside people who share the same curiosity and ambition. What started as a simple idea has become a journey shaped by every student who chose to be a part of it."</p>
                         <div className='mt-8 text-left'>
                             <h1 className='text-white font-semibold text-md md:text-lg lg:text-xl tracking-tighter'>Mr. T. Karthikeyan</h1>
-                            <p className='text-white font-semibold text-xs md:text-sm lg:text-md tracking-tighter'>Head Of the Deprtment - CSE</p>
+                            <p className='text-white font-semibold text-xs md:text-sm lg:text-md tracking-tighter leading-tight'>Head of the Department - CSE</p>
                         </div>
                     </div>
                 </div>
@@ -122,14 +122,14 @@ function About() {
                     </div>
                     <img
                         src={PreveenSirImage}
-                        alt='Second Authority'
+                        alt='Mr. K. Praveen'
                         className='relative z-10 h-48 md:h-[12.5rem] md:justify-self-start md:ml-3 md:order-last'
                     />
                     <div className='relative z-10 md:mt-24 md:pt-3 w-full md:max-w-[363px] md:justify-self-end md:-translate-x-3'>
                         <p className='text-white text-sm md:text-md lg:text-lg tracking-tighter leading-tight font-semibold text-left'>"I never wanted this club to be just another organization on campus. I envisioned a community where students could bring their ideas to life, discover what they are capable of, and grow alongside people who share the same curiosity and ambition. What started as a simple idea has become a journey shaped by every student who chose to be a part of it."</p>
                         <div className='mt-8 text-left md:text-right'>
                             <h1 className='text-white font-semibold text-md md:text-lg lg:text-xl tracking-tighter'>Mr. K. Praveen</h1>
-                            <p className='text-white font-semibold text-xs md:text-sm lg:text-md tracking-tighter'>Head of Synergy Squad</p>
+                            <p className='text-white font-semibold text-xs md:text-sm lg:text-md tracking-tighter leading-tight'>Head of Synergy Squad</p>
                         </div>
                     </div>
                 </div>

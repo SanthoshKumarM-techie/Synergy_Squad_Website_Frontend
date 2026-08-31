@@ -1,5 +1,6 @@
 import React from 'react'
 import { FaMedal } from 'react-icons/fa'
+import { FiArrowDown } from 'react-icons/fi'
 import BG from './assets/abstractBG.jpg'
 import Navbar from './Navbar'
 import SideRays from '../Components/SideRays'
@@ -35,15 +36,20 @@ import SS4B5 from './assets/SS 4.0 Brouchre 5.png'
 import SS4B6 from './assets/SS 4.0 Brouchre 6.png'
 import SS4B7 from './assets/SS 4.0 Brouchre 7.png'
 import SS4B8 from './assets/SS 4.0 Brouchre 8.png'
-
+import SG1 from './assets/SquadGathering1.jpeg'
+import SG2 from './assets/SquadGathering2.jpeg'
+import SG3 from './assets/SquadGathering3.jpeg'
+import SG4 from './assets/SquadGathering4.jpeg'
+import SG5 from './assets/SquadGathering5.jpeg'
+import SG6 from './assets/SquadGathering6.jpeg'
 
 const historyImages = [
-  eventOne,
-  SS1B1,
-  eventTwo,
-  SS1B2,
-  eventThree,
-  SS1B3,
+  SG1,
+  SG2,
+  SG3,
+  SG4,
+  SG5,
+  SG6,
 ]
 
 const weeklyActivities = [
@@ -376,15 +382,21 @@ function History() {
             </div>
           </div>
 
+          <div className="flex justify-center -mt-[1.5rem] relative z-20">
+            <div className="flex items-center justify-center w-12 h-12 rounded-full bg-[#10129B] border-[3px] border-white text-white shadow-lg shrink-0">
+              <FiArrowDown size={22} strokeWidth={2.5} />
+            </div>
+          </div>
+
           <div className='flex flex-col md:flex-row gap-8 mt-16'>
-                    <h1 className='text-3xl md:text-4xl max-w-xl font-semibold tracking-tighter'>
+                    <h1 className='text-2xl lg:text-3xl max-w-xl font-semibold tracking-tighter leading-tight'>
                     Identification & Formation
                     </h1>
                     <p className='max-w-4xl font-semibold text-sm md:text-md lg:text-lg tracking-tighter leading-tight md:mr-32 text-gray-700'>As part of the Pre-Placement Readiness Initiative, the top 40 candidates were identified from a total strength of 201 students to form Synergy Squad 1.0. This squad received intensive Java Programming Refresher Training and participated in weekly challenges to strengthen their coding skills.</p>
                 </div>
 
             <div className='mt-16'>
-              <h1 className='text-3xl md:text-4xl max-w-xl font-semibold tracking-tighter'>Intensive Refresher Training </h1>
+              <h1 className='text-2xl lg:text-3xl max-w-xl font-semibold tracking-tighter leading-tight'>Intensive Refresher Training </h1>
               <div className='grid grid-cols-1 lg:grid-cols-4 gap-8'>
                 <div className='mt-8'>
                   <h1 className='text-xl md:text-2xl font-semibold tracking-tighter leading-tight'>Forenoon</h1>
@@ -406,7 +418,7 @@ function History() {
             </div>
 
             <div className='mt-16 grid gap-6 md:grid-cols-[minmax(0,25rem)_minmax(0,1fr)]'>
-              <h1 className='text-3xl md:text-4xl max-w-xl font-semibold tracking-tighter static md:sticky md:top-28 self-start'>Weekly Activity Summary</h1>
+              <h1 className='text-2xl lg:text-3xl max-w-xl font-semibold tracking-tighter static md:sticky md:top-28 self-start leading-tight'>Weekly Activity Summary</h1>
               <div className='max-w-2xl'>
                 <ul className='divide-y divide-gray-300 border-t border-gray-300'>
                   <li className='flex items-center justify-between gap-6 py-3 font-semibold tracking-tighter text-gray-900'>
@@ -416,7 +428,7 @@ function History() {
                   {weeklyActivities.map(([activity, date]) => (
                     <li key={activity} className='flex items-center justify-between gap-6 py-3 font-semibold tracking-tighter text-gray-700'>
                       <span className='font-semibold text-sm md:text-md lg:text-lg tracking-tighter leading-tight text-gray-700'>{activity}</span>
-                      <time className='shrink-0 text-font-semibold text-sm md:text-md lg:text-lg tracking-tighter leading-tight text-gray-700'>{date}</time>
+                      <time className='shrink-0 font-semibold text-sm md:text-md lg:text-lg tracking-tighter leading-tight text-gray-700'>{date}</time>
                     </li>
                   ))}
                 </ul>
@@ -500,22 +512,28 @@ function History() {
             </div>
           </div>
 
+          <div className="flex justify-center -mt-[1.5rem] relative z-20">
+            <div className="flex items-center justify-center w-12 h-12 rounded-full bg-[#10129B] border-[3px] border-white text-white shadow-lg shrink-0">
+              <FiArrowDown size={22} strokeWidth={2.5} />
+            </div>
+          </div>
+
           <div className='flex flex-col md:flex-row gap-8 mt-16'>
-                    <h1 className='text-3xl md:text-4xl max-w-xl font-semibold tracking-tighter'>
+                    <h1 className='text-2xl lg:text-3xl max-w-xl font-semibold tracking-tighter leading-tight'>
                     Identification & Formation
                     </h1>
                     <p className='max-w-4xl font-semibold text-sm md:text-md lg:text-lg tracking-tighter leading-tight md:mr-32 text-gray-700'>Following the success of Synergy Squad 1.0, the initiative was expanded to III Year CSE students. The identification process was conducted through 7 Mock TCS CodeVita Assessments, where 40 top-performing students were shortlisted from a total of 179 students to enhance their coding proficiency, logical thinking, and problem-solving skills.</p>
                 </div>
 
                 <div className='flex flex-col md:flex-row gap-8 mt-16'>
-                    <h1 className='text-3xl md:text-4xl max-w-xl font-semibold tracking-tighter'>
+                    <h1 className='text-2xl lg:text-3xl max-w-xl font-semibold tracking-tighter leading-tight'>
                     Intensive Technical Training Schedule
                     </h1>
                     <p className='max-w-4xl font-semibold text-sm md:text-md lg:text-lg tracking-tighter leading-tight md:mr-32 text-gray-700'>A 3-day intensive program featuring Skill Enhancement Assessments, Knowledge Transfer Sessions, and Interactive Discussions on Programming MCQs to rapidly boost technical capabilities.</p>
                 </div>
 
             <div className='mt-16 grid gap-6 md:grid-cols-[minmax(0,25rem)_minmax(0,1fr)]'>
-              <h1 className='text-3xl md:text-4xl max-w-xl font-semibold tracking-tighter static md:sticky md:top-28 self-start'>Summary of 7 Mock TCS CodeVita Assessments</h1>
+              <h1 className='text-2xl lg:text-3xl max-w-xl font-semibold tracking-tighter static md:sticky md:top-28 self-start leading-tight'>Summary of 7 Mock TCS CodeVita Assessments</h1>
               <div className='max-w-2xl'>
                 <ul className='divide-y divide-gray-300 border-t border-gray-300'>
                   <li className='flex items-center justify-between gap-6 py-3 font-semibold tracking-tighter text-gray-900'>
@@ -535,7 +553,7 @@ function History() {
             </div>
 
             <div className='mt-16 grid gap-6 md:grid-cols-[minmax(0,25rem)_minmax(0,1fr)]'>
-              <h1 className='text-3xl md:text-4xl max-w-xl font-semibold tracking-tighter static md:sticky md:top-28 self-start'>5 Know and Grow Assessments - Summary</h1>
+              <h1 className='text-2xl lg:text-3xl max-w-xl font-semibold tracking-tighter static md:sticky md:top-28 self-start leading-tight'>5 Know and Grow Assessments - Summary</h1>
               <div className='max-w-2xl'>
                 <ul className='divide-y divide-gray-300 border-t border-gray-300'>
                   <li className='flex items-center justify-between gap-6 py-3 font-semibold tracking-tighter text-gray-900'>
@@ -555,7 +573,7 @@ function History() {
             </div>
 
             <div className='mt-16 grid gap-6 md:grid-cols-[minmax(0,25rem)_minmax(0,1fr)]'>
-              <h1 className='text-3xl md:text-4xl max-w-xl font-semibold tracking-tighter static md:sticky md:top-28 self-start'>Weekly Activity Summary</h1>
+              <h1 className='text-2xl lg:text-3xl max-w-xl font-semibold tracking-tighter static md:sticky md:top-28 self-start leading-tight'>Weekly Activity Summary</h1>
               <div className='max-w-2xl'>
                 <ul className='divide-y divide-gray-300 border-t border-gray-300'>
                   <li className='flex items-center justify-between gap-6 py-3 font-semibold tracking-tighter text-gray-900'>
@@ -648,15 +666,21 @@ function History() {
             </div>
           </div>
 
+          <div className="flex justify-center -mt-[1.5rem] relative z-20">
+            <div className="flex items-center justify-center w-12 h-12 rounded-full bg-[#10129B] border-[3px] border-white text-white shadow-lg shrink-0">
+              <FiArrowDown size={22} strokeWidth={2.5} />
+            </div>
+          </div>
+
           <div className='flex flex-col md:flex-row gap-8 mt-16'>
-                    <h1 className='text-3xl md:text-4xl max-w-xl font-semibold tracking-tighter'>
+                    <h1 className='text-2xl lg:text-3xl max-w-xl font-semibold tracking-tighter leading-tight'>
                     Identification & Formation
                     </h1>
                     <p className='max-w-4xl font-semibold text-sm md:text-md lg:text-lg tracking-tighter leading-tight md:mr-32 text-gray-700'>Following the success of Synergy Squad 1.0, the initiative was expanded to III Year CSE students. The identification process was conducted through 7 Mock TCS CodeVita Assessments, where 40 top-performing students were shortlisted from a total of 179 students to enhance their coding proficiency, logical thinking, and problem-solving skills.</p>
                 </div>
 
             <div className='mt-16 grid gap-6 md:grid-cols-[minmax(0,25rem)_minmax(0,1fr)]'>
-              <h1 className='text-3xl md:text-4xl max-w-xl font-semibold tracking-tighter static md:sticky md:top-28 self-start'>Weekly Activity Summary</h1>
+              <h1 className='text-2xl lg:text-3xl max-w-xl font-semibold tracking-tighter static md:sticky md:top-28 self-start leading-tight'>Weekly Activity Summary</h1>
               <div className='max-w-2xl'>
                 <ul className='divide-y divide-gray-300 border-t border-gray-300'>
                   <li className='flex items-center gap-6 py-3 font-semibold tracking-tighter text-gray-900'>
@@ -702,7 +726,7 @@ function History() {
                         </p>
                         <div className='mt-8'>
                           <h1 className='text-xl md:text-2xl font-semibold tracking-tighter leading-tight'>Toppers</h1>
-                          <ul className='mt-2 font-semibold text-xs md:text-sm lg:text-md tracking-tighter leading-tight'>
+                          <ul className='mt-2 font-semibold text-sm md:text-md lg:text-lg tracking-tighter leading-tight'>
                             {card.toppers.map((name, i) => (
                               <li key={i} className='mt-1 uppercase flex items-center gap-2'><FaMedal className="text-yellow-400" /> {name}</li>
                             ))}
@@ -751,22 +775,29 @@ function History() {
               </div>
             </div>
           </div>
+
+          <div className="flex justify-center -mt-[1.5rem] relative z-20">
+            <div className="flex items-center justify-center w-12 h-12 rounded-full bg-[#10129B] border-[3px] border-white text-white shadow-lg shrink-0">
+              <FiArrowDown size={22} strokeWidth={2.5} />
+            </div>
+          </div>
+
           <div className='flex flex-col md:flex-row gap-8 mt-16'>
-                    <h1 className='text-3xl md:text-4xl max-w-xl font-semibold tracking-tighter'>
+                    <h1 className='text-2xl lg:text-3xl max-w-xl font-semibold tracking-tighter leading-tight'>
                     Identification & Formation
                     </h1>
                     <p className='max-w-4xl font-semibold text-sm md:text-md lg:text-lg tracking-tighter leading-tight md:mr-32 text-gray-700'>Synergy Squad 4.0 was formed through a Main Assessment, where 40 top-performing students were selected from a total of 85 participants. The initiative was driven by Weekly Sunday Programming, with the purpose of encouraging continuous practice and tracking students’ performance.</p>
                 </div>
 
           <div className='flex flex-col md:flex-row gap-8 mt-16'>
-                    <h1 className='text-3xl md:text-4xl max-w-xl font-semibold tracking-tighter'>
+                    <h1 className='text-2xl lg:text-3xl max-w-xl font-semibold tracking-tighter leading-tight'>
                     Intensive Techical Training
                     </h1>
                     <p className='max-w-4xl font-semibold text-sm md:text-md lg:text-lg tracking-tighter leading-tight md:mr-32 text-gray-700'>A 1-day intensive Java Strings training session focused on clearly explaining core string concepts, followed by a half-day Power BI session designed to build practical understanding of data visualization and analytics.</p>
                 </div>
 
           <div className='mt-16 grid gap-6 md:grid-cols-[minmax(0,25rem)_minmax(0,1fr)] mb-16'>
-              <h1 className='text-3xl md:text-4xl max-w-xl font-semibold tracking-tighter static md:sticky md:top-28 self-start'>Weekly Programming Activities</h1>
+              <h1 className='text-2xl lg:text-3xl max-w-xl font-semibold tracking-tighter static md:sticky md:top-28 self-start leading-tight'>Weekly Programming Activities</h1>
               <div className='max-w-2xl'>
                 <ul className='divide-y divide-gray-300 border-t border-gray-300'>
                   <li className='flex items-center gap-6 py-3 font-semibold tracking-tighter text-gray-900'>

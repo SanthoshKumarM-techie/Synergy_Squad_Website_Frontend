@@ -14,24 +14,24 @@ function AboutBrief() {
         </h1>
         <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16'>
           <div>
-            <h2 className='text-black font-semibold text-3xl md:text-4xl lg:text-5xl tracking-tighter'>120+</h2>
-            <p className='text-black font-semibold text-md md:text-lg lg:text-xl tracking-tighter border-b border-gray-300 mb-4 pb-1'>Members</p>
-            <p className='tracking-tighter font-semibold text-sm md:text-md lg:text-lg max-w-sm text-gray-700 leading-tighter'>Active student members trained in advanced computing and problem solving across CSE batches.</p>
+            <h2 className='text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tighter leading-tight'>120+</h2>
+            <p className='font-semibold text-sm md:text-md lg:text-lg tracking-tighter leading-tight border-b border-gray-300 mb-4 pb-1'>Members</p>
+            <p className='font-semibold text-sm md:text-md lg:text-lg tracking-tighter max-w-sm text-gray-700 leading-tight'>Active student members trained in advanced computing and problem solving across CSE batches.</p>
           </div>
           <div>
-            <h2 className='text-black font-semibold text-3xl md:text-4xl lg:text-5xl tracking-tighter'>3+</h2>
-            <p className='text-black font-semibold text-md md:text-lg lg:text-xl tracking-tighter border-b border-gray-300 mb-4 pb-1'>Batches</p>
-            <p className='tracking-tighter font-semibold text-sm md:text-md lg:text-lg max-w-sm text-gray-700 leading-tighter'>Across these 3 batches, we have conducted various events and competitions to enhance student skills.</p>
+            <h2 className='text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tighter leading-tight'>3+</h2>
+            <p className='font-semibold text-sm md:text-md lg:text-lg tracking-tighter leading-tight border-b border-gray-300 mb-4 pb-1'>Batches</p>
+            <p className='font-semibold text-sm md:text-md lg:text-lg tracking-tighter max-w-sm text-gray-700 leading-tight'>Across these 3 batches, we have conducted various events and competitions to enhance student skills.</p>
           </div>
           <div>
-            <h2 className='text-black font-semibold text-3xl md:text-4xl lg:text-5xl tracking-tighter'>10+</h2>
-            <p className='text-black font-semibold text-md md:text-lg lg:text-xl tracking-tighter border-b border-gray-300 mb-4 pb-1'>Events</p>
-            <p className='tracking-tighter font-semibold text-sm md:text-md lg:text-lg max-w-sm text-gray-700 leading-tighter'>Technical workshops, coding hackathons, and company-specific mock challenges conducted annually.</p>
+            <h2 className='text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tighter leading-tight'>10+</h2>
+            <p className='font-semibold text-sm md:text-md lg:text-lg tracking-tighter leading-tight border-b border-gray-300 mb-4 pb-1'>Events</p>
+            <p className='font-semibold text-sm md:text-md lg:text-lg tracking-tighter max-w-sm text-gray-700 leading-tight'>Technical workshops, coding hackathons, and company-specific mock challenges conducted annually.</p>
           </div>
           <div>
-            <h2 className='text-black font-semibold text-3xl md:text-4xl lg:text-5xl tracking-tighter'>75%+</h2>
-            <p className='text-black font-semibold text-md md:text-lg lg:text-xl tracking-tighter border-b border-gray-300 mb-4 pb-1'>Placed in top MNCs</p>
-            <p className='tracking-tighter font-semibold text-sm md:text-md lg:text-lg max-w-sm text-gray-700 leading-tighter'>High-performing graduates recruited into Tier-1 IT companies and global technology leaders.</p>
+            <h2 className='text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tighter leading-tight'>75%+</h2>
+            <p className='font-semibold text-sm md:text-md lg:text-lg tracking-tighter leading-tight border-b border-gray-300 mb-4 pb-1'>Placed in top MNCs</p>
+            <p className='font-semibold text-sm md:text-md lg:text-lg tracking-tighter max-w-sm text-gray-700 leading-tight'>High-performing graduates recruited into Tier-1 IT companies and global technology leaders.</p>
           </div>
         </div>
       </div>

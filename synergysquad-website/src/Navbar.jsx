@@ -19,7 +19,7 @@ const socialItems = [
 
 function Navbar() {
   return (
-    <nav className="w-full relative z-[100]">
+    <nav className="w-full">
       <StaggeredMenu
         position="right"
         isFixed={true}

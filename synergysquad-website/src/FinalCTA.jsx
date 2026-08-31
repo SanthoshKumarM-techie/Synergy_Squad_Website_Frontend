@@ -20,10 +20,10 @@ function FinalCTA() {
               <h3 className='font-semibold text-lg md:text-xl lg:text-2xl tracking-tighter text-black mb-1'>
                 Synergy Squad
               </h3>
-              <p className='font-semibold text-sm md:text-md text-gray-700 tracking-tighter leading-tighter mb-4 max-w-sm'>
+              <p className='font-semibold text-sm md:text-md text-gray-700 tracking-tighter leading-tight mb-4 max-w-sm'>
                 Department of Computer Science & Engineering, Knowledge Institute of Technology.
               </p>
-              <p className='font-semibold text-sm md:text-md text-gray-600 tracking-tighter leading-tighter max-w-md'>
+              <p className='font-semibold text-sm md:text-md text-gray-600 tracking-tighter leading-tight max-w-md'>
                 Empowering student coders through merit-driven initiatives, peer mentorship, and competitive programming excellence.
               </p>
             </div>

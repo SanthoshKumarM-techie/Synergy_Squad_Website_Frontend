@@ -1,8 +1,9 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { FaMedal } from 'react-icons/fa'
 import { FiArrowDown } from 'react-icons/fi'
 import BG from './assets/abstractBG.jpg'
 import Navbar from './Navbar'
+import StaggeredText from './StaggeredText'
 import SideRays from '../Components/SideRays'
 import Silk from '../Components/Silk'
 import eventOne from './assets/squad_event_1.png'
@@ -316,16 +317,22 @@ const weekCards = [
 ]
 
 function History() {
+  const [showSS1, setShowSS1] = useState(false);
+  const [showSS2, setShowSS2] = useState(false);
+  const [showSS3, setShowSS3] = useState(false);
+  const [showSS4, setShowSS4] = useState(false);
   return (
     <div className='bg-[#e6e6e6] relative overflow-x-clip w-full max-w-[100vw]'>
         <Navbar />
-      <section className='relative isolate min-h-screen w-full overflow-hidden px-6 py-24 md:px-12'>
+      <section className='relative md:sticky md:top-0 isolate min-h-screen w-full overflow-hidden px-6 py-24 md:px-12'>
                 <img src={BG} alt="Abstract Background" className='absolute inset-0 z-0 w-full h-full object-cover' />
 
                 <div className='relative z-20 flex min-h-[calc(100vh-12rem)] flex-col items-center justify-center md:justify-end gap-14'>
-                    <h1 className='max-w-7xl text-center text-4xl font-semibold leading-[0.92] tracking-tighter text-white md:text-5xl lg:text-6xl'>
-                        A Journey Built on Ideas, Driven by People, and Shaped by Every Milestone Along the Way
-                    </h1>
+                    <StaggeredText 
+                        className='max-w-7xl text-center text-4xl font-semibold leading-[0.92] tracking-tighter text-white md:text-5xl lg:text-6xl'
+                        text="A Journey Built on Ideas, Driven by People, and Shaped by Every Milestone Along the Way"
+                        delay={0.6}
+                    />
 
                     <div className='w-full overflow-hidden' aria-label='Synergy Squad history gallery'>
                         <div className='animate-marquee'>
@@ -347,6 +354,7 @@ function History() {
                 </div>
             </section>
 
+        <div className="relative z-10 bg-[#e6e6e6]">
         <section className='min-h-screen px-8 pt-16 pb-16'>
           <div
             className='relative flex min-h-[60vh] flex-col justify-end overflow-hidden p-8 pt-32 md:pt-8 pb-16'
@@ -436,7 +444,7 @@ function History() {
             </div>
 
             <div className='grid grid-cols-1 lg:grid-cols-2 mt-16 gap-6'>
-              {weekCards.map((card) => (
+              {(showSS1 ? weekCards : weekCards.slice(0, 2)).map((card) => (
                 <React.Fragment key={card.week}>
                   {/* Left: Silk card with brochure image + details */}
                   <div className="relative flex h-full overflow-hidden rounded-md min-h-[160px] md:min-h-[350px]">
@@ -463,7 +471,7 @@ function History() {
                         </p>
                         <div className='mt-8'>
                           <h1 className='text-xl md:text-2xl font-semibold tracking-tighter leading-tight'>Toppers</h1>
-                          <ul className='mt-2 font-semibold text-sm md:text-md lg:text-lg tracking-tighter leading-tight'>
+                          <ul className='mt-2 font-semibold text-xs md:text-sm lg:text-md tracking-tighter leading-tight'>
                             {card.toppers.map((name, i) => (
                               <li key={i} className='mt-1 uppercase flex items-center gap-2'><FaMedal className="text-yellow-400" /> {name}</li>
                             ))}
@@ -475,6 +483,18 @@ function History() {
                 </React.Fragment>
               ))}
             </div>
+            {weekCards.length > 2 && (
+              <div className='mt-8 text-end relative z-20'>
+                <button
+                  type='button'
+                  onClick={() => setShowSS1(!showSS1)}
+                  className='group relative inline-block cursor-pointer pb-1 font-semibold text-sm tracking-tighter md:text-md lg:text-lg'
+                >
+                  {showSS1 ? "View Less" : "View More"}
+                  <span className='absolute bottom-0 left-0 h-0.5 w-full origin-left scale-x-0 bg-[#10129B] transition-transform duration-300 group-hover:scale-x-100' />
+                </button>
+              </div>
+            )}
         </section>
 
         <section className='px-8 pb-16'>
@@ -591,7 +611,7 @@ function History() {
             </div>
 
             <div className='grid grid-cols-1 lg:grid-cols-2 mt-16 gap-6'>
-              {ss2WeekCards.map((card) => (
+              {(showSS2 ? ss2WeekCards : ss2WeekCards.slice(0, 2)).map((card) => (
                 <React.Fragment key={card.week}>
                   <div className="relative flex h-full overflow-hidden rounded-md min-h-[160px] md:min-h-[350px]">
                     <div className="pointer-events-none absolute inset-0">
@@ -617,7 +637,7 @@ function History() {
                         </p>
                         <div className='mt-8'>
                           <h1 className='text-xl md:text-2xl font-semibold tracking-tighter leading-tight'>Toppers</h1>
-                          <ul className='mt-2 font-semibold text-sm md:text-md lg:text-lg tracking-tighter leading-tight'>
+                          <ul className='mt-2 font-semibold text-xs md:text-sm lg:text-md tracking-tighter leading-tight'>
                             {card.toppers.map((name, i) => (
                               <li key={i} className='mt-1 uppercase flex items-center gap-2'><FaMedal className="text-yellow-400" /> {name}</li>
                             ))}
@@ -629,6 +649,18 @@ function History() {
                 </React.Fragment>
               ))}
             </div>
+            {ss2WeekCards.length > 2 && (
+              <div className='mt-8 text-end relative z-20'>
+                <button
+                  type='button'
+                  onClick={() => setShowSS2(!showSS2)}
+                  className='group relative inline-block cursor-pointer pb-1 font-semibold text-sm tracking-tighter md:text-md lg:text-lg'
+                >
+                  {showSS2 ? "View Less" : "View More"}
+                  <span className='absolute bottom-0 left-0 h-0.5 w-full origin-left scale-x-0 bg-[#10129B] transition-transform duration-300 group-hover:scale-x-100' />
+                </button>
+              </div>
+            )}
         </section>
 
         <section className='px-8 pb-16'>
@@ -700,7 +732,7 @@ function History() {
             </div>
 
             <div className='grid grid-cols-1 lg:grid-cols-2 mt-16 gap-6'>
-              {ss3WeekCards.map((card) => (
+              {(showSS3 ? ss3WeekCards : ss3WeekCards.slice(0, 2)).map((card) => (
                 <React.Fragment key={card.week}>
                   <div className="relative flex h-full overflow-hidden rounded-md min-h-[160px] md:min-h-[350px]">
                     <div className="pointer-events-none absolute inset-0">
@@ -726,7 +758,7 @@ function History() {
                         </p>
                         <div className='mt-8'>
                           <h1 className='text-xl md:text-2xl font-semibold tracking-tighter leading-tight'>Toppers</h1>
-                          <ul className='mt-2 font-semibold text-sm md:text-md lg:text-lg tracking-tighter leading-tight'>
+                          <ul className='mt-2 font-semibold text-xs md:text-sm lg:text-md tracking-tighter leading-tight'>
                             {card.toppers.map((name, i) => (
                               <li key={i} className='mt-1 uppercase flex items-center gap-2'><FaMedal className="text-yellow-400" /> {name}</li>
                             ))}
@@ -738,7 +770,18 @@ function History() {
                 </React.Fragment>
               ))}
             </div>
-
+            {ss3WeekCards.length > 2 && (
+              <div className='mt-8 text-end relative z-20'>
+                <button
+                  type='button'
+                  onClick={() => setShowSS3(!showSS3)}
+                  className='group relative inline-block cursor-pointer pb-1 font-semibold text-sm tracking-tighter md:text-md lg:text-lg'
+                >
+                  {showSS3 ? "View Less" : "View More"}
+                  <span className='absolute bottom-0 left-0 h-0.5 w-full origin-left scale-x-0 bg-[#10129B] transition-transform duration-300 group-hover:scale-x-100' />
+                </button>
+              </div>
+            )}
         </section>
 
         <section className='px-8 pb-16'>
@@ -826,7 +869,7 @@ function History() {
             </div>
 
             <div className='grid grid-cols-1 lg:grid-cols-2 mt-16 gap-6'>
-              {ss4WeekCards.map((card) => (
+              {(showSS4 ? ss4WeekCards : ss4WeekCards.slice(0, 2)).map((card) => (
                 <React.Fragment key={card.week}>
                   <div className="relative flex h-full overflow-hidden rounded-md min-h-[160px] md:min-h-[350px]">
                     <div className="pointer-events-none absolute inset-0">
@@ -866,8 +909,20 @@ function History() {
                 </React.Fragment>
               ))}
             </div>
-
+            {ss4WeekCards.length > 2 && (
+              <div className='mt-8 text-end relative z-20'>
+                <button
+                  type='button'
+                  onClick={() => setShowSS4(!showSS4)}
+                  className='group relative inline-block cursor-pointer pb-1 font-semibold text-sm tracking-tighter md:text-md lg:text-lg'
+                >
+                  {showSS4 ? "View Less" : "View More"}
+                  <span className='absolute bottom-0 left-0 h-0.5 w-full origin-left scale-x-0 bg-[#10129B] transition-transform duration-300 group-hover:scale-x-100' />
+                </button>
+              </div>
+            )}
         </section>
+        </div>
     </div>
   )
 }

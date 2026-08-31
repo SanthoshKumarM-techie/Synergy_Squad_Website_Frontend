@@ -2,6 +2,7 @@ import React from 'react'
 import BG from './assets/abstractBG.jpg'
 import Navbar from './Navbar'
 import FinalCTA from './FinalCTA'
+import StaggeredText from './StaggeredText'
 import PreveenSirImage from './assets/Praveen Sir.png'
 import SquadEventOne from './assets/squad_event_1.png'
 import SquadEventTwo from './assets/squad_event_2.png'
@@ -26,14 +27,17 @@ function About() {
     return (
     <div className='bg-[#e6e6e6] min-h-screen relative'>
         <Navbar />
-        <section className='relative isolate w-full min-h-screen overflow-hidden flex flex-col justify-center px-6 md:px-12 py-24 md:block'>
+        <section className='relative md:sticky md:top-0 isolate w-full min-h-screen overflow-hidden flex flex-col justify-center px-6 md:px-12 py-24 md:block'>
             <img src={BG} alt="Abstract Background" className='absolute inset-0 z-0 w-full h-full object-cover' />
+          
 
             <div className='relative md:absolute md:inset-y-0 md:left-12 z-30 flex items-center mb-12 md:mb-0'>
-                    <h1 className='max-w-7xl text-left text-4xl font-semibold leading-[0.92] tracking-tighter text-white md:text-5xl lg:text-6xl'>
-                        Collaboration Creates Greater Possibilities
-                    </h1>
-                </div>
+              <StaggeredText 
+                className='max-w-7xl text-left text-4xl font-semibold leading-[0.92] tracking-tighter text-white md:text-5xl lg:text-6xl'
+                text="Collaboration Creates Greater Possibilities"
+                delay={0.6}
+              />
+            </div>
 
                 <div className='relative md:absolute z-30 md:bottom-12 md:left-12 grid grid-cols-1 md:grid-cols-2 gap-6 text-white max-w-full md:max-w-none md:pr-12'>
                     <div className='flex flex-col max-w-lg'>
@@ -47,6 +51,7 @@ function About() {
                 </div>
             </section>
 
+            <div className="relative z-10 bg-[#e6e6e6]">
             <section className='min-h-screen px-8 pt-16 pb-16'>
                 <div className='flex flex-col md:flex-row gap-8'>
                     <h1 className='text-2xl lg:text-3xl max-w-lg font-semibold tracking-tighter leading-tight'>
@@ -300,6 +305,7 @@ function About() {
           </div>
 
             <FinalCTA />
+            </div>
         </div>
     )
 }

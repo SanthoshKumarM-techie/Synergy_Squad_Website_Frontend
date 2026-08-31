@@ -1,12 +1,9 @@
 import React from 'react'
-import Navbar from './Navbar'
 import collageTopView from './assets/KIOT-Top-View.webp'
 
 function Hero() {
   return (
     <div className='relative w-full h-screen overflow-hidden'>
-      {/* Top Navbar */}
-      <Navbar />
 
       {/* Background Image */}
       <img

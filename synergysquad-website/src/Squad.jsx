@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import Navbar from './Navbar'
 import BG from './assets/abstractBG.jpg'
 import FinalCTA from './FinalCTA';
+import StaggeredText from './StaggeredText'
 
 const squadData = [
   {
@@ -101,12 +102,14 @@ function Squad() {
   return (
     <div className='bg-[#e6e6e6] min-h-screen relative'>
       <Navbar />
-      <section className='relative isolate w-full min-h-screen overflow-hidden flex flex-col justify-center px-6 md:px-12 py-24 md:block'>
+      <section className='relative md:sticky md:top-0 isolate w-full min-h-screen overflow-hidden flex flex-col justify-center px-6 md:px-12 py-24 md:block'>
         <img src={BG} alt="Abstract Background" className='absolute inset-0 z-0 w-full h-full object-cover' />
         <div className='relative md:absolute md:inset-y-0 md:left-12 z-30 flex items-center mb-12 md:mb-0'>
-          <h1 className='max-w-7xl text-left text-4xl font-semibold leading-[0.92] tracking-tighter text-white md:text-5xl lg:text-6xl'>
-            Connected By Shared Ambition
-          </h1>
+          <StaggeredText 
+            className='max-w-7xl text-left text-4xl font-semibold leading-[0.92] tracking-tighter text-white md:text-5xl lg:text-6xl'
+            text="Connected By Shared Ambition"
+            delay={0.6}
+          />
         </div>
         <div className='relative md:absolute z-10 md:bottom-32 lg:bottom-28 md:left-12 grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-6 md:gap-16 text-white max-w-7xl mb-8 md:mb-0'>
           <div className='flex flex-col md:grid md:grid-rows-2 md:grid-flow-col gap-0'>
@@ -139,6 +142,7 @@ function Squad() {
         </p>
       </section>
 
+      <div className="relative z-10 bg-[#e6e6e6]">
       <section className='min-h-screen px-6 md:px-12 py-24'>
         <div className='max-w-7xl mx-auto'>
           {/* Mobile Dropdown Filter */}
@@ -255,6 +259,7 @@ function Squad() {
         </div>
       </section>
       <FinalCTA/>
+      </div>
     </div>
   )
 }

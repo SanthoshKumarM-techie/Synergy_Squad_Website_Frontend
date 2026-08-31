@@ -15,6 +15,12 @@ import techMahindraLogo from './assets/tech-mahendra.jpg'
 import mindtreeLogo from './assets/MInd tree.jpg'
 import tcsLogo from './assets/TCS-Logo.png'
 import HODSirImage from './assets/HODSir.webp'
+import SG1 from './assets/SquadGathering1.jpeg'
+import SG2 from './assets/SquadGathering2.jpeg'
+import SG3 from './assets/SquadGathering3.jpeg'
+import SG4 from './assets/SquadGathering4.jpeg'
+import SG5 from './assets/SquadGathering5.jpeg'
+import SG6 from './assets/SquadGathering6.jpeg'
 
 function About() {
     return (
@@ -132,27 +138,27 @@ function About() {
             <section className='relative min-h-screen bg-black p-1'>
                 <div className='grid h-[100vh] md:h-[calc(100vh-0.5rem)] grid-cols-1 grid-rows-1 md:grid-rows-6 gap-1 md:grid-cols-12'>
                     <figure className="group relative overflow-hidden bg-[#111827] after:absolute after:inset-0 after:z-10 after:bg-black/70 after:content-[''] col-start-1 row-start-1 col-span-1 row-span-1 md:col-start-1 md:row-start-1 md:col-span-7 md:row-span-4">
-                        <img src={SquadEventOne} alt='Synergy Squad members at an event' className='h-full w-full object-cover transition duration-700 group-hover:scale-105' />
+                        <img src={SG1} alt='Synergy Squad members at an event' className='h-full w-full object-cover transition duration-700 group-hover:scale-105' />
                     </figure>
 
                     <figure className="hidden md:block group relative overflow-hidden bg-[#111827] after:absolute after:inset-0 after:z-10 after:bg-black/70 after:content-[''] md:col-start-8 md:row-start-1 md:col-span-5 md:row-span-2">
-                        <img src={SSOneBanner} alt='Synergy Squad 1.0 event banner' className='h-full w-full object-cover transition duration-700 group-hover:scale-105' />
+                        <img src={SG2} alt='Synergy Squad 1.0 event banner' className='h-full w-full object-cover transition duration-700 group-hover:scale-105' />
                     </figure>
 
                     <figure className="hidden md:block group relative overflow-hidden bg-[#111827] after:absolute after:inset-0 after:z-10 after:bg-black/70 after:content-[''] md:col-start-8 md:row-start-3 md:col-span-5 md:row-span-2">
-                        <img src={SSTwoBanner} alt='Synergy Squad 2.0 event banner' className='h-full w-full object-cover transition duration-700 group-hover:scale-105' />
+                        <img src={SG3} alt='Synergy Squad 2.0 event banner' className='h-full w-full object-cover transition duration-700 group-hover:scale-105' />
                     </figure>
 
                     <figure className="hidden md:block group relative overflow-hidden bg-[#111827] after:absolute after:inset-0 after:z-10 after:bg-black/70 after:content-[''] md:col-start-1 md:row-start-5 md:col-span-4 md:row-span-2">
-                        <img src={SquadEventTwo} alt='Students participating in a Synergy Squad activity' className='h-full w-full object-cover transition duration-700 group-hover:scale-105' />
+                        <img src={SG4} alt='Students participating in a Synergy Squad activity' className='h-full w-full object-cover transition duration-700 group-hover:scale-105' />
                     </figure>
 
                     <figure className="hidden md:block group relative overflow-hidden bg-[#111827] after:absolute after:inset-0 after:z-10 after:bg-black/70 after:content-[''] md:col-start-5 md:row-start-5 md:col-span-3 md:row-span-2">
-                        <img src={SSThreeBanner} alt='Synergy Squad 3.0 event banner' className='h-full w-full object-cover transition duration-700 group-hover:scale-105' />
+                        <img src={SG5} alt='Synergy Squad 3.0 event banner' className='h-full w-full object-cover transition duration-700 group-hover:scale-105' />
                     </figure>
 
                     <figure className="hidden md:block group relative overflow-hidden bg-[#111827] after:absolute after:inset-0 after:z-10 after:bg-black/70 after:content-[''] md:col-start-8 md:row-start-5 md:col-span-5 md:row-span-2">
-                        <img src={SquadEventThree} alt='Synergy Squad students together' className='h-full w-full object-cover transition duration-700 group-hover:scale-105' />
+                        <img src={SG6} alt='Synergy Squad students together' className='h-full w-full object-cover transition duration-700 group-hover:scale-105' />
                     </figure>
                 </div>
 
@@ -185,6 +191,114 @@ function About() {
                       </div>
                     </div>
                   </div>
+          {/* Reference-Styled Bento Grid Section */}
+          <div className='mt-24 px-6 md:px-12 max-w-7xl mx-auto mb-24'>
+            {/* Top Grid: Counter Header + Wide Hero Image */}
+            <div className='grid grid-cols-1 lg:grid-cols-12 gap-6 mb-6 items-stretch'>
+
+              {/* Header Card with massive counter text */}
+              <div className='lg:col-span-5 flex flex-col justify-center py-6 pr-4'>
+                <h2 className='text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tighter mb-3 text-black'>
+                  Synergy Squad
+                </h2>
+                <p className='text-gray-500 font-medium text-sm md:text-base tracking-tighter max-w-xs'>
+                  A growing community shaped by new ideas, stronger collaboration, and shared experiences
+                </p>
+              </div>
+
+              {/* Wide Header Image */}
+              <div className='lg:col-span-7 relative h-[260px] md:h-[320px] rounded-[32px] overflow-hidden group bg-gray-300'>
+                <img
+                  src={SG3}
+                  alt="Squad Hero"
+                  className='w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700'
+                />
+              </div>
+
+            </div>
+
+            {/* Main Asymmetric Bento Gallery */}
+            <div className='grid grid-cols-1 md:grid-cols-12 gap-6'>
+
+              {/* Left Column: Tall Vertical Instagram Card */}
+              <div className='md:col-span-4 relative min-h-[500px] md:min-h-[640px] rounded-[32px] overflow-hidden group bg-gray-900'>
+                <img
+                  src={SG2}
+                  alt="Pool culture"
+                  className='w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700 opacity-90'
+                />
+              </div>
+
+              {/* Center Column */}
+              <div className='md:col-span-4 flex flex-col justify-between gap-6'>
+                {/* Mid Image with Overlay Quote */}
+                <div className='relative h-[380px] rounded-[32px] overflow-hidden group bg-gray-800'>
+                  <img
+                    src={SG1}
+                    alt="Culture"
+                    className='w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700 brightness-90'
+                  />
+                  <div className='absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent' />
+                  <div className='absolute bottom-6 left-6 right-6 text-white'>
+                    <h4 className='text-xl md:text-2xl font-semibold tracking-tight leading-tight'>
+                      Empowering students to explore, contribute, lead, and create meaningful impact
+                    </h4>
+                  </div>
+                </div>
+
+                {/* Lower Preview Card */}
+                <div className='h-[236px] rounded-[32px] overflow-hidden bg-gray-300 relative group'>
+                  <img
+                    src={SG4}
+                    alt="Team work"
+                    className='w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700'
+                  />
+                </div>
+              </div>
+
+              {/* Right Column */}
+              <div className='md:col-span-4 flex flex-col justify-between gap-6'>
+
+                {/* 99% Stat Card */}
+                <div className='bg-[#dcdcdc] rounded-[32px] p-8 flex flex-col justify-between h-[280px]'>
+                  <div>
+                    <h3 className='text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tighter text-black'>
+                      75%+
+                    </h3>
+                  </div>
+                  <p className='text-gray-600 font-medium text-sm md:text-base leading-snug tracking-tighter max-w-[200px]'>
+                    High-performing graduates recruited into Tier-1 IT companies and global technology leaders.
+                  </p>
+                </div>
+
+                {/* Dark Join CTA Box */}
+                <a href="#history" className='bg-[#10129B] text-white rounded-[32px] p-8 flex flex-col justify-between h-[180px] relative group cursor-pointer overflow-hidden block'>
+                  <span className='text-xs font-semibold text-white tracking-tighter uppercase'>
+                    Explore the Squad
+                  </span>
+
+                  {/* Arrow Graphic Icon */}
+                  <div className='absolute bottom-4 right-4 text-white transform group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-300'>
+                    <svg className='w-20 h-20 md:w-24 md:h-24' fill='currentColor' viewBox='0 0 24 24'>
+                      <path d='M5 19L19 5M19 5H9M19 5V15' stroke='currentColor' strokeWidth='2' strokeLinecap='round' strokeLinejoin='round' />
+                    </svg>
+                  </div>
+                </a>
+
+                {/* Bottom Image Tile */}
+                <div className='h-[156px] rounded-[32px] overflow-hidden bg-gray-400 relative group'>
+                  <img
+                    src={SG5}
+                    alt="Synergy event"
+                    className='w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700'
+                  />
+                </div>
+
+              </div>
+
+            </div>
+          </div>
+
             <FinalCTA />
         </div>
     )

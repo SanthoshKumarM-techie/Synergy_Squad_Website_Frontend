@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
 import naveenImg from './assets/Naveen Adithya.png'
 import Santhosh1Img from './assets/Santhosh1.png'
 import Sathyaram1Img from './assets/Sathyaram1.png'
@@ -94,27 +95,36 @@ function Testimonials() {
                     onTouchStart={() => setIsPaused(true)}
                     onTouchEnd={() => setIsPaused(false)}
                 >
-                    {/* Content Container */}
-                    <div key={currentIndex} className="w-full h-full flex items-center justify-center transition-opacity duration-300 relative">
-                        {/* Image Container (Full screen on mobile, Left side on desktop) */}
-                        <div className="w-full h-full absolute inset-0 md:relative md:w-1/2 md:h-full md:order-1 flex items-end justify-center z-0 overflow-hidden">
-                            <img
-                                src={testimonialsList[currentIndex].img}
-                                alt={testimonialsList[currentIndex].alt}
-                                className="w-full h-full object-cover object-top md:object-contain md:object-center drop-shadow-2xl"
-                            />
-                        </div>
-
-                        {/* Text Container (Overlay at bottom on mobile, Right side on desktop) */}
-                        <div className="flex flex-col w-full md:w-1/2 px-6 pb-12 pt-32 md:p-12 absolute bottom-0 md:relative md:bottom-auto order-1 md:order-2 z-10 text-left bg-gradient-to-t from-black via-black/90 to-transparent md:bg-none pointer-events-none md:pointer-events-auto">
-                            <h2 className="text-white text-xl md:text-4xl font-semibold tracking-tighter mb-3 md:mb-4 drop-shadow-md">{testimonialsList[currentIndex].name}</h2>
-                            <div className="max-h-[35vh] md:max-h-none overflow-y-auto pointer-events-auto pr-2 pb-4 md:pb-0" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
-                                <p className="text-white/80 text-xs sm:text-sm md:text-base md:leading-relaxed border-l-2 border-white/50 pl-4 md:pl-6 tracking-tighter font-semibold drop-shadow-md">
-                                    {testimonialsList[currentIndex].text}
-                                </p>
+                    <AnimatePresence mode="wait">
+                        {/* Content Container */}
+                        <motion.div 
+                            key={currentIndex} 
+                            initial={{ opacity: 0, x: 20 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            exit={{ opacity: 0, x: -20 }}
+                            transition={{ duration: 0.4, ease: "easeInOut" }}
+                            className="w-full h-full flex items-center justify-center relative"
+                        >
+                            {/* Image Container (Full screen on mobile, Left side on desktop) */}
+                            <div className="w-full h-full absolute inset-0 md:relative md:w-1/2 md:h-full md:order-1 flex items-end justify-center z-0 overflow-hidden">
+                                <img
+                                    src={testimonialsList[currentIndex].img}
+                                    alt={testimonialsList[currentIndex].alt}
+                                    className="w-full h-full object-cover object-top md:object-contain md:object-center drop-shadow-2xl"
+                                />
                             </div>
-                        </div>
-                    </div>
+
+                            {/* Text Container (Overlay at bottom on mobile, Right side on desktop) */}
+                            <div className="flex flex-col w-full md:w-1/2 px-6 pb-12 pt-32 md:p-12 absolute bottom-0 md:relative md:bottom-auto order-1 md:order-2 z-10 text-left bg-gradient-to-t from-black via-black/90 to-transparent md:bg-none pointer-events-none md:pointer-events-auto">
+                                <h2 className="text-white text-xl md:text-4xl font-semibold tracking-tighter mb-3 md:mb-4 drop-shadow-md">{testimonialsList[currentIndex].name}</h2>
+                                <div className="max-h-[35vh] md:max-h-none overflow-y-auto pointer-events-auto pr-2 pb-4 md:pb-0" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
+                                    <p className="text-white/80 text-xs sm:text-sm md:text-base md:leading-relaxed border-l-2 border-white/50 pl-4 md:pl-6 tracking-tighter font-semibold drop-shadow-md">
+                                        {testimonialsList[currentIndex].text}
+                                    </p>
+                                </div>
+                            </div>
+                        </motion.div>
+                    </AnimatePresence>
                 </div>
 
                 {/* Minimal Width Progress Bars at Bottom */}

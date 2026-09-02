@@ -43,6 +43,7 @@ import SG3 from './assets/SquadGathering3.jpeg'
 import SG4 from './assets/SquadGathering4.jpeg'
 import SG5 from './assets/SquadGathering5.jpeg'
 import SG6 from './assets/SquadGathering6.jpeg'
+import FinalCTA from './FinalCTA'
 
 const historyImages = [
   SG1,
@@ -354,8 +355,8 @@ function History() {
                 </div>
             </section>
 
-        <div className="relative z-10 bg-[#e6e6e6]">
-        <section className='min-h-screen px-8 pt-16 pb-16'>
+        <div className="bg-[#e6e6e6] relative z-20 shadow-[0_-20px_50px_rgba(0,0,0,0.4)] pointer-events-auto" style={{ marginBottom: '-100vh' }}>
+            <section className='min-h-screen px-8 pt-16 pb-16'>
           <div
             className='relative flex min-h-[60vh] flex-col justify-end overflow-hidden p-8 pt-32 md:pt-8 pb-16'
             style={{ background: 'radial-gradient(ellipse at 78% 20%, #3329D2 0%, #000846 68%)' }}
@@ -443,61 +444,46 @@ function History() {
               </div>
             </div>
 
-            <div className='grid grid-cols-1 lg:grid-cols-2 mt-16 gap-6'>
-              {(showSS1 ? weekCards : weekCards.slice(0, 2)).map((card) => (
-                <React.Fragment key={card.week}>
-                  {/* Left: Silk card with brochure image + details */}
-                  <div className="relative flex h-full overflow-hidden rounded-md min-h-[160px] md:min-h-[350px]">
-                    <div className="pointer-events-none absolute inset-0">
-                      <Silk
-                        speed={5}
-                        scale={1}
-                        color="#5227FF"
-                        noiseIntensity={1.5}
-                        rotation={0}
-                      />
-                    </div>
-                    <div className="pointer-events-none absolute inset-0 bg-black/75" />
-                    <div className="relative z-10 flex h-full gap-5 p-2">
-                      <img
-                        src={card.image}
-                        alt={`${card.title} brochure`}
-                        className={card.imageClass || "block w-32 md:w-[260px] h-full shrink-0 rounded-sm object-cover object-top"}
-                      />
-                      <div className="text-white py-2 md:py-4 pr-2 flex-1">
-                        <h3 className="text-xl md:text-2xl font-semibold tracking-tighter leading-tight">{card.title}</h3>
-                        <p className="mt-2 font-semibold text-sm md:text-md lg:text-lg tracking-tighter leading-tight">
-                          {card.description}
-                        </p>
-                        <div className='mt-8'>
-                          <h1 className='text-xl md:text-2xl font-semibold tracking-tighter leading-tight'>Toppers</h1>
-                          <ul className='mt-2 font-semibold text-xs md:text-sm lg:text-md tracking-tighter leading-tight'>
-                            {card.toppers.map((name, i) => (
-                              <li key={i} className='mt-1 uppercase flex items-center gap-2'><FaMedal className="text-yellow-400" /> {name}</li>
-                            ))}
-                          </ul>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </React.Fragment>
-              ))}
-            </div>
-            {weekCards.length > 2 && (
-              <div className='mt-8 text-end relative z-20'>
-                <button
-                  type='button'
-                  onClick={() => setShowSS1(!showSS1)}
-                  className='group relative inline-block cursor-pointer pb-1 font-semibold text-sm tracking-tighter md:text-md lg:text-lg'
-                >
-                  {showSS1 ? "View Less" : "View More"}
-                  <span className='absolute bottom-0 left-0 h-0.5 w-full origin-left scale-x-0 bg-[#10129B] transition-transform duration-300 group-hover:scale-x-100' />
-                </button>
-              </div>
-            )}
-        </section>
+            </section>
+          </div>
 
-        <section className='px-8 pb-16'>
+          <div className="relative z-10 h-[200vh] pointer-events-none w-full">
+            <div className="sticky top-0 h-screen w-full bg-[#000846] flex flex-col pointer-events-auto overflow-hidden">
+               {/* Top Title Section */}
+               <div className="w-full bg-[#000846] text-black p-8 md:p-16 flex flex-col md:flex-row justify-between items-start md:items-center gap-8 shadow-md z-20 shrink-0 border-b-4 border-[#000846]">
+                  <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold uppercase tracking-tighter leading-none max-w-2xl text-white">
+                     Synergy Squad 1.0<br/>Hall of Fame
+                  </h2>
+                  <div className="max-w-xs flex gap-4 items-start">
+                     <p className="text-sm md:text-md lg:text-lg font-medium tracking-tighter leading-tight text-white">
+                        Witness the legacy of excellence and the journey of our top performers.
+                     </p>
+                  </div>
+               </div>
+               
+               {/* Bottom Carousel Section */}
+               <div className="relative flex-1 w-full overflow-hidden flex items-center bg-[#000846]">
+                   
+                   <div className="flex w-full h-full overflow-hidden relative z-10">
+                       <div className="animate-marquee h-full">
+                           <div className="flex shrink-0 h-full items-stretch gap-4 md:gap-6 pr-4 md:pr-6">
+                              {weekCards.map((card) => (
+                                 <img key={`a-${card.week}`} src={card.image} alt={card.title} className="h-full w-auto max-w-none object-contain block" />
+                              ))}
+                           </div>
+                           <div className="flex shrink-0 h-full items-stretch gap-4 md:gap-6 pr-4 md:pr-6" aria-hidden="true">
+                              {weekCards.map((card) => (
+                                 <img key={`b-${card.week}`} src={card.image} alt={card.title} className="h-full w-auto max-w-none object-contain block" />
+                              ))}
+                           </div>
+                       </div>
+                   </div>
+               </div>
+            </div>
+          </div>
+
+          <div className="bg-[#e6e6e6] relative z-20 shadow-[0_-20px_50px_rgba(0,0,0,0.4)] pointer-events-auto" style={{ marginBottom: '-100vh' }}>
+            <section className='px-8 pt-16 pb-16'>
           <div
             className='relative flex min-h-[60vh] flex-col justify-end overflow-hidden p-8 pt-32 md:pt-8 pb-16'
             style={{ background: 'radial-gradient(ellipse at 78% 20%, #3329D2 0%, #000846 68%)' }}
@@ -610,60 +596,46 @@ function History() {
               </div>
             </div>
 
-            <div className='grid grid-cols-1 lg:grid-cols-2 mt-16 gap-6'>
-              {(showSS2 ? ss2WeekCards : ss2WeekCards.slice(0, 2)).map((card) => (
-                <React.Fragment key={card.week}>
-                  <div className="relative flex h-full overflow-hidden rounded-md min-h-[160px] md:min-h-[350px]">
-                    <div className="pointer-events-none absolute inset-0">
-                      <Silk
-                        speed={5}
-                        scale={1}
-                        color="#5227FF"
-                        noiseIntensity={1.5}
-                        rotation={0}
-                      />
-                    </div>
-                    <div className="pointer-events-none absolute inset-0 bg-black/75" />
-                    <div className="relative z-10 flex h-full gap-5 p-2">
-                      <img
-                        src={card.image}
-                        alt={`${card.title} brochure`}
-                        className={card.imageClass || "block w-32 md:w-[260px] h-full shrink-0 rounded-sm object-cover object-top"}
-                      />
-                      <div className="text-white py-2 md:py-4 pr-2 flex-1">
-                        <h3 className="text-xl md:text-2xl font-semibold tracking-tighter leading-tight">{card.title}</h3>
-                        <p className="mt-2 font-semibold text-sm md:text-md lg:text-lg tracking-tighter leading-tight">
-                          {card.description}
-                        </p>
-                        <div className='mt-8'>
-                          <h1 className='text-xl md:text-2xl font-semibold tracking-tighter leading-tight'>Toppers</h1>
-                          <ul className='mt-2 font-semibold text-xs md:text-sm lg:text-md tracking-tighter leading-tight'>
-                            {card.toppers.map((name, i) => (
-                              <li key={i} className='mt-1 uppercase flex items-center gap-2'><FaMedal className="text-yellow-400" /> {name}</li>
-                            ))}
-                          </ul>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </React.Fragment>
-              ))}
-            </div>
-            {ss2WeekCards.length > 2 && (
-              <div className='mt-8 text-end relative z-20'>
-                <button
-                  type='button'
-                  onClick={() => setShowSS2(!showSS2)}
-                  className='group relative inline-block cursor-pointer pb-1 font-semibold text-sm tracking-tighter md:text-md lg:text-lg'
-                >
-                  {showSS2 ? "View Less" : "View More"}
-                  <span className='absolute bottom-0 left-0 h-0.5 w-full origin-left scale-x-0 bg-[#10129B] transition-transform duration-300 group-hover:scale-x-100' />
-                </button>
-              </div>
-            )}
-        </section>
+            </section>
+          </div>
 
-        <section className='px-8 pb-16'>
+          <div className="relative z-10 h-[200vh] pointer-events-none w-full">
+            <div className="sticky top-0 h-screen w-full bg-[#000846] flex flex-col pointer-events-auto overflow-hidden">
+               {/* Top Title Section */}
+               <div className="w-full bg-[#000846] text-black p-8 md:p-16 flex flex-col md:flex-row justify-between items-start md:items-center gap-8 shadow-md z-20 shrink-0 border-b-4 border-[#000846]">
+                  <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold uppercase tracking-tighter leading-none max-w-2xl text-white">
+                     Synergy Squad 2.0<br/>Hall of Fame
+                  </h2>
+                  <div className="max-w-xs flex gap-4 items-start">
+                     <p className="text-sm md:text-md lg:text-lg font-medium tracking-tighter leading-tight text-white">
+                        Witness the legacy of excellence and the journey of our top performers.
+                     </p>
+                  </div>
+               </div>
+               
+               {/* Bottom Carousel Section */}
+               <div className="relative flex-1 w-full overflow-hidden flex items-center bg-[#000846]">
+                   
+                   <div className="flex w-full h-full overflow-hidden relative z-10">
+                       <div className="animate-marquee h-full">
+                           <div className="flex shrink-0 h-full items-stretch gap-4 md:gap-6 pr-4 md:pr-6">
+                              {ss2WeekCards.map((card) => (
+                                 <img key={`a-${card.week}`} src={card.image} alt={card.title} className="h-full w-auto max-w-none object-contain block" />
+                              ))}
+                           </div>
+                           <div className="flex shrink-0 h-full items-stretch gap-4 md:gap-6 pr-4 md:pr-6" aria-hidden="true">
+                              {ss2WeekCards.map((card) => (
+                                 <img key={`b-${card.week}`} src={card.image} alt={card.title} className="h-full w-auto max-w-none object-contain block" />
+                              ))}
+                           </div>
+                       </div>
+                   </div>
+               </div>
+            </div>
+          </div>
+
+          <div className="bg-[#e6e6e6] relative z-20 shadow-[0_-20px_50px_rgba(0,0,0,0.4)] pointer-events-auto" style={{ marginBottom: '-100vh' }}>
+            <section className='px-8 pt-16 pb-16'>
             <div
             className='relative flex min-h-[60vh] flex-col justify-end overflow-hidden p-8 pt-32 md:pt-8 pb-16'
             style={{ background: 'radial-gradient(ellipse at 78% 20%, #3329D2 0%, #000846 68%)' }}
@@ -731,60 +703,46 @@ function History() {
               </div>
             </div>
 
-            <div className='grid grid-cols-1 lg:grid-cols-2 mt-16 gap-6'>
-              {(showSS3 ? ss3WeekCards : ss3WeekCards.slice(0, 2)).map((card) => (
-                <React.Fragment key={card.week}>
-                  <div className="relative flex h-full overflow-hidden rounded-md min-h-[160px] md:min-h-[350px]">
-                    <div className="pointer-events-none absolute inset-0">
-                      <Silk
-                        speed={5}
-                        scale={1}
-                        color="#5227FF"
-                        noiseIntensity={1.5}
-                        rotation={0}
-                      />
-                    </div>
-                    <div className="pointer-events-none absolute inset-0 bg-black/75" />
-                    <div className="relative z-10 flex h-full gap-5 p-2">
-                      <img
-                        src={card.image}
-                        alt={`${card.title} brochure`}
-                        className={card.imageClass || "block w-32 md:w-[260px] h-full shrink-0 rounded-sm object-cover object-top"}
-                      />
-                      <div className="text-white py-2 md:py-4 pr-2 flex-1">
-                        <h3 className="text-xl md:text-2xl font-semibold tracking-tighter leading-tight">{card.title}</h3>
-                        <p className="mt-2 font-semibold text-sm md:text-md lg:text-lg tracking-tighter leading-tight">
-                          {card.description}
-                        </p>
-                        <div className='mt-8'>
-                          <h1 className='text-xl md:text-2xl font-semibold tracking-tighter leading-tight'>Toppers</h1>
-                          <ul className='mt-2 font-semibold text-xs md:text-sm lg:text-md tracking-tighter leading-tight'>
-                            {card.toppers.map((name, i) => (
-                              <li key={i} className='mt-1 uppercase flex items-center gap-2'><FaMedal className="text-yellow-400" /> {name}</li>
-                            ))}
-                          </ul>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </React.Fragment>
-              ))}
-            </div>
-            {ss3WeekCards.length > 2 && (
-              <div className='mt-8 text-end relative z-20'>
-                <button
-                  type='button'
-                  onClick={() => setShowSS3(!showSS3)}
-                  className='group relative inline-block cursor-pointer pb-1 font-semibold text-sm tracking-tighter md:text-md lg:text-lg'
-                >
-                  {showSS3 ? "View Less" : "View More"}
-                  <span className='absolute bottom-0 left-0 h-0.5 w-full origin-left scale-x-0 bg-[#10129B] transition-transform duration-300 group-hover:scale-x-100' />
-                </button>
-              </div>
-            )}
-        </section>
+            </section>
+          </div>
 
-        <section className='px-8 pb-16'>
+          <div className="relative z-10 h-[200vh] pointer-events-none w-full">
+            <div className="sticky top-0 h-screen w-full bg-[#000846] flex flex-col pointer-events-auto overflow-hidden">
+               {/* Top Title Section */}
+               <div className="w-full bg-[#000846] text-black p-8 md:p-16 flex flex-col md:flex-row justify-between items-start md:items-center gap-8 shadow-md z-20 shrink-0 border-b-4 border-[#000846]">
+                  <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold uppercase tracking-tighter leading-none max-w-2xl text-white">
+                     Synergy Squad 3.0<br/>Hall of Fame
+                  </h2>
+                  <div className="max-w-xs flex gap-4 items-start">
+                     <p className="text-sm md:text-md lg:text-lg font-medium tracking-tighter leading-tight text-white">
+                        Witness the legacy of excellence and the journey of our top performers.
+                     </p>
+                  </div>
+               </div>
+               
+               {/* Bottom Carousel Section */}
+               <div className="relative flex-1 w-full overflow-hidden flex items-center bg-[#000846]">
+                   
+                   <div className="flex w-full h-full overflow-hidden relative z-10">
+                       <div className="animate-marquee h-full">
+                           <div className="flex shrink-0 h-full items-stretch gap-4 md:gap-6 pr-4 md:pr-6">
+                              {ss3WeekCards.map((card) => (
+                                 <img key={`a-${card.week}`} src={card.image} alt={card.title} className="h-full w-auto max-w-none object-contain block" />
+                              ))}
+                           </div>
+                           <div className="flex shrink-0 h-full items-stretch gap-4 md:gap-6 pr-4 md:pr-6" aria-hidden="true">
+                              {ss3WeekCards.map((card) => (
+                                 <img key={`b-${card.week}`} src={card.image} alt={card.title} className="h-full w-auto max-w-none object-contain block" />
+                              ))}
+                           </div>
+                       </div>
+                   </div>
+               </div>
+            </div>
+          </div>
+
+          <div className="bg-[#e6e6e6] relative z-20 shadow-[0_-20px_50px_rgba(0,0,0,0.4)] pointer-events-auto" style={{ marginBottom: '-100vh' }}>
+            <section className='px-8 pt-16 pb-16'>
           <div
             className='relative flex min-h-[60vh] flex-col justify-end overflow-hidden p-8 pt-32 md:pt-8 pb-16'
             style={{ background: 'radial-gradient(ellipse at 78% 20%, #3329D2 0%, #000846 68%)' }}
@@ -868,61 +826,46 @@ function History() {
               </div>
             </div>
 
-            <div className='grid grid-cols-1 lg:grid-cols-2 mt-16 gap-6'>
-              {(showSS4 ? ss4WeekCards : ss4WeekCards.slice(0, 2)).map((card) => (
-                <React.Fragment key={card.week}>
-                  <div className="relative flex h-full overflow-hidden rounded-md min-h-[160px] md:min-h-[350px]">
-                    <div className="pointer-events-none absolute inset-0">
-                      <Silk
-                        speed={5}
-                        scale={1}
-                        color="#5227FF"
-                        noiseIntensity={1.5}
-                        rotation={0}
-                      />
-                    </div>
-                    <div className="pointer-events-none absolute inset-0 bg-black/75" />
-                    <div className="relative z-10 flex h-full gap-5 p-2">
-                      <img
-                        src={card.image}
-                        alt={`${card.title} brochure`}
-                        className={card.imageClass || "block w-32 md:w-[260px] h-full shrink-0 rounded-sm object-cover object-top"}
-                      />
-                      <div className="text-white py-2 md:py-4 pr-2 flex-1">
-                        <h3 className="text-xl md:text-2xl font-semibold tracking-tighter leading-tight">{card.title}</h3>
-                        <p className="mt-2 font-semibold text-sm md:text-md lg:text-lg tracking-tighter leading-tight">
-                          {card.description}
-                        </p>
-                        {card.toppers && card.toppers.length > 0 && (
-                          <div className='mt-8'>
-                            <h1 className='text-xl md:text-2xl font-semibold tracking-tighter leading-tight'>Toppers</h1>
-                            <ul className='mt-2 font-semibold text-xs md:text-sm lg:text-md tracking-tighter leading-tight'>
-                              {card.toppers.map((name, i) => (
-                                <li key={i} className='mt-1 uppercase flex items-center gap-2'><FaMedal className="text-yellow-400" /> {name}</li>
-                              ))}
-                            </ul>
-                          </div>
-                        )}
-                      </div>
-                    </div>
+            </section>
+          </div>
+
+          <div className="relative z-10 h-[200vh] pointer-events-none w-full">
+            <div className="sticky top-0 h-screen w-full bg-[#000846] flex flex-col pointer-events-auto overflow-hidden">
+               {/* Top Title Section */}
+               <div className="w-full bg-[#000846] text-black p-8 md:p-16 flex flex-col md:flex-row justify-between items-start md:items-center gap-8 shadow-md z-20 shrink-0 border-b-4 border-[#000846]">
+                  <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold uppercase tracking-tighter leading-none max-w-2xl text-white">
+                     Synergy Squad 4.0<br/>Hall of Fame
+                  </h2>
+                  <div className="max-w-xs flex gap-4 items-start">
+                     <p className="text-sm md:text-md lg:text-lg font-medium tracking-tighter leading-tight text-white">
+                        Witness the legacy of excellence and the journey of our top performers.
+                     </p>
                   </div>
-                </React.Fragment>
-              ))}
+               </div>
+               
+               {/* Bottom Carousel Section */}
+               <div className="relative flex-1 w-full overflow-hidden flex items-center bg-[#000846]">
+                   
+                   <div className="flex w-full h-full overflow-hidden relative z-10">
+                       <div className="animate-marquee h-full">
+                           <div className="flex shrink-0 h-full items-stretch gap-4 md:gap-6 pr-4 md:pr-6">
+                              {ss4WeekCards.map((card) => (
+                                 <img key={`a-${card.week}`} src={card.image} alt={card.title} className="h-full w-auto max-w-none object-contain block" />
+                              ))}
+                           </div>
+                           <div className="flex shrink-0 h-full items-stretch gap-4 md:gap-6 pr-4 md:pr-6" aria-hidden="true">
+                              {ss4WeekCards.map((card) => (
+                                 <img key={`b-${card.week}`} src={card.image} alt={card.title} className="h-full w-auto max-w-none object-contain block" />
+                              ))}
+                           </div>
+                       </div>
+                   </div>
+               </div>
             </div>
-            {ss4WeekCards.length > 2 && (
-              <div className='mt-8 text-end relative z-20'>
-                <button
-                  type='button'
-                  onClick={() => setShowSS4(!showSS4)}
-                  className='group relative inline-block cursor-pointer pb-1 font-semibold text-sm tracking-tighter md:text-md lg:text-lg'
-                >
-                  {showSS4 ? "View Less" : "View More"}
-                  <span className='absolute bottom-0 left-0 h-0.5 w-full origin-left scale-x-0 bg-[#10129B] transition-transform duration-300 group-hover:scale-x-100' />
-                </button>
-              </div>
-            )}
-        </section>
-        </div>
+          </div>
+          <div className="relative z-20 pointer-events-auto w-full shadow-[0_-20px_50px_rgba(0,0,0,0.4)]">
+            <FinalCTA/>
+          </div>
     </div>
   )
 }

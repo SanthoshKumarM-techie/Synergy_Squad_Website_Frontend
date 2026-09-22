@@ -54,7 +54,7 @@ function About() {
             <div className="relative z-10 bg-[#e6e6e6]">
             <section className='min-h-screen px-8 pt-16 pb-16'>
                 <div className='flex flex-col md:flex-row gap-8'>
-                    <h1 className='text-2xl lg:text-3xl max-w-lg font-semibold tracking-tighter leading-tight'>
+                    <h1 className='text-xl md:text-3xl lg:text-4xl max-w-lg font-semibold tracking-tighter leading-tight'>
                     The Spark That Set Our Journey in Motion
                     </h1>
                     <p className='w-full max-w-2xl font-semibold text-sm md:text-md lg:text-lg tracking-tighter leading-tight md:mr-32 text-gray-700'>Synergy Squad was forged from the Pre-Placement Readiness Initiative, designed to elevate the technical proficiency of our students. Our formation process is rigorous and merit-based: prospective members undergo a series of intensive Practice Assessments, including mock company-specific tests like the TCS CodeVita.
@@ -65,28 +65,28 @@ function About() {
                 </div>
 
                 <div className='mt-16'>
-        <h1 className='text-xl md:text-2xl lg:text-3xl max-w-2xl mb-8 font-semibold tracking-tighter'>
+        <h1 className='text-xl md:text-3xl lg:text-4xl max-w-3xl mb-8 font-semibold tracking-tighter'>
           The Numbers That Reflect Our Commitment to Excellence, Innovation, and Student Success
         </h1>
         <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16'>
           <div>
             <h2 className='text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tighter leading-tight'>190+</h2>
-            <p className='font-semibold text-sm md:text-md lg:text-lg tracking-tighter leading-tight border-b border-gray-300 mb-4 pb-1'>Members</p>
+            <p className='font-semibold text-md md:text-lg lg:text-xl tracking-tighter leading-tight border-b border-gray-300 mb-4 pb-1'>Members</p>
             <p className='font-semibold text-sm md:text-md lg:text-lg tracking-tighter max-w-sm text-gray-700 leading-tight'>Active student members trained in advanced computing and problem solving across CSE batches.</p>
           </div>
           <div>
             <h2 className='text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tighter leading-tight'>4+</h2>
-            <p className='font-semibold text-sm md:text-md lg:text-lg tracking-tighter leading-tight border-b border-gray-300 mb-4 pb-1'>Batches</p>
+            <p className='font-semibold text-md md:text-lg lg:text-xl tracking-tighter leading-tight border-b border-gray-300 mb-4 pb-1'>Batches</p>
             <p className='font-semibold text-sm md:text-md lg:text-lg tracking-tighter max-w-sm text-gray-700 leading-tight'>Across these 3 batches, we have conducted various events and competitions to enhance student skills.</p>
           </div>
           <div>
             <h2 className='text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tighter leading-tight'>3+</h2>
-            <p className='font-semibold text-sm md:text-md lg:text-lg tracking-tighter leading-tight border-b border-gray-300 mb-4 pb-1'>Events</p>
+            <p className='font-semibold text-md md:text-lg lg:text-xl tracking-tighter leading-tight border-b border-gray-300 mb-4 pb-1'>Events</p>
             <p className='font-semibold text-sm md:text-md lg:text-lg tracking-tighter max-w-sm text-gray-700 leading-tight'>Technical workshops, coding hackathons, and company-specific mock challenges conducted annually.</p>
           </div>
           <div>
             <h2 className='text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tighter leading-tight'>75%+</h2>
-            <p className='font-semibold text-sm md:text-md lg:text-lg tracking-tighter leading-tight border-b border-gray-300 mb-4 pb-1'>Placed in top MNCs</p>
+            <p className='font-semibold text-md md:text-lg lg:text-xl tracking-tighter leading-tight border-b border-gray-300 mb-4 pb-1'>Placed in top MNCs</p>
             <p className='font-semibold text-sm md:text-md lg:text-lg tracking-tighter max-w-sm text-gray-700 leading-tight'>High-performing graduates recruited into Tier-1 IT companies and global technology leaders.</p>
           </div>
         </div>
@@ -114,7 +114,7 @@ function About() {
                         <p className='text-white text-sm md:text-md lg:text-lg tracking-tighter leading-tight font-semibold text-left'>"I never wanted this club to be just another organization on campus. I envisioned a community where students could bring their ideas to life, discover what they are capable of, and grow alongside people who share the same curiosity and ambition. What started as a simple idea has become a journey shaped by every student who chose to be a part of it."</p>
                         <div className='mt-8 text-left'>
                             <h1 className='text-white font-semibold text-md md:text-lg lg:text-xl tracking-tighter'>Mr. T. Karthikeyan</h1>
-                            <p className='text-white font-semibold text-xs md:text-sm lg:text-md tracking-tighter leading-tight'>Head of the Department - CSE</p>
+                            <p className='text-white font-semibold text-md md:text-lg lg:text-xl tracking-tighter leading-tight'>Head of the Department - CSE</p>
                         </div>
                     </div>
                 </div>
@@ -134,7 +134,7 @@ function About() {
                         <p className='text-white text-sm md:text-md lg:text-lg tracking-tighter leading-tight font-semibold text-left'>"I never wanted this club to be just another organization on campus. I envisioned a community where students could bring their ideas to life, discover what they are capable of, and grow alongside people who share the same curiosity and ambition. What started as a simple idea has become a journey shaped by every student who chose to be a part of it."</p>
                         <div className='mt-8 text-left md:text-right'>
                             <h1 className='text-white font-semibold text-md md:text-lg lg:text-xl tracking-tighter'>Mr. K. Praveen</h1>
-                            <p className='text-white font-semibold text-xs md:text-sm lg:text-md tracking-tighter leading-tight'>Head of Synergy Squad</p>
+                            <p className='text-white font-semibold text-md md:text-lg lg:text-xl tracking-tighter leading-tight'>Head of Synergy Squad</p>
                         </div>
                     </div>
                 </div>

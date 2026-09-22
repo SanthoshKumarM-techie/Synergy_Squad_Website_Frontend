@@ -4,7 +4,7 @@ import collegeLogo from './assets/college-logo.png'
 
 function FinalCTA() {
   return (
-    <footer className='w-full select-none bg-[#e6e6e6] text-black border-t border-black/10'>
+    <footer id="contact" className='w-full select-none bg-[#e6e6e6] text-black border-t border-black/10'>
       <div className='max-w-7xl mx-auto px-8 py-16 md:py-20'>
         <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-12 gap-12 md:gap-8 items-start'>
           
@@ -32,7 +32,7 @@ function FinalCTA() {
               <p className='font-semibold text-xs md:text-sm text-gray-500 tracking-tighter uppercase mb-1'>Write to us</p>
               <a 
                 href="mailto:synergysquad@kiot.ac.in" 
-                className='font-semibold text-lg md:text-xl lg:text-2xl tracking-tighter text-black hover:text-yellow-600 transition-colors block'
+                className='font-semibold text-lg md:text-xl lg:text-2xl tracking-tighter text-black hover:text-[#10129B] transition-colors block'
               >
                 synergysquad@kiot.ac.in
               </a>
@@ -43,10 +43,10 @@ function FinalCTA() {
           <div className='md:col-span-3 flex flex-col space-y-4'>
             <h4 className='font-semibold text-xs md:text-sm text-gray-500 uppercase tracking-tighter mb-1'>Navigation</h4>
             <div className='flex flex-col space-y-3 font-semibold text-sm md:text-md lg:text-lg tracking-tighter text-gray-800'>
-              <a href="#home" className='hover:text-black hover:translate-x-1 transition-all duration-200'>Home</a>
-              <a href="#about" className='hover:text-black hover:translate-x-1 transition-all duration-200'>About Us</a>
-              <a href="#squad" className='hover:text-black hover:translate-x-1 transition-all duration-200'>Squad Members</a>
-              <a href="#history" className='hover:text-black hover:translate-x-1 transition-all duration-200'>Milestones & History</a>
+              <a href="#home" className='hover:text-[#10129B] hover:translate-x-1 transition-all duration-200'>Home</a>
+              <a href="#about" className='hover:text-[#10129B] hover:translate-x-1 transition-all duration-200'>About Us</a>
+              <a href="#squad" className='hover:text-[#10129B] hover:translate-x-1 transition-all duration-200'>Squad Members</a>
+              <a href="#history" className='hover:text-[#10129B] hover:translate-x-1 transition-all duration-200'>Milestones & History</a>
             </div>
           </div>
 
@@ -54,10 +54,10 @@ function FinalCTA() {
           <div className='md:col-span-2 flex flex-col space-y-4'>
             <h4 className='font-semibold text-xs md:text-sm text-gray-500 uppercase tracking-tighter mb-1'>Batches</h4>
             <div className='flex flex-col space-y-3 font-semibold text-sm md:text-md lg:text-lg tracking-tighter text-gray-800'>
-              <a href="#squad" className='hover:text-black hover:translate-x-1 transition-all duration-200'>Squad 1.0</a>
-              <a href="#squad" className='hover:text-black hover:translate-x-1 transition-all duration-200'>Squad 2.0</a>
-              <a href="#squad" className='hover:text-black hover:translate-x-1 transition-all duration-200'>Squad 3.0</a>
-              <a href="#squad" className='hover:text-black hover:translate-x-1 transition-all duration-200'>Squad 4.0</a>
+              <a href="#squad" className='hover:text-[#10129B] hover:translate-x-1 transition-all duration-200'>Squad 1.0</a>
+              <a href="#squad" className='hover:text-[#10129B] hover:translate-x-1 transition-all duration-200'>Squad 2.0</a>
+              <a href="#squad" className='hover:text-[#10129B] hover:translate-x-1 transition-all duration-200'>Squad 3.0</a>
+              <a href="#squad" className='hover:text-[#10129B] hover:translate-x-1 transition-all duration-200'>Squad 4.0</a>
             </div>
           </div>
 
@@ -66,28 +66,20 @@ function FinalCTA() {
             <h4 className='font-semibold text-xs md:text-sm text-gray-500 uppercase tracking-tighter mb-1'>Social</h4>
             <div className='flex flex-col space-y-3 font-semibold text-sm md:text-md lg:text-lg tracking-tighter text-gray-800'>
               <a 
-                href="https://linkedin.com" 
+                href="https://www.linkedin.com/company/synergysquad-kiot" 
                 target="_blank" 
                 rel="noopener noreferrer" 
-                className='flex items-center gap-1.5 hover:text-yellow-600 hover:translate-x-1 transition-all duration-200'
+                className='flex items-center gap-1.5 hover:text-[#10129B] hover:translate-x-1 transition-all duration-200'
               >
-                <span className='text-xs text-yellow-500 font-semibold'>↗</span> LinkedIn
+                <span className='text-xs text-[#10129B] font-semibold'>↗</span> LinkedIn
               </a>
               <a 
-                href="https://github.com" 
+                href="https://www.instagram.com/synergysquad_kiot/" 
                 target="_blank" 
                 rel="noopener noreferrer" 
-                className='flex items-center gap-1.5 hover:text-yellow-600 hover:translate-x-1 transition-all duration-200'
+                className='flex items-center gap-1.5 hover:text-[#10129B] hover:translate-x-1 transition-all duration-200'
               >
-                <span className='text-xs text-yellow-500 font-semibold'>↗</span> GitHub
-              </a>
-              <a 
-                href="https://instagram.com" 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className='flex items-center gap-1.5 hover:text-yellow-600 hover:translate-x-1 transition-all duration-200'
-              >
-                <span className='text-xs text-yellow-500 font-semibold'>↗</span> Instagram
+                <span className='text-xs text-[#10129B] font-semibold'>↗</span> Instagram
               </a>
             </div>
           </div>

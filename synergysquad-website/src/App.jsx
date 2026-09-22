@@ -8,6 +8,7 @@ import Testimonials from './Testimonials'
 import Squad from './Squad'
 import History from './History'
 import About from './About'
+import FrameOfHonor from './FrameOfHonor'
 import FinalCTA from './FinalCTA'
 import { AnimatePresence } from 'framer-motion'
 import CustomCursor from './CustomCursor'
@@ -40,13 +41,16 @@ function App() {
       const active = hash || path || 'home'
       setCurrentRoute(active)
 
-      if (active !== 'squad' && active !== 'history' && active !== 'about') {
-        const element = document.getElementById(active)
-        if (element) {
-          element.scrollIntoView({ behavior: 'smooth' })
-        } else if (active === 'home') {
-          window.scrollTo({ top: 0, behavior: 'smooth' })
-        }
+      const standaloneRoutes = ['squad', 'history', 'about', 'honor', 'frame-of-honor']
+      if (!standaloneRoutes.includes(active)) {
+        setTimeout(() => {
+          const element = document.getElementById(active)
+          if (element) {
+            element.scrollIntoView({ behavior: 'smooth' })
+          } else {
+            window.scrollTo({ top: 0, behavior: 'smooth' })
+          }
+        }, 100)
       } else {
         window.scrollTo({ top: 0, behavior: 'smooth' })
       }
@@ -63,7 +67,7 @@ function App() {
 
   return (
     <div className='bg-[#e6e6e6] min-h-screen text-black'>
-      <ScrollProgressBar />
+      <ScrollProgressBar key={currentRoute} />
       <AnimatePresence mode="wait">
         <PageTransition key={currentRoute}>
           {currentRoute === 'squad' ? (
@@ -72,6 +76,8 @@ function App() {
             <History />
           ) : currentRoute === 'about' ? (
             <About />
+          ) : currentRoute === 'honor' || currentRoute === 'frame-of-honor' ? (
+            <FrameOfHonor />
           ) : (
             <>
               <Navbar />

@@ -32,19 +32,10 @@ function AnimatedNumber({ value, suffix = "" }) {
   return <span ref={ref}>0{suffix}</span>;
 }
 
-function CubeBox({ image, alt, imgClassName = 'max-h-12 max-w-full object-contain' }) {
+function LogoCard({ image, alt, imgClassName = 'max-h-12 max-w-full object-contain' }) {
   return (
-    <div className="group w-full h-24 [perspective:1000px] cursor-pointer">
-      <div className="relative w-full h-full transition-transform duration-500 [transform-style:preserve-3d] [transform:translateZ(-48px)] group-hover:[transform:translateZ(-48px)_rotateX(90deg)]">
-        {/* Front Face */}
-        <div className="absolute inset-0 border border-gray-300 rounded-sm p-4 flex items-center justify-center bg-white [transform:rotateX(0deg)_translateZ(48px)]">
-          <img src={image} alt={alt} className={imgClassName} />
-        </div>
-        {/* Bottom Face */}
-        <div className="absolute inset-0 border border-gray-400 rounded-sm p-4 flex items-center justify-center bg-gray-100 [transform:rotateX(-90deg)_translateZ(48px)]">
-          <img src={image} alt={alt} className={imgClassName} />
-        </div>
-      </div>
+    <div className="w-full h-24 border border-gray-300 rounded-sm p-4 flex items-center justify-center bg-white hover:border-gray-400 transition-colors duration-300">
+      <img src={image} alt={alt} className={imgClassName} />
     </div>
   )
 }
@@ -93,11 +84,11 @@ function AboutBrief() {
           Our members have been hired by industry leaders
         </h1>
         <div className='grid grid-cols-2 md:grid-cols-5 gap-6 md:gap-8 items-center'>
-          <CubeBox image={americanMegatrendsLogo} alt="American Megatrends" />
-          <CubeBox image={mrCooperLogo} alt="Mr. Cooper" />
-          <CubeBox image={techMahindraLogo} alt="Tech Mahindra" />
-          <CubeBox image={mindtreeLogo} alt="Mindtree" imgClassName='max-h-16 max-w-full object-contain scale-[1.35]' />
-          <CubeBox image={tcsLogo} alt="TCS" imgClassName='max-h-16 max-w-full object-contain scale-[2.4]' />
+          <LogoCard image={americanMegatrendsLogo} alt="American Megatrends" />
+          <LogoCard image={mrCooperLogo} alt="Mr. Cooper" />
+          <LogoCard image={techMahindraLogo} alt="Tech Mahindra" />
+          <LogoCard image={mindtreeLogo} alt="Mindtree" imgClassName='max-h-16 max-w-full object-contain scale-[1.35]' />
+          <LogoCard image={tcsLogo} alt="TCS" imgClassName='max-h-16 max-w-full object-contain scale-[2.4]' />
         </div>
       </div>
       <div className='mt-8 text-end'>

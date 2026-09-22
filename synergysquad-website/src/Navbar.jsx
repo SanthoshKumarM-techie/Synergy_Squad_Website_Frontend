@@ -8,13 +8,13 @@ const menuItems = [
   { label: 'About', ariaLabel: 'Learn about us', link: '#about' },
   { label: 'Squad', ariaLabel: 'Meet the squad', link: '#squad' },
   { label: 'History', ariaLabel: 'View our history', link: '#history' },
+  { label: 'Frame of Honor', ariaLabel: 'View Frame of Honor', link: '#honor' },
   { label: 'Contact', ariaLabel: 'Get in touch', link: '#contact' }
 ];
 
 const socialItems = [
-  { label: 'Twitter', link: 'https://twitter.com' },
-  { label: 'GitHub', link: 'https://github.com' },
-  { label: 'LinkedIn', link: 'https://linkedin.com' }
+  { label: 'LinkedIn', link: 'https://www.linkedin.com/company/synergysquad-kiot' },
+  { label: 'Instagram', link: 'https://www.instagram.com/synergysquad_kiot/' }
 ];
 
 function Navbar() {

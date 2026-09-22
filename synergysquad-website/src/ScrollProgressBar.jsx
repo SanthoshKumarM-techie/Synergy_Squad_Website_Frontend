@@ -41,7 +41,7 @@ function ScrollProgressBar() {
   return (
     <div className='fixed top-0 left-0 right-0 h-1.5 z-50 pointer-events-none bg-transparent overflow-hidden'>
       <div
-        className='h-full bg-yellow-400 shadow-[0_0_12px_#facc15]'
+        className='h-full bg-[#10129B] shadow-[0_0_12px_#3b82f6]'
         style={{ width: `${scrollProgress}%` }}
       />
     </div>

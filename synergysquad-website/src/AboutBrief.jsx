@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react'
+﻿import React, { useEffect, useRef } from 'react'
 import { useInView, useMotionValue, useSpring } from 'framer-motion'
 import { aboutBriefStatsData, aboutBriefCompaniesData } from './data/aboutBriefData'
 
@@ -85,7 +85,7 @@ function AboutBrief() {
           }}
           className='group relative inline-block cursor-pointer pb-1 font-semibold text-sm tracking-tighter md:text-md lg:text-lg text-black'
         >
-          Know More →
+          Know More &rarr;
           <span className='absolute bottom-0 left-0 h-0.5 w-full origin-left scale-x-0 bg-[#10129B] transition-transform duration-300 group-hover:scale-x-100' />
         </a>
       </div>

@@ -1,4 +1,4 @@
-import ChroniclesOfSquadImg from '../assets/ChroniclesOfSquad.webp'
+﻿import ChroniclesOfSquadImg from '../assets/ChroniclesOfSquad.webp'
 import IdentificationImg from '../assets/Identification.png'
 import IntensiveTrainingImg from '../assets/IntensiveTraining.webp'
 import TechnicalAssessmentsImg from '../assets/technicalTraining.png'
@@ -38,7 +38,7 @@ import SS4B7 from '../assets/SS 4.0 Brouchre 7.webp'
 import SS4B8 from '../assets/SS 4.0 Brouchre 8.webp'
 
 export const heroData = {
-  badge: 'LEGACY OF EXCELLENCE • SINCE 2023',
+  badge: 'LEGACY OF EXCELLENCE \u2022 SINCE 2023',
   headline: 'A Journey Of Excellence & Milestones',
   legacy: {
     title: 'Legacy',
@@ -62,7 +62,7 @@ export const chroniclesData = {
     { src: naveenImg, alt: 'Naveen' },
   ],
   cta: {
-    label: 'Our Process ↓',
+    label: 'Our Process \u2192',
     target: '#process',
   },
   stats: {
@@ -202,33 +202,33 @@ export const hallOfFameData = {
   title: 'Hall of Fame',
   description: 'Honoring championship milestones, top coding achievements, and departmental excellence across all Synergy Squad batches.',
   brochures: [
-    { id: 1, src: SS1B1, title: 'SS 1.0 — Brochure 1', batch: 'Synergy Squad 1.0' },
-    { id: 2, src: SS1B2, title: 'SS 1.0 — Brochure 2', batch: 'Synergy Squad 1.0' },
-    { id: 3, src: SS1B3, title: 'SS 1.0 — Brochure 3', batch: 'Synergy Squad 1.0' },
-    { id: 4, src: SS1B4, title: 'SS 1.0 — Brochure 4', batch: 'Synergy Squad 1.0' },
-    { id: 5, src: SS1B5, title: 'SS 1.0 — Brochure 5', batch: 'Synergy Squad 1.0' },
-    { id: 6, src: SS1B6, title: 'SS 1.0 — Brochure 6', batch: 'Synergy Squad 1.0' },
-    { id: 7, src: SS1B7, title: 'SS 1.0 — Brochure 7', batch: 'Synergy Squad 1.0' },
-    { id: 8, src: SS2B1, title: 'SS 2.0 — Brochure 1', batch: 'Synergy Squad 2.0' },
-    { id: 9, src: SS2B2, title: 'SS 2.0 — Brochure 2', batch: 'Synergy Squad 2.0' },
-    { id: 10, src: SS2B3, title: 'SS 2.0 — Brochure 3', batch: 'Synergy Squad 2.0' },
-    { id: 11, src: SS2B4, title: 'SS 2.0 — Brochure 4', batch: 'Synergy Squad 2.0' },
-    { id: 12, src: SS2B5, title: 'SS 2.0 — Brochure 5', batch: 'Synergy Squad 2.0' },
-    { id: 13, src: SS3B1, title: 'SS 3.0 — Brochure 1', batch: 'Synergy Squad 3.0' },
-    { id: 14, src: SS3B2, title: 'SS 3.0 — Brochure 2', batch: 'Synergy Squad 3.0' },
-    { id: 15, src: SS3B3, title: 'SS 3.0 — Brochure 3', batch: 'Synergy Squad 3.0' },
-    { id: 16, src: SS3B4, title: 'SS 3.0 — Brochure 4', batch: 'Synergy Squad 3.0' },
-    { id: 17, src: SS3B5, title: 'SS 3.0 — Brochure 5', batch: 'Synergy Squad 3.0' },
-    { id: 18, src: SS3B6, title: 'SS 3.0 — Brochure 6', batch: 'Synergy Squad 3.0' },
-    { id: 19, src: SS3B7, title: 'SS 3.0 — Brochure 7', batch: 'Synergy Squad 3.0' },
-    { id: 20, src: SS3B8, title: 'SS 3.0 — Brochure 8', batch: 'Synergy Squad 3.0' },
-    { id: 21, src: SS4B1, title: 'SS 4.0 — Brochure 1', batch: 'Synergy Squad 4.0' },
-    { id: 22, src: SS4B2, title: 'SS 4.0 — Brochure 2', batch: 'Synergy Squad 4.0' },
-    { id: 23, src: SS4B3, title: 'SS 4.0 — Brochure 3', batch: 'Synergy Squad 4.0' },
-    { id: 24, src: SS4B4, title: 'SS 4.0 — Brochure 4', batch: 'Synergy Squad 4.0' },
-    { id: 25, src: SS4B5, title: 'SS 4.0 — Brochure 5', batch: 'Synergy Squad 4.0' },
-    { id: 26, src: SS4B6, title: 'SS 4.0 — Brochure 6', batch: 'Synergy Squad 4.0' },
-    { id: 27, src: SS4B7, title: 'SS 4.0 — Brochure 7', batch: 'Synergy Squad 4.0' },
-    { id: 28, src: SS4B8, title: 'SS 4.0 — Brochure 8', batch: 'Synergy Squad 4.0' },
+    { id: 1, src: SS1B1, title: 'SS 1.0 - Brochure 1', batch: 'Synergy Squad 1.0' },
+    { id: 2, src: SS1B2, title: 'SS 1.0 - Brochure 2', batch: 'Synergy Squad 1.0' },
+    { id: 3, src: SS1B3, title: 'SS 1.0 - Brochure 3', batch: 'Synergy Squad 1.0' },
+    { id: 4, src: SS1B4, title: 'SS 1.0 - Brochure 4', batch: 'Synergy Squad 1.0' },
+    { id: 5, src: SS1B5, title: 'SS 1.0 - Brochure 5', batch: 'Synergy Squad 1.0' },
+    { id: 6, src: SS1B6, title: 'SS 1.0 - Brochure 6', batch: 'Synergy Squad 1.0' },
+    { id: 7, src: SS1B7, title: 'SS 1.0 - Brochure 7', batch: 'Synergy Squad 1.0' },
+    { id: 8, src: SS2B1, title: 'SS 2.0 - Brochure 1', batch: 'Synergy Squad 2.0' },
+    { id: 9, src: SS2B2, title: 'SS 2.0 - Brochure 2', batch: 'Synergy Squad 2.0' },
+    { id: 10, src: SS2B3, title: 'SS 2.0 - Brochure 3', batch: 'Synergy Squad 2.0' },
+    { id: 11, src: SS2B4, title: 'SS 2.0 - Brochure 4', batch: 'Synergy Squad 2.0' },
+    { id: 12, src: SS2B5, title: 'SS 2.0 - Brochure 5', batch: 'Synergy Squad 2.0' },
+    { id: 13, src: SS3B1, title: 'SS 3.0 - Brochure 1', batch: 'Synergy Squad 3.0' },
+    { id: 14, src: SS3B2, title: 'SS 3.0 - Brochure 2', batch: 'Synergy Squad 3.0' },
+    { id: 15, src: SS3B3, title: 'SS 3.0 - Brochure 3', batch: 'Synergy Squad 3.0' },
+    { id: 16, src: SS3B4, title: 'SS 3.0 - Brochure 4', batch: 'Synergy Squad 3.0' },
+    { id: 17, src: SS3B5, title: 'SS 3.0 - Brochure 5', batch: 'Synergy Squad 3.0' },
+    { id: 18, src: SS3B6, title: 'SS 3.0 - Brochure 6', batch: 'Synergy Squad 3.0' },
+    { id: 19, src: SS3B7, title: 'SS 3.0 - Brochure 7', batch: 'Synergy Squad 3.0' },
+    { id: 20, src: SS3B8, title: 'SS 3.0 - Brochure 8', batch: 'Synergy Squad 3.0' },
+    { id: 21, src: SS4B1, title: 'SS 4.0 - Brochure 1', batch: 'Synergy Squad 4.0' },
+    { id: 22, src: SS4B2, title: 'SS 4.0 - Brochure 2', batch: 'Synergy Squad 4.0' },
+    { id: 23, src: SS4B3, title: 'SS 4.0 - Brochure 3', batch: 'Synergy Squad 4.0' },
+    { id: 24, src: SS4B4, title: 'SS 4.0 - Brochure 4', batch: 'Synergy Squad 4.0' },
+    { id: 25, src: SS4B5, title: 'SS 4.0 - Brochure 5', batch: 'Synergy Squad 4.0' },
+    { id: 26, src: SS4B6, title: 'SS 4.0 - Brochure 6', batch: 'Synergy Squad 4.0' },
+    { id: 27, src: SS4B7, title: 'SS 4.0 - Brochure 7', batch: 'Synergy Squad 4.0' },
+    { id: 28, src: SS4B8, title: 'SS 4.0 - Brochure 8', batch: 'Synergy Squad 4.0' },
   ],
 }

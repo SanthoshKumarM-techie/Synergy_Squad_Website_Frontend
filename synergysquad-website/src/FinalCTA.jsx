@@ -1,4 +1,4 @@
-import React from 'react'
+﻿import React from 'react'
 import clubLogo from './assets/club-logo.webp'
 import collegeLogo from './assets/college-logo.webp'
 
@@ -71,7 +71,7 @@ function FinalCTA() {
                 rel="noopener noreferrer" 
                 className='flex items-center gap-1.5 hover:text-[#10129B] hover:translate-x-1 transition-all duration-200'
               >
-                <span className='text-xs text-[#10129B] font-semibold'>↗</span> LinkedIn
+                <span className='text-xs text-[#10129B] font-semibold'>&nearr;</span> LinkedIn
               </a>
               <a 
                 href="https://www.instagram.com/synergysquad_kiot/" 
@@ -79,7 +79,7 @@ function FinalCTA() {
                 rel="noopener noreferrer" 
                 className='flex items-center gap-1.5 hover:text-[#10129B] hover:translate-x-1 transition-all duration-200'
               >
-                <span className='text-xs text-[#10129B] font-semibold'>↗</span> Instagram
+                <span className='text-xs text-[#10129B] font-semibold'>&nearr;</span> Instagram
               </a>
             </div>
           </div>
@@ -88,7 +88,7 @@ function FinalCTA() {
 
         {/* Bottom Copyright Bar */}
         <div className='mt-16 pt-8 border-t border-black/10 flex flex-col sm:flex-row items-center justify-between gap-4 font-semibold text-xs md:text-sm text-gray-600 tracking-tighter'>
-          <p>© 2026 Synergy Squad — Department of Computer Science & Engineering, KIOT.</p>
+          <p>&copy; 2026 Synergy Squad &mdash; Department of Computer Science & Engineering, KIOT.</p>
           <p>Designed with passion for competitive programming & tech excellence.</p>
         </div>
       </div>

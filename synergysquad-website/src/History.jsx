@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react'
+﻿import React, { useState, useRef, useEffect } from 'react'
 import { motion, AnimatePresence, useInView } from 'framer-motion'
 import { FiChevronLeft, FiChevronRight } from 'react-icons/fi'
 import Navbar from './Navbar'
@@ -535,7 +535,7 @@ function History() {
                 >
                   <div className='flex items-baseline gap-2.5'>
                     <span className='text-md md:text-xl font-semibold text-gray-500 tracking-tighter shrink-0'>
-                      {item.step} â€”
+                      {item.step} &ndash;
                     </span>
                     <h3 className='text-xl sm:text-lg md:text-xl lg:text-2xl font-semibold text-black tracking-tighter'>
                       {item.title}

@@ -1,4 +1,4 @@
-import PraveenSirImg from '../assets/Praveen Sir.webp'
+import PraveenSirImg from '../assets/Praveen Sir.png'
 
 export const contactHeader = {
   title: 'Connect With \n Faculty Leadership',

@@ -1,5 +1,5 @@
-import React, { useRef, useEffect, useState } from 'react'
-import { FiChevronLeft, FiChevronRight } from 'react-icons/fi'
+﻿import React, { useRef, useEffect, useState } from 'react'
+import { FiChevronLeft, FiChevronRight, FiPause, FiPlay } from 'react-icons/fi'
 import { motion, AnimatePresence } from 'framer-motion'
 import Navbar from './Navbar'
 import ScrollProgressBar from './ScrollProgressBar'
@@ -94,15 +94,16 @@ function LiveGrainOverlay({ opacity = 'opacity-35' }) {
 
 function VoiceOfExcellenceSection({ data }) {
   const [activeTestimonial, setActiveTestimonial] = useState(0)
+  const [isPaused, setIsPaused] = useState(false)
 
   useEffect(() => {
-    if (!data?.testimonials?.length) return
+    if (!data?.testimonials?.length || isPaused) return
     const timer = setInterval(() => {
       setActiveTestimonial((prev) => (prev + 1) % data.testimonials.length)
     }, 6000)
 
     return () => clearInterval(timer)
-  }, [data?.testimonials])
+  }, [data?.testimonials, isPaused])
 
   const handlePrev = () => {
     if (!data?.testimonials?.length) return
@@ -161,7 +162,7 @@ function VoiceOfExcellenceSection({ data }) {
                 initial="hidden"
                 animate="visible"
                 exit="exit"
-                className='font-semibold text-2xl md:text-3xl lg:text-4xl tracking-tighter leading-tight text-black flex flex-wrap gap-x-[0.25em] gap-y-[0.1em]'
+                className='font-semibold text-xl md:text-xl lg:text-2xl tracking-tighter leading-tight text-black flex flex-wrap gap-x-[0.25em] gap-y-[0.1em]'
               >
                 {currentTestimonial.quote.split(' ').map((word, index) => (
                   <span key={index} className='inline-block overflow-hidden py-0.5 relative'>
@@ -175,10 +176,10 @@ function VoiceOfExcellenceSection({ data }) {
           </div>
 
           {/* Bottom Profile Container & Navigation Arrows Row (Plain Static Profile Card) */}
-          <div className='flex items-center justify-between gap-4 flex-wrap mt-auto pt-4'>
+          <div className='flex items-center justify-between gap-4 mt-auto pt-4'>
             {/* Static Profile Avatar & Info without card animation */}
-            <div className='flex items-center gap-4'>
-              <div className='w-20 h-20 md:w-20 md:h-20 rounded-full overflow-hidden border-2 border-black/10 shadow-sm shrink-0 bg-gray-200 relative'>
+            <div className='flex items-center gap-3 md:gap-4 min-w-0'>
+              <div className='w-16 h-16 md:w-20 md:h-20 rounded-full overflow-hidden border-2 border-black/10 shadow-sm shrink-0 bg-gray-200 relative'>
                 <img
                   src={currentTestimonial.profileImage}
                   alt={currentTestimonial.author}
@@ -187,7 +188,7 @@ function VoiceOfExcellenceSection({ data }) {
                   className='w-full h-full object-cover object-top relative z-0'
                 />
               </div>
-              <div className='flex flex-col'>
+              <div className='flex flex-col min-w-0'>
                 <h3 className='font-semibold text-base md:text-xl lg:text-2xl text-black tracking-tighter leading-tight'>
                   {currentTestimonial.author}
                 </h3>
@@ -197,14 +198,22 @@ function VoiceOfExcellenceSection({ data }) {
               </div>
             </div>
 
-            {/* Navigation Arrows < > */}
-            <div className='flex items-center gap-4 shrink-0'>
+            {/* Navigation Arrows < > & Pause Button */}
+            <div className='flex items-center gap-2 md:gap-3 shrink-0'>
               <button
                 onClick={handlePrev}
                 aria-label="Previous Testimonial"
                 className='text-black cursor-pointer bg-transparent border-none p-1 text-3xl md:text-4xl select-none hover:opacity-70 transition-opacity'
               >
                 <FiChevronLeft />
+              </button>
+              <button
+                onClick={() => setIsPaused((prev) => !prev)}
+                aria-label={isPaused ? "Resume Testimonials" : "Pause Testimonials"}
+                title={isPaused ? "Resume autoplay" : "Pause to read"}
+                className='text-black cursor-pointer bg-transparent border-none p-1.5 text-xl md:text-2xl select-none hover:opacity-70 transition-opacity flex items-center justify-center'
+              >
+                {isPaused ? <FiPlay /> : <FiPause />}
               </button>
               <button
                 onClick={handleNext}
@@ -276,3 +285,4 @@ function FrameOfHonor() {
 }
 
 export default FrameOfHonor
+

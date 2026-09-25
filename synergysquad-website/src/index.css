@@ -65,7 +65,11 @@ body {
   will-change: transform;
 }
 
-.animate-marquee:hover,
-.animate-marquee-slow:hover {
+.animate-marquee:hover {
   animation-play-state: paused;
+}
+
+.animate-marquee-slow,
+.animate-marquee-slow:hover {
+  animation-play-state: running !important;
 }

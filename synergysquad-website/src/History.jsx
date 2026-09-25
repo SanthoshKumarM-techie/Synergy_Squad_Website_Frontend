@@ -295,19 +295,11 @@ function TechnicalAssessmentsSection() {
 }
 
 function InfiniteHorizontalBrochureCarousel() {
-  const [isPaused, setIsPaused] = useState(false)
   const brochures = hallOfFameData.brochures
 
   return (
-    <div 
-      className='w-full overflow-hidden relative z-10 pt-6 pb-0 mb-0 mt-auto group pointer-events-auto cursor-pointer'
-      onMouseEnter={() => setIsPaused(true)}
-      onMouseLeave={() => setIsPaused(false)}
-    >
-      <div 
-        className='animate-marquee-slow group-hover:[animation-play-state:paused] flex items-end gap-4 md:gap-6 w-max'
-        style={{ animationPlayState: isPaused ? 'paused' : 'running' }}
-      >
+    <div className='w-full overflow-hidden relative z-10 pt-6 pb-0 mb-0 mt-auto pointer-events-auto'>
+      <div className='animate-marquee-slow flex items-end gap-4 md:gap-6 w-max'>
         {[...brochures, ...brochures].map((item, idx) => (
           <div
             key={`${item.id}-${idx}`}
@@ -543,7 +535,7 @@ function History() {
                 >
                   <div className='flex items-baseline gap-2.5'>
                     <span className='text-md md:text-xl font-semibold text-gray-500 tracking-tighter shrink-0'>
-                      {item.step} —
+                      {item.step} â€”
                     </span>
                     <h3 className='text-xl sm:text-lg md:text-xl lg:text-2xl font-semibold text-black tracking-tighter'>
                       {item.title}
@@ -630,3 +622,4 @@ function History() {
 }
 
 export default History
+

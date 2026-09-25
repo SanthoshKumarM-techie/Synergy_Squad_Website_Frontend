@@ -1,6 +1,6 @@
 import BG from '../assets/abstractBG.jpg'
-import PreveenSirImage from '../assets/Praveen Sir.webp'
-import HODSirImage from '../assets/HODSir.webp'
+import PreveenSirImage from '../assets/Praveen Sir.png'
+import HODSirImage from '../assets/CSEHOD.jpg'
 import americanMegatrendsLogo from '../assets/American_Megatrends_logo.svg'
 import mrCooperLogo from '../assets/Mr-Cooper-image.webp'
 import techMahindraLogo from '../assets/tech-mahendra.webp'

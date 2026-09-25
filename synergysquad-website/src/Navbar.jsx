@@ -1,7 +1,7 @@
 import React from 'react';
 import StaggeredMenu from '../Components/StaggeredMenu';
-import collegeLogo from './assets/college-logo.png';
-import clubLogo from './assets/club-logo.png';
+import collegeLogo from './assets/college-logo.webp';
+import clubLogo from './assets/club-logo.webp';
 
 const menuItems = [
   { label: 'Home', ariaLabel: 'Go to home page', link: '#home' },

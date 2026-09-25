@@ -1,10 +1,6 @@
 import React, { useEffect, useRef } from 'react'
 import { useInView, useMotionValue, useSpring } from 'framer-motion'
-import americanMegatrendsLogo from './assets/American_Megatrends_logo.svg'
-import mrCooperLogo from './assets/Mr-Cooper-image.webp'
-import techMahindraLogo from './assets/tech-mahendra.jpg'
-import mindtreeLogo from './assets/MInd tree.jpg'
-import tcsLogo from './assets/TCS-Logo.png'
+import { aboutBriefStatsData, aboutBriefCompaniesData } from './data/aboutBriefData'
 
 function AnimatedNumber({ value, suffix = "" }) {
   const ref = useRef(null);
@@ -32,73 +28,66 @@ function AnimatedNumber({ value, suffix = "" }) {
   return <span ref={ref}>0{suffix}</span>;
 }
 
-function LogoCard({ image, alt, imgClassName = 'max-h-12 max-w-full object-contain' }) {
+function LogoCard({ image, alt, imgClassName = 'max-h-12 max-w-full object-contain', overflowHidden = false }) {
   return (
-    <div className="w-full h-24 border border-gray-300 rounded-sm p-4 flex items-center justify-center bg-white hover:border-gray-400 transition-colors duration-300">
-      <img src={image} alt={alt} className={imgClassName} />
+    <div className={`w-full h-24 border border-gray-300 rounded-sm p-4 flex items-center justify-center bg-white shadow-xs hover:border-gray-400 transition-colors duration-300 ${overflowHidden ? 'overflow-hidden' : ''}`}>
+      <img src={image} alt={alt} loading="lazy" decoding="async" className={imgClassName} />
     </div>
   )
 }
 
 function AboutBrief() {
   return (
-    <section className='min-h-screen px-8 py-16 bg-[#e6e6e6] flex flex-col justify-between'>
+    <section className='min-h-screen px-8 md:px-12 lg:px-16 py-16 md:py-24 bg-[#e6e6e6] flex flex-col justify-between max-w-[1600px] mx-auto'>
       <div>
-        <h1 className='text-black font-semibold text-xl md:text-3xl lg:text-4xl tracking-tighter max-w-3xl leading-tight mb-16'>
-          The Numbers That Reflect Our Commitment to Excellence, Innovation, and Student Success
+        <h1 className='text-3xl md:text-5xl lg:text-6xl max-w-4xl mb-6 md:mb-8 font-semibold tracking-tighter leading-tighter text-black'>
+          {aboutBriefStatsData.title}
         </h1>
-        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16'>
-          <div>
-            <h2 className='text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tighter leading-tight'>
-              <AnimatedNumber value={120} suffix="+" />
-            </h2>
-            <p className='font-semibold text-md md:text-lg lg:text-xl tracking-tighter leading-tight border-b border-gray-300 mb-4 pb-1'>Members</p>
-            <p className='font-semibold text-sm md:text-md lg:text-lg tracking-tighter max-w-sm text-gray-700 leading-tight'>Active student members trained in advanced computing and problem solving across CSE batches.</p>
-          </div>
-          <div>
-            <h2 className='text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tighter leading-tight'>
-              <AnimatedNumber value={3} suffix="+" />
-            </h2>
-            <p className='font-semibold text-md md:text-lg lg:text-xl tracking-tighter leading-tight border-b border-gray-300 mb-4 pb-1'>Batches</p>
-            <p className='font-semibold text-sm md:text-md lg:text-lg tracking-tighter max-w-sm text-gray-700 leading-tight'>Across these 3 batches, we have conducted various events and competitions to enhance student skills.</p>
-          </div>
-          <div>
-            <h2 className='text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tighter leading-tight'>
-              <AnimatedNumber value={10} suffix="+" />
-            </h2>
-            <p className='font-semibold text-md md:text-lg lg:text-xl tracking-tighter leading-tight border-b border-gray-300 mb-4 pb-1'>Events</p>
-            <p className='font-semibold text-sm md:text-md lg:text-lg tracking-tighter max-w-sm text-gray-700 leading-tight'>Technical workshops, coding hackathons, and company-specific mock challenges conducted annually.</p>
-          </div>
-          <div>
-            <h2 className='text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tighter leading-tight'>
-              <AnimatedNumber value={75} suffix="%+" />
-            </h2>
-            <p className='font-semibold text-md md:text-lg lg:text-xl tracking-tighter leading-tight border-b border-gray-300 mb-4 pb-1'>Placed in top MNCs</p>
-            <p className='font-semibold text-sm md:text-md lg:text-lg tracking-tighter max-w-sm text-gray-700 leading-tight'>High-performing graduates recruited into Tier-1 IT companies and global technology leaders.</p>
-          </div>
+        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8'>
+          {aboutBriefStatsData.stats.map((stat, index) => (
+            <div key={index} className='flex flex-col space-y-2'>
+              <h2 className='text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tighter leading-tight text-black'>
+                <AnimatedNumber value={stat.value} suffix={stat.suffix} />
+              </h2>
+              <p className='font-semibold text-md md:text-lg lg:text-xl tracking-tighter leading-tight border-b border-gray-300 mb-2.5 pb-1'>
+                {stat.label}
+              </p>
+              <p className='font-semibold text-sm md:text-md lg:text-lg tracking-tighter text-gray-700 leading-snug'>
+                {stat.description}
+              </p>
+            </div>
+          ))}
         </div>
       </div>
 
-      <div className='mt-20'>
-        <h1 className='text-black font-semibold text-xl md:text-3xl lg:text-4xl tracking-tighter max-w-2xl mb-12'>
-          Our members have been hired by industry leaders
+      <div className='mt-16 md:mt-24'>
+        <h1 className='text-3xl md:text-5xl lg:text-6xl font-semibold tracking-tighter max-w-2xl mb-12 text-black'>
+          {aboutBriefCompaniesData.title}
         </h1>
         <div className='grid grid-cols-2 md:grid-cols-5 gap-6 md:gap-8 items-center'>
-          <LogoCard image={americanMegatrendsLogo} alt="American Megatrends" />
-          <LogoCard image={mrCooperLogo} alt="Mr. Cooper" />
-          <LogoCard image={techMahindraLogo} alt="Tech Mahindra" />
-          <LogoCard image={mindtreeLogo} alt="Mindtree" imgClassName='max-h-16 max-w-full object-contain scale-[1.35]' />
-          <LogoCard image={tcsLogo} alt="TCS" imgClassName='max-h-16 max-w-full object-contain scale-[2.4]' />
+          {aboutBriefCompaniesData.companies.map((company, index) => (
+            <LogoCard 
+              key={index} 
+              image={company.image} 
+              alt={company.name} 
+              imgClassName={company.imgClassName} 
+              overflowHidden={company.overflowHidden} 
+            />
+          ))}
         </div>
       </div>
-      <div className='mt-8 text-end'>
-        <button
-          type='button'
-          className='group relative inline-block cursor-pointer pb-1 font-semibold text-sm tracking-tighter md:text-md lg:text-lg'
+
+      <div className='mt-12 text-end'>
+        <a
+          href='#about'
+          onClick={() => {
+            window.location.hash = '#about'
+          }}
+          className='group relative inline-block cursor-pointer pb-1 font-semibold text-sm tracking-tighter md:text-md lg:text-lg text-black'
         >
-          View More
+          View More →
           <span className='absolute bottom-0 left-0 h-0.5 w-full origin-left scale-x-0 bg-[#10129B] transition-transform duration-300 group-hover:scale-x-100' />
-        </button>
+        </a>
       </div>
     </section>
   )

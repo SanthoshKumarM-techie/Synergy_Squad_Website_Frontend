@@ -9,12 +9,17 @@ import Squad from './Squad'
 import History from './History'
 import About from './About'
 import FrameOfHonor from './FrameOfHonor'
+import Contact from './Contact'
+import LaunchScreen from './LaunchScreen'
 import FinalCTA from './FinalCTA'
 import { AnimatePresence } from 'framer-motion'
 import CustomCursor from './CustomCursor'
 import PageTransition from './PageTransition'
 
 function App() {
+  // Always show launch screen on page load while LaunchScreen is present in App.jsx
+  const [isLaunched, setIsLaunched] = useState(false)
+
   const [currentRoute, setCurrentRoute] = useState(() => {
     const hash = window.location.hash.replace('#', '')
     const path = window.location.pathname.replace('/', '')
@@ -22,6 +27,9 @@ function App() {
   })
 
   useEffect(() => {
+    // Clear any previous cached launch flags
+    localStorage.removeItem('ss_site_launched')
+
     const lenis = new Lenis()
     function raf(time) {
       lenis.raf(time)
@@ -41,7 +49,7 @@ function App() {
       const active = hash || path || 'home'
       setCurrentRoute(active)
 
-      const standaloneRoutes = ['squad', 'history', 'about', 'honor', 'frame-of-honor']
+      const standaloneRoutes = ['squad', 'history', 'about', 'honor', 'frame-of-honor', 'contact']
       if (!standaloneRoutes.includes(active)) {
         setTimeout(() => {
           const element = document.getElementById(active)
@@ -65,8 +73,16 @@ function App() {
     }
   }, [])
 
+  const handleLaunch = () => {
+    window.location.hash = 'honor'
+    setIsLaunched(true)
+  }
+
   return (
     <div className='bg-[#e6e6e6] min-h-screen text-black'>
+      {/* Event Launch Overlay Component — Remove or comment out after launch event */}
+       {/* {!isLaunched && <LaunchScreen onLaunch={handleLaunch} />}  */}
+
       <ScrollProgressBar key={currentRoute} />
       <AnimatePresence mode="wait">
         <PageTransition key={currentRoute}>
@@ -78,6 +94,8 @@ function App() {
             <About />
           ) : currentRoute === 'honor' || currentRoute === 'frame-of-honor' ? (
             <FrameOfHonor />
+          ) : currentRoute === 'contact' ? (
+            <Contact />
           ) : (
             <>
               <Navbar />

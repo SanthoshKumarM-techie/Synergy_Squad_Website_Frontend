@@ -1,6 +1,6 @@
 import React from 'react'
-import clubLogo from './assets/club-logo.png'
-import collegeLogo from './assets/college-logo.png'
+import clubLogo from './assets/club-logo.webp'
+import collegeLogo from './assets/college-logo.webp'
 
 function FinalCTA() {
   return (

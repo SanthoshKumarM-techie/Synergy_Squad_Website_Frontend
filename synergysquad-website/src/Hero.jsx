@@ -1,5 +1,5 @@
 import React from 'react'
-import collageTopView from './assets/KIOT-Top-View.webp'
+import { heroContent } from './data/heroData'
 
 function Hero() {
   return (
@@ -7,8 +7,11 @@ function Hero() {
 
       {/* Background Image */}
       <img
-        src={collageTopView}
+        src={heroContent.bgImage}
         alt="Knowledge Institute of Technology Top View"
+        loading="eager"
+        fetchPriority="high"
+        decoding="async"
         className='absolute inset-0 w-full h-full object-cover z-0'
       />
 
@@ -18,30 +21,31 @@ function Hero() {
         <div className='absolute top-1/2 -translate-y-1/2 left-0 right-0 px-8 mx-auto flex flex-col md:flex-row justify-between w-full gap-8 md:gap-8 items-start md:items-center'>
           <div className='flex flex-col max-w-5xl'>
             {/* 1. College Level (Largest) */}
-            <h1 className='text-3xl md:text-5xl lg:text-6xl font-semibold text-white tracking-tighter uppercase leading-tight'>
-              Knowledge Institute of Technology
+            <h1 className='text-3xl md:text-5xl lg:text-6xl font-semibold text-white tracking-tighter leading-tighter'>
+              {heroContent.collegeName}
             </h1>
 
             {/* 2. Department Level (Medium) */}
-            <h2 className='text-xl md:text-3xl lg:text-4xl font-semibold text-gray-200 tracking-tighter uppercase leading-tight mt-1 md:mt-2'>
-              Department of Computer Science <br /> and Engineering
+            <h2 className='text-2xl md:text-4xl lg:text-5xl font-semibold text-gray-200 tracking-tighter leading-tighter mt-1 md:mt-2'>
+              {heroContent.departmentName}
             </h2>
 
             {/* 3. Squad Level */}
             <div className='flex flex-wrap items-baseline gap-3 mt-2 md:mt-3'>
-              <h3 className='text-xl md:text-3xl lg:text-4xl font-bold text-blue-500 tracking-tighter uppercase'>
-                Synergy Squad
+              <h3 className='text-2xl md:text-4xl lg:text-5xl font-bold text-blue-500 tracking-tighter'>
+                {heroContent.squadTitle}
               </h3>
-              <span className='text-xs md:text-sm font-semibold tracking-wider text-white/90 border border-white/30 bg-white/10 px-2.5 py-0.5 rounded-full uppercase'>
-                EST. 2021
+              <span className='text-xs md:text-sm font-semibold tracking-wider text-white/90 uppercase'>
+                {heroContent.establishedYear}
               </span>
             </div>
           </div>
           <div className='flex flex-col items-start shrink-0 whitespace-nowrap gap-1.5 border-l-2 border-white/20 pl-4 md:pl-6'>
-            <p className='text-white font-semibold whitespace-nowrap text-sm md:text-md lg:text-lg tracking-tighter'>75+ Placements in Tier-1 IT</p>
-            <p className='text-white font-semibold whitespace-nowrap text-sm md:text-md lg:text-lg tracking-tighter'>Tech Discussions Daily</p>
-            <p className='text-white font-semibold whitespace-nowrap text-sm md:text-md lg:text-lg tracking-tighter'>Coding Challenges Weekly</p>
-            <p className='text-white font-semibold whitespace-nowrap text-sm md:text-md lg:text-lg tracking-tighter'>Mock Company Specific Tests</p>
+            {heroContent.highlights.map((highlight, index) => (
+              <p key={index} className='text-white font-semibold whitespace-nowrap text-sm md:text-md lg:text-lg tracking-tighter'>
+                {highlight}
+              </p>
+            ))}
           </div>
         </div>
 

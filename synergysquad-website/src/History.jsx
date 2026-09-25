@@ -1,45 +1,59 @@
 import React, { useState, useRef, useEffect } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
+import { motion, AnimatePresence, useInView } from 'framer-motion'
+import { FiChevronLeft, FiChevronRight } from 'react-icons/fi'
 import Navbar from './Navbar'
 import FinalCTA from './FinalCTA'
 import StaggeredText from './StaggeredText'
 import BG from './assets/abstractBG.jpg'
 import Silk from '../Components/Silk'
-import HistoryBG from './assets/HistoryBG.png'
-import ChroniclesOfSquadImg from './assets/ChroniclesOfSquad.png'
-import IdentificationImg from './assets/Identification.png'
-import IntensiveTrainingImg from './assets/IntensiveTraining.png'
-import TechnicalAssessmentsImg from './assets/squad_event_1.png'
-import HallOfFameImg from './assets/squad_event_2.png'
-import HallOfFameMainImg from './assets/squad_event_3.png'
-import SS1B1 from './assets/SS 1.0 Brouchre 1.png'
-import SS1B2 from './assets/SS 1.0 Brouchre 2.png'
-import SS1B3 from './assets/SS 1.0 Brouchre 3.png'
-import SS1B4 from './assets/SS 1.0 Brouchre 4.png'
-import SS1B5 from './assets/SS 1.0 Brouchre 5.png'
-import SS1B6 from './assets/SS 1.0 Brouchre 6.png'
-import SS1B7 from './assets/SS 1.0 Brouchre 7.png'
-import SS2B1 from './assets/SS 2.0 Brouchre 1.png'
-import SS2B2 from './assets/SS 2.0 Brouchre 2.png'
-import SS2B3 from './assets/SS 2.0 Brouchre 3.png'
-import SS2B4 from './assets/SS 2.0 Brouchre 4.png'
-import SS2B5 from './assets/SS 2.0 Brouchre 5.png'
-import SS3B1 from './assets/SS 3.0 Brouchre 1.png'
-import SS3B2 from './assets/SS 3.0 Brouchre 2.png'
-import SS3B3 from './assets/SS 3.0 Brouchre 3.png'
-import SS3B4 from './assets/SS 3.0 Brouchre 4.png'
-import SS3B5 from './assets/SS 3.0 Brouchre 5.png'
-import SS3B6 from './assets/SS 3.0 Brouchre 6.png'
-import SS3B7 from './assets/SS 3.0 Brouchre 7.png'
-import SS3B8 from './assets/SS 3.0 Brouchre 8.png'
-import SS4B1 from './assets/SS 4.0 Brouchre 1.png'
-import SS4B2 from './assets/SS 4.0 Brouchre 2.png'
-import SS4B3 from './assets/SS 4.0 Brouchre 3.png'
-import SS4B4 from './assets/SS 4.0 Brouchre 4.png'
-import SS4B5 from './assets/SS 4.0 Brouchre 5.png'
-import SS4B6 from './assets/SS 4.0 Brouchre 6.png'
-import SS4B7 from './assets/SS 4.0 Brouchre 7.png'
-import SS4B8 from './assets/SS 4.0 Brouchre 8.png'
+import {
+  heroData,
+  chroniclesData,
+  identificationData,
+  technicalTrainingData,
+  technicalAssessmentsData,
+  hallOfFameData,
+} from './data/historyData'
+
+function AnimatedCounter({ target, suffix = '', prefix = '', duration = 2, startFrom = 0 }) {
+  const [count, setCount] = useState(startFrom)
+  const ref = useRef(null)
+  const isInView = useInView(ref, { once: true, amount: 0.3 })
+
+  useEffect(() => {
+    if (!isInView) return
+
+    let startTime = null
+    const startValue = startFrom
+    const endValue = target
+
+    const animateCount = (timestamp) => {
+      if (!startTime) startTime = timestamp
+      const elapsed = (timestamp - startTime) / 1000
+      const progress = Math.min(elapsed / duration, 1)
+
+      // Smooth cubic ease-out
+      const easeOut = 1 - Math.pow(1 - progress, 3)
+      const current = Math.floor(startValue + (endValue - startValue) * easeOut)
+
+      setCount(current)
+
+      if (progress < 1) {
+        requestAnimationFrame(animateCount)
+      } else {
+        setCount(endValue)
+      }
+    }
+
+    requestAnimationFrame(animateCount)
+  }, [isInView, target, duration, startFrom])
+
+  return (
+    <span ref={ref}>
+      {prefix}{count}{suffix}
+    </span>
+  )
+}
 
 function LiveGrainOverlay({ opacity = 'opacity-35' }) {
   const canvasRef = useRef(null)
@@ -94,96 +108,10 @@ function LiveGrainOverlay({ opacity = 'opacity-35' }) {
   )
 }
 
-const assessmentSlides = [
-  {
-    batch: 'Synergy Squad 1.0',
-    title: 'Weekly Activity Summary',
-    hasStudents: false,
-    items: [
-      { name: 'Pattern Day', date: '21-01-2024' },
-      { name: 'Mastering in Array Day', date: '28-01-2024' },
-      { name: 'Mastering in Strings Day', date: '04-02-2024' },
-      { name: 'C Programming MCQ Day', date: '11-02-2024' },
-      { name: 'C Programming Master Class Day', date: '18-02-2024' },
-      { name: 'Mock TCS Ninja NQT Challenge Day', date: '25-02-2024' },
-      { name: 'Mock Wipro NLTH Challenge Day', date: '10-03-2024' },
-      { name: 'Mock Pratian Technologies Challenge Day', date: '24-03-2024' },
-    ]
-  },
-  {
-    batch: 'Synergy Squad 2.0',
-    title: 'Summary of 7 Mock TCS CodeVita Assessments',
-    hasStudents: true,
-    items: [
-      { name: 'Assessment No 1', date: '07/10/2024', students: '114' },
-      { name: 'Assessment No 2', date: '08/10/2024', students: '123' },
-      { name: 'Assessment No 3', date: '09/10/2024', students: '106' },
-      { name: 'Assessment No 4', date: '10/10/2024', students: '71' },
-      { name: 'Assessment No 5', date: '11/10/2024', students: '69' },
-      { name: 'Assessment No 6', date: '14/10/2024', students: '79' },
-      { name: 'Assessment No 7', date: '15/10/2024', students: '83' },
-    ]
-  },
-  {
-    batch: 'Synergy Squad 2.0',
-    title: '5 Know and Grow Assessments - Summary',
-    hasStudents: true,
-    items: [
-      { name: 'Assessment No 1', date: '28/01/2025', students: '81' },
-      { name: 'Assessment No 2', date: '29/01/2025', students: '122' },
-      { name: 'Assessment No 3', date: '30/01/2025', students: '120' },
-      { name: 'Assessment No 4', date: '31/01/2025', students: '107' },
-      { name: 'Assessment No 5', date: '01/02/2025', students: '120' },
-    ]
-  },
-  {
-    batch: 'Synergy Squad 2.0',
-    title: 'Weekly Activity Summary',
-    hasStudents: false,
-    items: [
-      { name: 'Pattern Programming Exploration Day', date: '30-09-2024' },
-      { name: 'Control Flow Mastery Day', date: '06-10-2024' },
-      { name: 'Array Optimization Master Class Day', date: '13-10-2024' },
-      { name: 'Efficient String Manipulation Day', date: '20-10-2024' },
-      { name: 'Hundred - Fold C Proficiency Test', date: '27-10-2024' },
-    ]
-  },
-  {
-    batch: 'Synergy Squad 3.0',
-    title: 'Weekly Activity Summary',
-    hasStudents: false,
-    items: [
-      { name: 'Pattern Play Day', date: '10-08-2025' },
-      { name: 'Array Mastery Quest Day', date: '17-08-2025' },
-      { name: "String Hacker's Day", date: '24-08-2025' },
-      { name: 'Century in C Day', date: '31-08-2025' },
-      { name: 'OOPS Explore Day', date: '07-09-2025' },
-      { name: 'TCS Mock Sprint Day', date: '14-09-2025' },
-      { name: 'Wipro Warriors: NLTH Mock Day', date: '21-09-2025' },
-      { name: 'Pratian Prep Battle Day', date: '28-09-2025' },
-    ]
-  },
-  {
-    batch: 'Synergy Squad 4.0',
-    title: 'Weekly Activity Summary',
-    hasStudents: false,
-    items: [
-      { name: 'Pattern Boss Level', date: '22/02/2026' },
-      { name: 'Array Avengers', date: '01/03/2026' },
-      { name: 'String Slayer Arena', date: '08/03/2026' },
-      { name: 'Mission C: Unlock the Core', date: '15/03/2026' },
-      { name: 'OOPS Explore Day', date: '22/03/2026' },
-      { name: 'TCS Sprint Royale', date: '29/03/2026' },
-      { name: 'WIPRO Warriors Arena Day', date: '05/04/2026' },
-      { name: 'Mission Zoho Crack the Code', date: '12/04/2026' },
-    ]
-  }
-]
-
-function TechnicalAssessmentsSlider() {
-  const [currentSlideIndex, setCurrentSlideIndex] = useState(0)
+function TechnicalAssessmentsSlider({ currentSlideIndex, setCurrentSlideIndex }) {
   const [progress, setProgress] = useState(0)
   const DURATION = 6500
+  const assessmentSlides = technicalAssessmentsData.slides
 
   useEffect(() => {
     setProgress(0)
@@ -200,9 +128,11 @@ function TechnicalAssessmentsSlider() {
     }, 40)
 
     return () => clearInterval(interval)
-  }, [currentSlideIndex])
+  }, [currentSlideIndex, setCurrentSlideIndex, assessmentSlides.length])
 
   const slide = assessmentSlides[currentSlideIndex]
+
+  if (!slide) return null
 
   return (
     <div className='lg:col-span-7 pt-0 space-y-4'>
@@ -239,7 +169,7 @@ function TechnicalAssessmentsSlider() {
       </div>
 
       {/* Constant Column Headers */}
-      <div className='grid grid-cols-12 text-xs md:text-sm font-semibold text-gray-500 uppercase tracking-wider px-2 pb-1 border-b border-black/10 mt-8'>
+      <div className='grid grid-cols-12 text-[10px] sm:text-xs md:text-sm font-semibold text-gray-500 uppercase tracking-wider px-2 pb-1 border-b border-black/10 mt-6 lg:mt-8'>
         <span className={slide.hasStudents ? 'col-span-6' : 'col-span-8'}>
           Test Name
         </span>
@@ -276,14 +206,14 @@ function TechnicalAssessmentsSlider() {
                 }}
                 className='py-3.5 grid grid-cols-12 items-center gap-2 group hover:bg-black/5 px-2 transition-colors duration-150'
               >
-                <span className={`${slide.hasStudents ? 'col-span-6' : 'col-span-8'} font-semibold text-lg md:text-xl text-black tracking-tighter truncate`}>
+                <span className={`${slide.hasStudents ? 'col-span-6' : 'col-span-8'} font-semibold text-base sm:text-lg md:text-xl text-black tracking-tighter truncate`}>
                   {item.name}
                 </span>
-                <span className={`${slide.hasStudents ? 'col-span-3 text-center' : 'col-span-4 text-right'} font-semibold text-sm md:text-base text-gray-600 tracking-tighter`}>
+                <span className={`${slide.hasStudents ? 'col-span-3 text-center' : 'col-span-4 text-right'} font-semibold text-xs sm:text-sm md:text-base text-gray-600 tracking-tighter`}>
                   {item.date}
                 </span>
                 {slide.hasStudents && (
-                  <span className='col-span-3 text-right font-semibold text-sm md:text-base text-black tracking-tighter'>
+                  <span className='col-span-3 text-right font-semibold text-xs sm:text-sm md:text-base text-black tracking-tighter'>
                     {item.students}
                   </span>
                 )}
@@ -297,57 +227,91 @@ function TechnicalAssessmentsSlider() {
   )
 }
 
-const hallOfFameBrochures = [
-  { id: 1, src: SS1B1, title: 'SS 1.0 — Brochure 1', batch: 'Synergy Squad 1.0' },
-  { id: 2, src: SS1B2, title: 'SS 1.0 — Brochure 2', batch: 'Synergy Squad 1.0' },
-  { id: 3, src: SS1B3, title: 'SS 1.0 — Brochure 3', batch: 'Synergy Squad 1.0' },
-  { id: 4, src: SS1B4, title: 'SS 1.0 — Brochure 4', batch: 'Synergy Squad 1.0' },
-  { id: 5, src: SS1B5, title: 'SS 1.0 — Brochure 5', batch: 'Synergy Squad 1.0' },
-  { id: 6, src: SS1B6, title: 'SS 1.0 — Brochure 6', batch: 'Synergy Squad 1.0' },
-  { id: 7, src: SS1B7, title: 'SS 1.0 — Brochure 7', batch: 'Synergy Squad 1.0' },
-  { id: 8, src: SS2B1, title: 'SS 2.0 — Brochure 1', batch: 'Synergy Squad 2.0' },
-  { id: 9, src: SS2B2, title: 'SS 2.0 — Brochure 2', batch: 'Synergy Squad 2.0' },
-  { id: 10, src: SS2B3, title: 'SS 2.0 — Brochure 3', batch: 'Synergy Squad 2.0' },
-  { id: 11, src: SS2B4, title: 'SS 2.0 — Brochure 4', batch: 'Synergy Squad 2.0' },
-  { id: 12, src: SS2B5, title: 'SS 2.0 — Brochure 5', batch: 'Synergy Squad 2.0' },
-  { id: 13, src: SS3B1, title: 'SS 3.0 — Brochure 1', batch: 'Synergy Squad 3.0' },
-  { id: 14, src: SS3B2, title: 'SS 3.0 — Brochure 2', batch: 'Synergy Squad 3.0' },
-  { id: 15, src: SS3B3, title: 'SS 3.0 — Brochure 3', batch: 'Synergy Squad 3.0' },
-  { id: 16, src: SS3B4, title: 'SS 3.0 — Brochure 4', batch: 'Synergy Squad 3.0' },
-  { id: 17, src: SS3B5, title: 'SS 3.0 — Brochure 5', batch: 'Synergy Squad 3.0' },
-  { id: 18, src: SS3B6, title: 'SS 3.0 — Brochure 6', batch: 'Synergy Squad 3.0' },
-  { id: 19, src: SS3B7, title: 'SS 3.0 — Brochure 7', batch: 'Synergy Squad 3.0' },
-  { id: 20, src: SS3B8, title: 'SS 3.0 — Brochure 8', batch: 'Synergy Squad 3.0' },
-  { id: 21, src: SS4B1, title: 'SS 4.0 — Brochure 1', batch: 'Synergy Squad 4.0' },
-  { id: 22, src: SS4B2, title: 'SS 4.0 — Brochure 2', batch: 'Synergy Squad 4.0' },
-  { id: 23, src: SS4B3, title: 'SS 4.0 — Brochure 3', batch: 'Synergy Squad 4.0' },
-  { id: 24, src: SS4B4, title: 'SS 4.0 — Brochure 4', batch: 'Synergy Squad 4.0' },
-  { id: 25, src: SS4B5, title: 'SS 4.0 — Brochure 5', batch: 'Synergy Squad 4.0' },
-  { id: 26, src: SS4B6, title: 'SS 4.0 — Brochure 6', batch: 'Synergy Squad 4.0' },
-  { id: 27, src: SS4B7, title: 'SS 4.0 — Brochure 7', batch: 'Synergy Squad 4.0' },
-  { id: 28, src: SS4B8, title: 'SS 4.0 — Brochure 8', batch: 'Synergy Squad 4.0' },
-]
+function TechnicalAssessmentsSection() {
+  const [currentSlideIndex, setCurrentSlideIndex] = useState(0)
+  const slidesCount = technicalAssessmentsData.slides.length
+
+  const handlePrev = () => {
+    setCurrentSlideIndex((prev) => (prev - 1 + slidesCount) % slidesCount)
+  }
+
+  const handleNext = () => {
+    setCurrentSlideIndex((prev) => (prev + 1) % slidesCount)
+  }
+
+  return (
+    <section className='px-6 md:px-12 py-10 md:py-16 max-w-[1600px] mx-auto min-h-screen'>
+      <div className='grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start'>
+        
+        {/* Left Column: Sticky Heading, Description, Image & Navigation Arrows */}
+        <div className='lg:col-span-5 relative lg:sticky lg:top-28 self-start space-y-4'>
+          <div>
+            <h2 className='text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold text-black tracking-tighter leading-tighter'>
+              {technicalAssessmentsData.title}
+            </h2>
+            <p className='text-gray-700 font-semibold text-sm md:text-md lg:text-lg tracking-tighter leading-tight max-w-xl mt-2'>
+              {technicalAssessmentsData.description}
+            </p>
+          </div>
+
+          {/* Image Holder below heading with Live Canvas Grain Overlay */}
+          <div className='aspect-square w-36 md:w-44 lg:w-52 overflow-hidden border border-black/10 shadow-md relative bg-gray-300 mt-2'>
+            <img
+              src={technicalAssessmentsData.image}
+              alt={technicalAssessmentsData.title}
+              className='w-full h-full object-cover object-center relative z-0'
+            />
+            <LiveGrainOverlay opacity="opacity-40" />
+          </div>
+
+          {/* Navigation Arrows < > */}
+          <div className='flex items-center gap-4 pt-2 shrink-0'>
+            <button
+              onClick={handlePrev}
+              aria-label="Previous Assessment"
+              className='text-black cursor-pointer bg-transparent border-none p-1 text-3xl md:text-4xl select-none hover:opacity-70 transition-opacity'
+            >
+              <FiChevronLeft />
+            </button>
+            <button
+              onClick={handleNext}
+              aria-label="Next Assessment"
+              className='text-black cursor-pointer bg-transparent border-none p-1 text-3xl md:text-4xl select-none hover:opacity-70 transition-opacity'
+            >
+              <FiChevronRight />
+            </button>
+          </div>
+        </div>
+
+        {/* Right Column Container: Auto-advancing Batch & Assessment Slider */}
+        <TechnicalAssessmentsSlider
+          currentSlideIndex={currentSlideIndex}
+          setCurrentSlideIndex={setCurrentSlideIndex}
+        />
+
+      </div>
+    </section>
+  )
+}
 
 function InfiniteHorizontalBrochureCarousel() {
+  const [isPaused, setIsPaused] = useState(false)
+  const brochures = hallOfFameData.brochures
+
   return (
-    <div className='w-full overflow-hidden relative z-10 pt-6 pb-0 mb-0 mt-auto'>
-      <motion.div
-        key="fast-marquee-75"
-        animate={{ x: ['0%', '-50%'] }}
-        transition={{
-          x: {
-            repeat: Infinity,
-            repeatType: 'loop',
-            duration: 75,
-            ease: 'linear',
-          }
-        }}
-        className='flex items-end gap-4 md:gap-6 w-max'
+    <div 
+      className='w-full overflow-hidden relative z-10 pt-6 pb-0 mb-0 mt-auto group pointer-events-auto cursor-pointer'
+      onMouseEnter={() => setIsPaused(true)}
+      onMouseLeave={() => setIsPaused(false)}
+    >
+      <div 
+        className='animate-marquee-slow group-hover:[animation-play-state:paused] flex items-end gap-4 md:gap-6 w-max'
+        style={{ animationPlayState: isPaused ? 'paused' : 'running' }}
       >
-        {[...hallOfFameBrochures, ...hallOfFameBrochures].map((item, idx) => (
+        {[...brochures, ...brochures].map((item, idx) => (
           <div
             key={`${item.id}-${idx}`}
-            className='h-[58vh] md:h-[66vh] lg:h-[72vh] shrink-0 hover:scale-[1.02] transition-transform duration-300 relative group flex items-end pb-0'
+            className='h-[58vh] md:h-[66vh] lg:h-[72vh] shrink-0 hover:scale-[1.02] transition-transform duration-300 relative flex items-end pb-0'
           >
             <img
               src={item.src}
@@ -356,148 +320,206 @@ function InfiniteHorizontalBrochureCarousel() {
             />
           </div>
         ))}
-      </motion.div>
+      </div>
     </div>
   )
 }
-
-
 
 function History() {
   return (
     <div className='bg-[#e6e6e6] relative overflow-x-clip w-full max-w-[100vw]'>
       <Navbar />
+      
+      {/* Sticky Hero Section */}
       <section className='relative md:sticky md:top-0 isolate w-full min-h-screen overflow-hidden flex flex-col justify-center px-6 md:px-12 py-24 md:block'>
         <img src={BG} alt="Abstract Background" className='absolute inset-0 z-0 w-full h-full object-cover' />
         <div className='relative md:absolute md:inset-y-0 md:left-12 z-30 flex items-center mb-12 md:mb-0'>
           <StaggeredText 
             className='max-w-7xl text-left text-4xl font-semibold leading-[0.92] tracking-tighter text-white md:text-5xl lg:text-6xl'
-            text="A Journey Of Excellence & Milestones"
+            text={heroData.headline}
             delay={0.6}
           />
         </div>
-        <div className='relative md:absolute z-10 md:bottom-32 lg:bottom-28 md:left-12 grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-6 md:gap-16 text-white max-w-7xl mb-8 md:mb-0'>
-          <div className='flex flex-col md:grid md:grid-rows-2 md:grid-flow-col gap-0'>
-            <div>
-              <h1 className='text-3xl md:text-5xl lg:text-6xl font-semibold tracking-tighter leading-tight'>2021</h1>
-            </div>
-            <div>
-              <p className='font-semibold text-sm md:text-base lg:text-lg tracking-tighter leading-tight md:mt-2 lg:mt-3'>Established</p>
-            </div>
+        <div className='relative md:absolute z-30 md:bottom-12 md:left-12 grid grid-cols-1 md:grid-cols-2 gap-6 text-white max-w-full md:max-w-none md:pr-12'>
+          <div className='flex flex-col max-w-lg'>
+            <h2 className='text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tighter leading-tight'>
+              {heroData.legacy.title}
+            </h2>
+            <p className='tracking-tighter text-sm md:text-md lg:text-lg leading-tight font-semibold'>
+              {heroData.legacy.text}
+            </p>
           </div>
-          <div className='flex flex-col md:grid md:grid-rows-2 md:grid-flow-col gap-0'>
-            <div>
-              <h1 className='text-3xl md:text-5xl lg:text-6xl font-semibold tracking-tighter leading-tight'>75+</h1>
-            </div>
-            <div>
-              <p className='font-semibold text-sm md:text-base lg:text-lg tracking-tighter leading-tight md:mt-2 lg:mt-3'>Tier-1 Placements</p>
-            </div>
-          </div>
-          <div className='flex flex-col md:grid md:grid-rows-2 md:grid-flow-col gap-0'>
-            <div>
-              <h1 className='text-3xl md:text-5xl lg:text-6xl font-semibold tracking-tighter leading-tight'>4+</h1>
-            </div>
-            <div>
-              <p className='font-semibold text-sm md:text-base lg:text-lg tracking-tighter leading-tight md:mt-2 lg:mt-3'>Active Batches</p>
-            </div>
+          <div className='flex flex-col max-w-lg'>
+            <h2 className='text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tighter leading-tight'>
+              {heroData.milestones.title}
+            </h2>
+            <p className='tracking-tighter text-sm md:text-md lg:text-lg leading-tight font-semibold'>
+              {heroData.milestones.text}
+            </p>
           </div>
         </div>
       </section>
 
       <div className="bg-[#e6e6e6] relative z-20 pointer-events-auto" style={{ marginBottom: '-100vh' }}>
-        {/* History Chronicles & Stats Section */}
-        <section className='min-h-screen px-6 md:px-12 py-16 md:py-20 max-w-[1600px] mx-auto flex flex-col justify-center'>
-          <div className='grid grid-cols-1 lg:grid-cols-12 gap-3 lg:gap-4 items-start'>
-            
-            {/* Left Column: Heading + Square Image Container */}
-            <div className='lg:col-span-6 flex flex-col gap-2.5'>
-              <div>
-                <h1 className='text-3xl md:text-5xl lg:text-6xl font-semibold text-black tracking-tighter leading-tighter'>
-                  Chronicles of Synergy Squad
-                </h1>
+        {/* History Chronicles & Bento Stats Section */}
+        <section id="chronicles" className='min-h-fit px-6 md:px-12 lg:px-16 pt-36 md:pt-44 lg:pt-48 pb-20 md:pb-28 max-w-[1600px] mx-auto flex flex-col justify-center'>
+          
+          {/* Header Title + Action Pill & Alumni Badge */}
+          <div className='flex flex-col md:flex-row items-start md:items-end justify-between gap-6 mb-12 md:mb-16'>
+            <h1 className='text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold text-black tracking-tighter leading-tighter whitespace-pre-line'>
+              {chroniclesData.title}
+            </h1>
+
+            <div className='flex flex-col sm:flex-row items-start sm:items-center gap-6 md:gap-8'>
+              {/* Overlapping Profile Avatars */}
+              <div className='flex flex-col items-start gap-1.5'>
+                <div className='flex items-center -space-x-4 overflow-visible py-1'>
+                  {chroniclesData.alumniAvatars.map((avatar, idx) => (
+                    <img
+                      key={idx}
+                      src={avatar.src}
+                      alt={avatar.alt}
+                      className='inline-block w-12 h-12 md:w-14 md:h-14 lg:w-16 lg:h-16 rounded-full object-cover ring-2 ring-[#e6e6e6] shadow-md hover:scale-110 hover:z-20 transition-all duration-300'
+                    />
+                  ))}
+                </div>
+                <span className='text-xs md:text-sm font-semibold text-gray-800 tracking-tighter uppercase block'>
+                  <AnimatedCounter target={chroniclesData.alumniCount} suffix="+" /> {chroniclesData.alumniLabel}
+                </span>
               </div>
 
-              {/* Square Image Holder Box (Sharp square corners, light border with film grain effect) */}
-              <div className='aspect-square w-full overflow-hidden rounded-none border border-black/10 shadow-none relative bg-gray-200 mt-1'>
-                <img
-                  src={ChroniclesOfSquadImg}
-                  alt="Synergy Squad Chronicles"
-                  className='w-full h-full object-cover object-center rounded-none relative z-0'
-                />
-                <LiveGrainOverlay opacity='opacity-35' />
+              <a 
+                href={chroniclesData.cta.target}
+                onClick={(e) => {
+                  e.preventDefault()
+                  const targetElement = document.querySelector(chroniclesData.cta.target)
+                  if (targetElement) {
+                    targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' })
+                  }
+                }}
+                className='bg-[#10129B] text-white px-6 py-3.5 rounded-full text-xs md:text-sm font-semibold uppercase tracking-wider hover:bg-blue-800 transition-all duration-300 shadow-md shrink-0 flex items-center gap-2 self-start sm:self-center cursor-pointer'
+              >
+                {chroniclesData.cta.label}
+              </a>
+            </div>
+          </div>
+
+          {/* Asymmetric Bento Grid */}
+          <div className='grid grid-cols-1 md:grid-cols-12 gap-4 lg:gap-6 items-stretch'>
+            
+            {/* Left 7 Columns Grid */}
+            <div className='md:col-span-7 flex flex-col gap-4 lg:gap-6 justify-between'>
+              
+              {/* Row 1: Large Stat Card */}
+              <div className='border border-black/10 rounded-none p-6 md:p-8 flex flex-col justify-between min-h-[220px] md:min-h-[250px] bg-transparent hover:border-black/25 transition-all relative group'>
+                <div className='flex items-center justify-between w-full'>
+                  <div>
+                    <span className='text-6xl md:text-7xl lg:text-8xl font-semibold text-black tracking-tighter leading-none block'>
+                      <AnimatedCounter target={chroniclesData.stats.placement.target} suffix={chroniclesData.stats.placement.suffix} />
+                    </span>
+                  </div>
+                  
+                  {/* Sunburst Graphic */}
+                  <div className='relative w-24 h-24 md:w-28 md:h-28 lg:w-32 lg:h-32 flex items-center justify-center shrink-0'>
+                    <svg className='w-full h-full animate-[spin_20s_linear_infinite] text-black/25' viewBox='0 0 100 100' fill='none'>
+                      <circle cx='50' cy='50' r='46' stroke='currentColor' strokeWidth='2' strokeDasharray='4 6' />
+                      <circle cx='50' cy='50' r='38' stroke='currentColor' strokeWidth='1' strokeDasharray='2 4' />
+                    </svg>
+                    <svg className='absolute inset-2 w-[calc(100%-16px)] h-[calc(100%-16px)] animate-[spin_14s_linear_infinite_reverse] text-[#10129B]/30' viewBox='0 0 100 100' fill='none'>
+                      <circle cx='50' cy='50' r='44' stroke='currentColor' strokeWidth='1.5' strokeDasharray='6 10' />
+                    </svg>
+                    <div className='absolute inset-0 m-auto w-14 h-14 md:w-16 md:h-16 lg:w-18 lg:h-18 rounded-full bg-[#10129B] text-white flex items-center justify-center shadow-xl shadow-blue-950/20 hover:scale-105 transition-transform duration-300'>
+                      <svg className='w-7 h-7 md:w-8 md:h-8 lg:w-9 lg:h-9 text-white' viewBox='0 0 24 24' fill='none' stroke='currentColor' strokeWidth='2.2' strokeLinecap='round' strokeLinejoin='round'>
+                        <polyline points='16 18 22 12 16 6' />
+                        <polyline points='8 6 2 12 8 18' />
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+
+                <div className='mt-6 border-t border-black/10 pt-4 flex items-center justify-between'>
+                  <span className='text-xs sm:text-sm font-semibold text-gray-700 tracking-tighter uppercase'>
+                    {chroniclesData.stats.placement.label}
+                  </span>
+                </div>
               </div>
+
+              {/* Row 2: 3 Stat Cards */}
+              <div className='grid grid-cols-1 sm:grid-cols-3 gap-4 lg:gap-6'>
+                <div className='border border-black/10 rounded-none p-6 md:p-8 flex flex-col justify-between min-h-[180px] md:min-h-[200px] bg-transparent hover:border-black/25 transition-all'>
+                  <span className='text-5xl md:text-6xl lg:text-7xl font-semibold text-black tracking-tighter leading-none block'>
+                    <AnimatedCounter target={chroniclesData.stats.members.target} suffix={chroniclesData.stats.members.suffix} />
+                  </span>
+                  <span className='text-xs sm:text-sm font-semibold text-gray-700 tracking-tighter uppercase mt-6 pt-4 border-t border-black/10 block'>
+                    {chroniclesData.stats.members.label}
+                  </span>
+                </div>
+
+                <div className='border border-black/10 rounded-none p-6 md:p-8 flex flex-col justify-between min-h-[180px] md:min-h-[200px] bg-transparent hover:border-black/25 transition-all'>
+                  <span className='text-5xl md:text-6xl lg:text-7xl font-semibold text-black tracking-tighter leading-none block'>
+                    <AnimatedCounter target={chroniclesData.stats.batches.target} suffix={chroniclesData.stats.batches.suffix} />
+                  </span>
+                  <span className='text-xs sm:text-sm font-semibold text-gray-700 tracking-tighter uppercase mt-6 pt-4 border-t border-black/10 block'>
+                    {chroniclesData.stats.batches.label}
+                  </span>
+                </div>
+
+                <div className='border border-black/10 rounded-none p-6 md:p-8 flex flex-col justify-between min-h-[180px] md:min-h-[200px] bg-transparent hover:border-black/25 transition-all'>
+                  <span className='text-5xl md:text-6xl lg:text-7xl font-semibold text-black tracking-tighter leading-none block'>
+                    <AnimatedCounter 
+                      target={chroniclesData.stats.legacy.target} 
+                      startFrom={chroniclesData.stats.legacy.startFrom} 
+                      duration={chroniclesData.stats.legacy.duration} 
+                    />
+                  </span>
+                  <span className='text-xs sm:text-sm font-semibold text-gray-700 tracking-tighter uppercase mt-6 pt-4 border-t border-black/10 block'>
+                    {chroniclesData.stats.legacy.label}
+                  </span>
+                </div>
+              </div>
+
             </div>
 
-            {/* Right Column: 2x2 Stat Squares Grid + Description Box starting at same line as heading */}
-            <div className='lg:col-span-6 flex flex-col justify-between h-full pt-0'>
-              <div className='grid grid-cols-2 gap-2 md:gap-2.5'>
-                {/* Square 1: 4+ */}
-                <div className='aspect-square border border-black/10 rounded-none p-4 md:p-8 flex flex-col items-center justify-center text-center bg-transparent shadow-none'>
-                  <span className='text-5xl md:text-6xl lg:text-7xl font-semibold text-black tracking-tighter'>
-                    4+
-                  </span>
-                  <span className='text-xs md:text-sm font-semibold text-gray-600 tracking-tighter uppercase'>
-                    Batches Formed
-                  </span>
-                </div>
+            {/* Right 5 Columns: Cover Image Box */}
+            <div className='md:col-span-5 border border-black/10 rounded-none relative overflow-hidden flex flex-col justify-end p-6 md:p-8 min-h-[400px] md:min-h-[440px] bg-transparent group'>
+              <img
+                src={chroniclesData.cover.image}
+                alt="Synergy Squad Chronicles"
+                className='absolute inset-0 w-full h-full object-cover rounded-none z-0 transition-transform duration-700 group-hover:scale-105'
+              />
+              <LiveGrainOverlay opacity='opacity-20' />
 
-                {/* Square 2: 190+ */}
-                <div className='aspect-square border border-black/10 rounded-none p-4 md:p-8 flex flex-col items-center justify-center text-center bg-transparent shadow-none'>
-                  <span className='text-5xl md:text-6xl lg:text-7xl font-semibold text-black tracking-tighter'>
-                    190+
-                  </span>
-                  <span className='text-xs md:text-sm font-semibold text-gray-600 tracking-tighter uppercase'>
-                    Active Coders
-                  </span>
-                </div>
-
-                {/* Square 3: 75%+ */}
-                <div className='aspect-square border border-black/10 rounded-none p-4 md:p-8 flex flex-col items-center justify-center text-center bg-transparent shadow-none'>
-                  <span className='text-5xl md:text-6xl lg:text-7xl font-semibold text-black tracking-tighter'>
-                    75%+
-                  </span>
-                  <span className='text-xs md:text-sm font-semibold text-gray-600 tracking-tighter uppercase'>
-                    Placement Rate
-                  </span>
-                </div>
-
-                {/* Square 4: 2023 */}
-                <div className='aspect-square border border-black/10 rounded-none p-4 md:p-8 flex flex-col items-center justify-center text-center bg-transparent shadow-none'>
-                  <span className='text-5xl md:text-6xl lg:text-7xl font-semibold text-black tracking-tighter'>
-                    2023
-                  </span>
-                  <span className='text-xs md:text-sm font-semibold text-gray-600 tracking-tighter uppercase'>
-                    Legacy Started
-                  </span>
-                </div>
-
-                {/* Full-Width Rectangular Description Box under stat cards */}
-                <div className='col-span-2 border border-black/10 rounded-none p-5 md:p-8 flex flex-col justify-center bg-transparent shadow-none'>
-                  <p className='text-gray-800 font-semibold text-sm md:text-md lg:text-lg tracking-tighter leading-snug'>
-                    A legacy of merit-driven learning, continuous coding marathons, and peer mentorship shaping top-tier engineering talent since inception.
-                  </p>
-                </div>
+              <div className='relative z-10 pt-16'>
+                <p className='text-white mix-blend-difference font-semibold text-base md:text-lg lg:text-xl leading-snug tracking-tighter'>
+                  {chroniclesData.cover.text}
+                </p>
               </div>
             </div>
 
           </div>
+
         </section>
 
         {/* Identification & Formation Process Section */}
-        <section className='px-6 md:px-12 py-16 md:py-24 max-w-[1600px] mx-auto min-h-screen'>
+        <section id="process" className='px-6 md:px-12 py-16 md:py-24 max-w-[1600px] mx-auto min-h-screen scroll-mt-24'>
           <div className='grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start'>
             
             {/* Left Column: Sticky Heading & Image */}
-            <div className='lg:col-span-5 sticky top-28 self-start space-y-4'>
-              <h2 className='text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold text-black tracking-tighter leading-tighter'>
-                Identification &<br />Formation
-              </h2>
+            <div className='lg:col-span-5 relative lg:sticky lg:top-28 self-start space-y-4'>
+              <div>
+                <h2 className='text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold text-black tracking-tighter leading-tighter whitespace-pre-line'>
+                  {identificationData.title}
+                </h2>
+                <p className='text-gray-700 font-semibold text-sm md:text-md lg:text-lg tracking-tighter leading-tight max-w-xl mt-2'>
+                  {identificationData.description}
+                </p>
+              </div>
 
               {/* Image Holder below heading with Live Canvas Grain Overlay */}
-              <div className='aspect-square w-52 md:w-64 lg:w-72 overflow-hidden border border-black/10 shadow-md relative bg-gray-300 mt-2'>
+              <div className='aspect-square w-36 md:w-44 lg:w-52 overflow-hidden border border-black/10 shadow-md relative bg-gray-300 mt-2'>
                 <img
-                  src={IdentificationImg}
-                  alt="Identification & Formation"
+                  src={identificationData.image}
+                  alt={identificationData.title}
                   className='w-full h-full object-cover object-center relative z-0'
                 />
                 <LiveGrainOverlay opacity="opacity-40" />
@@ -506,40 +528,17 @@ function History() {
 
             {/* Right Column: Stacked Borderless Step Items */}
             <div className='lg:col-span-7 space-y-8 md:space-y-12 pt-2 lg:pt-0'>
-              {[
-                {
-                  step: '01',
-                  title: 'Candidate Pool',
-                  description: 'Students from the respective batch were considered as the initial pool for the Synergy Squad selection process.'
-                },
-                {
-                  step: '02',
-                  title: 'Assessment & Evaluation',
-                  description: 'Students were evaluated through structured assessments designed to measure their programming skills, logical thinking, problem-solving ability, and technical aptitude.'
-                },
-                {
-                  step: '03',
-                  title: 'Performance Analysis',
-                  description: 'The assessment results were analyzed to identify students who demonstrated consistent performance and a strong potential for further technical development.'
-                },
-                {
-                  step: '04',
-                  title: 'Shortlisting',
-                  description: 'Based on their overall performance, the top-performing students were shortlisted from the respective student pool.'
-                },
-                {
-                  step: '05',
-                  title: 'Squad Formation',
-                  description: 'The shortlisted students were brought together to form the Synergy Squad, creating a focused community of like-minded students committed to continuous learning and improvement.'
-                },
-                {
-                  step: '06',
-                  title: 'Continuous Development',
-                  description: 'After formation, the squad members participated in structured training, practice sessions, and regular challenges to continuously strengthen their technical capabilities and placement readiness.'
-                }
-              ].map((item) => (
-                <div
+              {identificationData.steps.map((item, idx) => (
+                <motion.div
                   key={item.step}
+                  initial={{ opacity: 0, x: 120 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true, amount: 0.2 }}
+                  transition={{
+                    duration: 0.5,
+                    delay: idx * 0.08,
+                    ease: [0.22, 1, 0.36, 1],
+                  }}
                   className='flex flex-col gap-2 group pb-4'
                 >
                   <div className='flex items-baseline gap-2.5'>
@@ -553,7 +552,7 @@ function History() {
                   <p className='text-gray-700 font-semibold text-sm md:text-md lg:text-lg tracking-tighter leading-tight md:leading-snug max-w-2xl'>
                     {item.description}
                   </p>
-                </div>
+                </motion.div>
               ))}
             </div>
 
@@ -567,20 +566,20 @@ function History() {
             {/* Left Side: Heading on top + Body text below it */}
             <div className='lg:col-span-7 space-y-6'>
               <h2 className='text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold text-black tracking-tighter leading-tight'>
-                Technical Training
+                {technicalTrainingData.title}
               </h2>
 
               <p className='text-gray-700 font-semibold text-base md:text-lg lg:text-xl tracking-tighter leading-tight md:leading-snug'>
-                Each Synergy Squad batch underwent focused technical training designed to strengthen programming knowledge, problem-solving ability, and overall technical readiness. The sessions included hands-on Java programming practice, solving moderate-level programming problems through online compilers, daily coding challenges, technical group discussions, skill enhancement assessments, knowledge transfer sessions, and interactive discussions on programming concepts and MCQs. The training also evolved with the needs of each batch, including dedicated sessions on Java Strings and Power BI to broaden students’ technical and practical capabilities.
+                {technicalTrainingData.description}
               </p>
             </div>
 
             {/* Right Side: Image (No Grain) */}
             <div className='lg:col-span-5 flex justify-center lg:justify-end w-full'>
-              <div className='aspect-square w-full max-w-md overflow-hidden rounded-2xl border border-black/10 shadow-lg bg-gray-200'>
+              <div className='aspect-square w-full max-w-md overflow-hidden border border-black/10 shadow-lg bg-gray-200'>
                 <img
-                  src={IntensiveTrainingImg}
-                  alt="Technical Training"
+                  src={technicalTrainingData.image}
+                  alt={technicalTrainingData.title}
                   className='w-full h-full object-cover object-center'
                 />
               </div>
@@ -590,31 +589,7 @@ function History() {
         </section>
 
         {/* Technical Assessments Section */}
-        <section className='px-6 md:px-12 py-10 md:py-16 max-w-[1600px] mx-auto min-h-screen'>
-          <div className='grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start'>
-            
-            {/* Left Column: Sticky Heading & Image */}
-            <div className='lg:col-span-5 sticky top-28 self-start space-y-4'>
-              <h2 className='text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold text-black tracking-tighter leading-tighter'>
-                Technical Assessments
-              </h2>
-
-              {/* Image Holder below heading with Live Canvas Grain Overlay */}
-              <div className='aspect-square w-52 md:w-64 lg:w-72 overflow-hidden border border-black/10 shadow-md relative bg-gray-300 mt-2'>
-                <img
-                  src={TechnicalAssessmentsImg}
-                  alt="Technical Assessments"
-                  className='w-full h-full object-cover object-center relative z-0'
-                />
-                <LiveGrainOverlay opacity="opacity-40" />
-              </div>
-            </div>
-
-            {/* Right Column Container: Auto-advancing Batch & Assessment Slider */}
-            <TechnicalAssessmentsSlider />
-
-          </div>
-        </section>
+        <TechnicalAssessmentsSection />
 
         {/* Hall of Fame Section with Silk Background & Bottom Infinite Horizontal Carousel */}
         <section className='relative isolate min-h-screen w-full pt-16 md:pt-24 pb-0 flex flex-col justify-between overflow-hidden'>
@@ -633,12 +608,12 @@ function History() {
           <div className='z-10 relative max-w-[1600px] mx-auto px-6 md:px-12 w-full grid grid-cols-1 md:grid-cols-12 gap-4 items-end'>
             <div className='md:col-span-7'>
               <h2 className='text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-semibold text-white tracking-tighter leading-none'>
-                Hall of Fame
+                {hallOfFameData.title}
               </h2>
             </div>
             <div className='md:col-span-5'>
               <p className='text-white/85 font-semibold text-sm md:text-base lg:text-lg tracking-tighter leading-tight md:text-right'>
-                Honoring championship milestones, top coding achievements, and departmental excellence across all Synergy Squad batches.
+                {hallOfFameData.description}
               </p>
             </div>
           </div>

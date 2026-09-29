@@ -1,4 +1,4 @@
-﻿import React from 'react'
+import React from 'react'
 import clubLogo from './assets/club-logo.webp'
 import collegeLogo from './assets/college-logo.webp'
 
@@ -71,7 +71,7 @@ function FinalCTA() {
                 rel="noopener noreferrer" 
                 className='flex items-center gap-1.5 hover:text-[#10129B] hover:translate-x-1 transition-all duration-200'
               >
-                <span className='text-xs text-[#10129B] font-semibold'>&nearr;</span> LinkedIn
+                LinkedIn
               </a>
               <a 
                 href="https://www.instagram.com/synergysquad_kiot/" 
@@ -79,7 +79,7 @@ function FinalCTA() {
                 rel="noopener noreferrer" 
                 className='flex items-center gap-1.5 hover:text-[#10129B] hover:translate-x-1 transition-all duration-200'
               >
-                <span className='text-xs text-[#10129B] font-semibold'>&nearr;</span> Instagram
+                Instagram
               </a>
             </div>
           </div>

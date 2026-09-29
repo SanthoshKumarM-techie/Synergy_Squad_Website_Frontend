@@ -17,10 +17,10 @@ function Squad() {
   const rightColumn = selectedBatchData?.members?.slice(halfLength) || []
 
   return (
-    <div className='bg-[#e6e6e6] min-h-screen relative overflow-x-hidden'>
+    <div className='bg-[#e6e6e6] min-h-screen relative'>
       <Navbar />
       <section className='relative md:sticky md:top-0 isolate w-full min-h-screen overflow-hidden flex flex-col justify-center px-6 md:px-12 py-24 md:block'>
-        <img src={BG} alt="Abstract Background" className='absolute inset-0 z-0 w-full h-full object-cover' />
+        <img src={BG} alt="Abstract Background" loading="eager" decoding="async" className='absolute inset-0 z-0 w-full h-full object-cover' />
         <div className='relative md:absolute md:inset-y-0 md:left-12 z-30 flex items-center mb-10 md:mb-0'>
           <StaggeredText 
             className='max-w-7xl text-left text-4xl sm:text-5xl font-semibold leading-[0.92] tracking-tighter text-white md:text-5xl lg:text-6xl'
@@ -46,7 +46,7 @@ function Squad() {
       </section>
 
       <div className="relative z-10 bg-[#e6e6e6]">
-      <section className='min-h-screen px-6 md:px-12 py-24'>
+        <section className='min-h-fit px-8 md:px-12 lg:px-16 pt-16 md:pt-20 lg:pt-24 pb-12 md:pb-16'>
         <div className='max-w-7xl mx-auto'>
           {/* Mobile Dropdown Filter */}
           <div className='md:hidden mb-12 relative'>

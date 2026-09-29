@@ -8,7 +8,7 @@ const menuItems = [
   { label: 'About', ariaLabel: 'Learn about us', link: '#about' },
   { label: 'Squad', ariaLabel: 'Meet the squad', link: '#squad' },
   { label: 'History', ariaLabel: 'View our history', link: '#history' },
-  { label: 'Frame of Honor', ariaLabel: 'View Frame of Honor', link: '#honor' },
+  { label: 'CCL Frame of Honor', ariaLabel: 'View CCL Frame of Honor', link: '#honor' },
   { label: 'Contact', ariaLabel: 'Get in touch', link: '#contact' }
 ];
 

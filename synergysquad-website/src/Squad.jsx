@@ -17,7 +17,7 @@ function Squad() {
   const rightColumn = selectedBatchData?.members?.slice(halfLength) || []
 
   return (
-    <div className='bg-[#e6e6e6] min-h-screen relative'>
+    <div className='bg-[#e6e6e6] min-h-screen relative overflow-x-clip w-full max-w-[100vw]'>
       <Navbar />
       <section className='relative md:sticky md:top-0 isolate w-full min-h-screen overflow-hidden flex flex-col justify-center px-6 md:px-12 py-24 md:block'>
         <img src={BG} alt="Abstract Background" loading="eager" decoding="async" className='absolute inset-0 z-0 w-full h-full object-cover' />
@@ -46,7 +46,7 @@ function Squad() {
       </section>
 
       <div className="relative z-10 bg-[#e6e6e6]">
-        <section className='min-h-fit px-8 md:px-12 lg:px-16 pt-16 md:pt-20 lg:pt-24 pb-12 md:pb-16'>
+        <section className='min-h-fit px-4 sm:px-8 md:px-12 lg:px-16 pt-12 sm:pt-16 md:pt-20 lg:pt-24 pb-12 md:pb-16'>
         <div className='max-w-7xl mx-auto'>
           {/* Mobile Dropdown Filter */}
           <div className='md:hidden mb-12 relative'>
@@ -125,7 +125,7 @@ function Squad() {
                   return (
                     <motion.li
                       key={`${activeBatch}-left-${globalIndex}`}
-                      initial={{ opacity: 0, x: 120 }}
+                      initial={{ opacity: 0, x: 30 }}
                       whileInView={{ opacity: 1, x: 0 }}
                       viewport={{ once: true, amount: 0.2 }}
                       transition={{
@@ -166,7 +166,7 @@ function Squad() {
                   return (
                     <motion.li
                       key={`${activeBatch}-right-${globalIndex}`}
-                      initial={{ opacity: 0, x: 120 }}
+                      initial={{ opacity: 0, x: 30 }}
                       whileInView={{ opacity: 1, x: 0 }}
                       viewport={{ once: true, amount: 0.2 }}
                       transition={{

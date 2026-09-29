@@ -80,7 +80,7 @@ const wordVariants = {
 
 function About() {
   return (
-    <div className='bg-[#e6e6e6] min-h-screen relative'>
+    <div className='bg-[#e6e6e6] min-h-screen relative overflow-x-clip w-full max-w-[100vw]'>
       <Navbar />
 
       {/* Hero Section */}
